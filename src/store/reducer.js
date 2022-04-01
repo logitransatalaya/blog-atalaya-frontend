@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 // reducer import
 import customizationReducer from './customizationReducer'
+import accountReducer from './accountReducer'
 
 // ===========================|| COMBINE REDUCER ||=========================== //
 
