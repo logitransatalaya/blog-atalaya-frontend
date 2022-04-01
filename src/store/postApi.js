@@ -4,7 +4,7 @@ import { MENU_OPEN } from 'store/actions'
 
 const servicePost = () => async (dispatch) => {
 	try {
-		const response = await axios.get(`${baseURL}/api/v1/postsx/`)
+		const response = await axios.get(`${baseURL}/api/v1/posts/`)
 		dispatch({ type: MENU_OPEN, id: response.data })
 	} catch (error) {
 		console.log(error)

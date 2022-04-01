@@ -9,10 +9,11 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 import { store } from './store'
+import { nodeEnv } from 'utils/constant'
 
 // ===========================|| REACT DOM RENDER  ||=========================== //
 const root = createRoot(document.getElementById('root'))
-if (process.env.NODE_ENV === 'production') {
+if (nodeEnv === 'production') {
 	disableReactDevTools()
 }
 
