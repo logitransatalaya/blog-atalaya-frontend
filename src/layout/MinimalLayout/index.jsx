@@ -1,8 +1,12 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import { LayoutStyles } from './layout.styles'
 // ===========================|| MINIMAL LAYOUT ||=========================== //
 
-const MinimalLayout = () => <Outlet />;
+const MinimalLayout = () => (
+	<LayoutStyles>
+		<Outlet />
+	</LayoutStyles>
+)
 
-export default MinimalLayout;
+export default MinimalLayout

@@ -8,6 +8,7 @@ import Loadable from 'components/Loadable/'
 
 // public routing
 const Home = Loadable(lazy(() => import('pages/Home/index')))
+const LastNews = Loadable(lazy(() => import('pages/LastNews/index')))
 
 // ===========================|| PUBLIC ROUTING ||=========================== //
 
@@ -21,6 +22,16 @@ const PublicRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<Home />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/ultimas-noticias',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<LastNews />
 					</GuestGuard>
 				</NavMotion>
 			)
