@@ -2,5 +2,20 @@ import styled from 'styled-components'
 
 export const HomeStyles = styled.main`
 	width: 100%;
-	height: 100vh;
+	height: 90vh;
+	.searchbox {
+		margin: auto;
+
+		display: flex;
+		justify-content: center;
+	}
+	.social-media {
+		position: relative;
+		display: flex;
+		margin: 2rem 8rem;
+		span {
+			margin: 0 1rem;
+			cursor: pointer;
+		}
+	}
 `

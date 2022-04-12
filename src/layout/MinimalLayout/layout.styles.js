@@ -8,4 +8,12 @@ export const LayoutStyles = styled.div`
 	background-repeat: no-repeat;
 	height: 100vh;
 	overflow-y: scroll;
+	position: relative;
+	padding-top: 5rem;
+
+	.logo {
+		text-align: center;
+		color: #fff;
+		position: relative;
+	}
 `

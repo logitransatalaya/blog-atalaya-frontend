@@ -15,7 +15,7 @@ export const THEME_RTL = '@customization/THEME_RTL'
 export const SET_FONT_FAMILY = '@customization/SET_FONT_FAMILY'
 export const SET_BORDER_RADIUS = '@customization/SET_BORDER_RADIUS'
 export const SET_OUTLINED_FILLED = '@customization/SET_OUTLINED_FILLED'
-
+export const MODAL_OPEN = '@customization/MODAL_OPEN '
 // action - snackbar
 export const SNACKBAR_OPEN = '@snackbar/SNACKBAR_OPEN'
 
@@ -36,3 +36,5 @@ export const RESET_CART = '@cart/RESET_CART'
 
 // action - post reducer
 export const GET_NEWS_SUCCESS = '@posts/GET_NEWS_SUCCESS'
+export const GET_SEARCH_NEWS_SUCCESS = '@posts/GET_SEARCH_NEWS_SUCCESS'
+export const LOADING_SEARCH_NEWS = '@posts/LOADING_SEARCH_NEWS'

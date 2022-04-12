@@ -2,20 +2,32 @@
 import * as actionTypes from './actions'
 
 export const initialState = {
-	news: []
+	news: [],
+	searchResults: null,
+	loading: false
 }
 
 // ===========================|| NEWS REDUCER ||=========================== //
 
 const newsReducer = (state = initialState, action) => {
-	let id
 	switch (action.type) {
 		case actionTypes.GET_NEWS_SUCCESS:
 			return {
 				...state,
 				news: [...state.news, ...action.data]
 			}
-
+		case actionTypes.GET_SEARCH_NEWS_SUCCESS:
+			return {
+				...state,
+				searchResults: [...action.data],
+				loading: false
+			}
+		case actionTypes.LOADING_SEARCH_NEWS:
+			return {
+				...state,
+				loading: action.loading,
+				searchResults: null
+			}
 		default:
 			return state
 	}

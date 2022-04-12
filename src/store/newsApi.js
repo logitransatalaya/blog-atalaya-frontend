@@ -1,10 +1,13 @@
 import axios from 'axios'
 import { baseURL } from 'utils/constant'
-import { GET_NEWS_SUCCESS } from 'store/actions'
+import {
+	GET_NEWS_SUCCESS,
+	GET_SEARCH_NEWS_SUCCESS,
+	LOADING_SEARCH_NEWS
+} from 'store/actions'
 import { limit } from 'utils/constant'
 
 const serviceNews = (offset) => async (dispatch) => {
-	console.log(offset, 'dd')
 	try {
 		const response = await axios.get(
 			`${baseURL}/api/v1/posts?limit=${limit}&offset=${offset}`
@@ -14,5 +17,17 @@ const serviceNews = (offset) => async (dispatch) => {
 		console.log(error)
 	}
 }
+const serviceSearchNews = (term, offset) => async (dispatch) => {
+	try {
+		const response = await axios.get(
+			`${baseURL}/api/v1/posts/search?term=${term}&limit=50&offset=0`
+		)
+		console.log(response)
+		dispatch({ type: GET_SEARCH_NEWS_SUCCESS, data: response.data })
+	} catch (error) {
+		dispatch({ type: LOADING_SEARCH_NEWS, loading: false })
+		console.log(error)
+	}
+}
 
-export { serviceNews }
+export { serviceNews, serviceSearchNews }

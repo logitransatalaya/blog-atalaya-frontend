@@ -13,7 +13,8 @@ export const initialState = {
 	presetColor: config.presetColor,
 	locale: config.i18n,
 	rtlLayout: config.rtlLayout,
-	opened: true
+	opened: true,
+	modalOpen: false
 }
 
 // ===========================|| CUSTOMIZATION REDUCER ||=========================== //
@@ -26,6 +27,11 @@ const customizationReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isOpen: [id]
+			}
+		case actionTypes.MODAL_OPEN:
+			return {
+				...state,
+				modalOpen: action.modalOpen
 			}
 
 		default:

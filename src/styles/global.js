@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { colors, typography } from './theme'
+import { colors, typography, spacing } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
   /* colors variables */
@@ -7,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Fonts variables */
   ${typography}
+
+  /* Spacing container*/
+ ${spacing}
 
   * {
     padding: 0;
@@ -19,7 +22,6 @@ export const Application = styled.main`
 	height: 100vh;
 	width: 100%;
 	background-color: var(--primary-opacity);
-
 	background-blend-mode: multiply;
 	background-repeat: no-repeat;
 	background-position: 0 50%;
@@ -35,4 +37,10 @@ export const Application = styled.main`
 		height: 5rem;
 		background-color: red;
 	}
+`
+export const LogoStyles = styled.div`
+	text-align: center;
+	color: #fff;
+	position: relative;
+	padding-bottom: 5rem;
 `

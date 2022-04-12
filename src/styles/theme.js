@@ -7,12 +7,14 @@ export const colors = css`
     --secondary-orange: rgba(229, 92, 30, 1);
     --secondary: rgba(231, 101, 30, 1);
     --secondary-light: rgba(243, 166, 28, 1):
-    --light-gray: rgba(221, 221, 221, 1);
     --dark-gray: rgba(112, 112, 112, 1);
     --black: rgba(2, 6, 26, 1);
     --black-opacity: rgba(2, 6, 26, 0.9);
     --white: rgba(255, 255, 255, 1);
 	--sky: #0f216fcc;
+	--secondary-gray: #707070;
+	--light-grey:  #707070;
+	--primary-grey: #DDDDDD;
   }
 `
 
@@ -57,5 +59,12 @@ export const typography = css`
 	h5 {
 		font-size: var(--h5);
 		font-weight: var(--normal);
+	}
+`
+export const spacing = css`
+	:root {
+		--m-1: 1rem;
+		--m-2: 2rem;
+		--m-3: 3rem;
 	}
 `

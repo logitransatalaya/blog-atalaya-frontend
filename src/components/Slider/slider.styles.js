@@ -7,13 +7,14 @@ export const SliderContainer = styled.div`
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
+	margin-top: 5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
+	position: relative;
 	.row {
 		position: relative;
-		width: 75%;
+		width: 70%;
 		height: 100%;
 		overflow: hidden;
 

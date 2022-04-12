@@ -4,6 +4,13 @@ import ReactPaginate from 'react-paginate'
 import CardNews from 'components/cardNews/cardNews'
 import { LastNewStyles } from './LastNews.styles'
 import { serviceNews } from 'store/newsApi'
+import { useNavigate } from 'react-router-dom'
+import Search from 'components/Search'
+import { MODAL_OPEN } from 'store/actions'
+import Lupa from 'assets/icons/lupa.svg'
+import Cerrar from 'assets/icons/cerrar.svg'
+import Volver from 'assets/icons/volver.svg'
+import Home from 'assets/icons/home.svg'
 
 function PaginatedItems({ itemsPerPage }) {
 	const dispatch = useDispatch()
@@ -23,6 +30,7 @@ function PaginatedItems({ itemsPerPage }) {
 
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % news.length
+		console.log(event.selected + 1)
 		setItemOffset(newOffset)
 
 		if (pageCount - event.selected <= 1) {
@@ -31,19 +39,19 @@ function PaginatedItems({ itemsPerPage }) {
 			dispatch(serviceNews(offset))
 		}
 	}
-
 	return (
 		<div className='container-news'>
+			<div className='num-page'>Pagina 01</div>
 			{currentItems.map((item) => (
 				<CardNews key={item.id} item={item} />
 			))}
 			<div className='container-pagination'>
 				<ReactPaginate
-					nextLabel='next >'
+					nextLabel=' > '
 					onPageChange={handlePageClick}
 					pageRangeDisplayed={5}
 					pageCount={pageCount}
-					previousLabel='< previous'
+					previousLabel=' < '
 					pageClassName='page-item'
 					pageLinkClassName='page-link'
 					previousClassName='page-item'
@@ -63,28 +71,47 @@ function PaginatedItems({ itemsPerPage }) {
 }
 export default function LastNews() {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const { news } = useSelector((state) => state.lastNews)
 
+	const handleModal = (val) => {
+		dispatch({ type: MODAL_OPEN, modalOpen: val })
+	}
 	useEffect(() => {
 		setTimeout(() => {
 			dispatch(serviceNews(0))
-		}, 5000)
+		}, 500)
 	}, [])
 
 	return (
 		<LastNewStyles>
-			<div>
-				<h1>Log</h1>
-			</div>
-			<div>
-				<h1>Search</h1>
+			<div className='menu-header'>
+				<div className='header-title'>
+					<h2>ÚLTIMAS NOTICIAS</h2>
+					<p>Hoy es 01 de marzo del 2021</p>
+				</div>
+				<div></div>
+				<div className='header-action'>
+					<span onClick={() => handleModal(true)}>
+						<img src={Lupa} alt='' width='25px' />
+					</span>
+					<span>
+						<img src={Cerrar} alt='' />
+					</span>
+					<span>
+						<img src={Volver} alt='' />
+					</span>
+					<span>
+						<img src={Home} alt='' />
+					</span>
+				</div>
 			</div>
 
 			{news.length > 0 ? (
 				<PaginatedItems itemsPerPage={5} />
 			) : (
 				<div className='container-news'>
-					<h2>Loading...</h2>
+					<h1>Loading...</h1>
 				</div>
 			)}
 		</LastNewStyles>
