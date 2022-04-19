@@ -16,4 +16,12 @@ export const LayoutStyles = styled.div`
 		color: #fff;
 		position: relative;
 	}
+	.outlet {
+		padding: 0 14rem;
+	}
+	@media screen and (max-width: 767px) {
+		.outlet {
+			padding: 0;
+		}
+	}
 `

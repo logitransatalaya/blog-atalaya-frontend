@@ -11,6 +11,7 @@ import Lupa from 'assets/icons/lupa.svg'
 import Cerrar from 'assets/icons/cerrar.svg'
 import Volver from 'assets/icons/volver.svg'
 import Home from 'assets/icons/home.svg'
+import MenuHeader from 'components/MenuHeader'
 
 function PaginatedItems({ itemsPerPage }) {
 	const dispatch = useDispatch()
@@ -69,6 +70,15 @@ function PaginatedItems({ itemsPerPage }) {
 		</div>
 	)
 }
+const TitleMenus = () => {
+	return (
+		<>
+			<h2>ÚLTIMAS NOTICIAS</h2>
+			<p>Hoy es 01 de marzo del 2021</p>
+		</>
+	)
+}
+
 export default function LastNews() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
@@ -85,27 +95,7 @@ export default function LastNews() {
 
 	return (
 		<LastNewStyles>
-			<div className='menu-header'>
-				<div className='header-title'>
-					<h2>ÚLTIMAS NOTICIAS</h2>
-					<p>Hoy es 01 de marzo del 2021</p>
-				</div>
-				<div></div>
-				<div className='header-action'>
-					<span onClick={() => handleModal(true)}>
-						<img src={Lupa} alt='' width='25px' />
-					</span>
-					<span>
-						<img src={Cerrar} alt='' />
-					</span>
-					<span>
-						<img src={Volver} alt='' />
-					</span>
-					<span>
-						<img src={Home} alt='' />
-					</span>
-				</div>
-			</div>
+			<MenuHeader back TitleMenu={TitleMenus} />
 
 			{news.length > 0 ? (
 				<PaginatedItems itemsPerPage={5} />

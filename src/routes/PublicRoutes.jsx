@@ -9,6 +9,7 @@ import Loadable from 'components/Loadable/'
 import Home from 'pages/Home/index'
 import LastNews from 'pages/LastNews/index'
 import SearchNews from 'pages/SearchNews/index'
+import AboutUs from 'pages/AboutUs/index'
 
 const MinimalLayout = Loadable(lazy(() => import('layout/MinimalLayout/index')))
 // ===========================|| PUBLIC ROUTING ||=========================== //
@@ -43,6 +44,16 @@ const PublicRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<SearchNews />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/nosotros',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<AboutUs />
 					</GuestGuard>
 				</NavMotion>
 			)

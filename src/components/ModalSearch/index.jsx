@@ -10,6 +10,7 @@ import { LogoStyles } from 'styles/global'
 import { LOADING_SEARCH_NEWS } from 'store/actions'
 import { serviceSearchNews } from 'store/newsApi'
 import Cerrar from 'assets/icons/cerrar.svg'
+import ContactUs from 'components/ContactUs/'
 
 export default function Modal({ open, children, onClose }) {
 	const dispatch = useDispatch()
@@ -46,6 +47,7 @@ export default function Modal({ open, children, onClose }) {
 					<LogoStyles>
 						<img src={Logo} alt='' />
 					</LogoStyles>
+
 					<div className='container-search'>
 						<Search active handleSubmit={handleSubmit} />
 						<span onClick={onClose}>
@@ -72,12 +74,7 @@ export default function Modal({ open, children, onClose }) {
 						)}
 					</div>
 
-					<div className='contact-us'>
-						<h2>Contáctanos</h2>
-						<p>gerenciacomercial@logitransatalaya.com</p>
-						<p>www.logitransatalaya.com</p>
-						<p>Tel. 314 555 4983</p>
-					</div>
+					<ContactUs />
 				</div>
 			</ModalStyles>
 		</>,

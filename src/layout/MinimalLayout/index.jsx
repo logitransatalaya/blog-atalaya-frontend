@@ -23,13 +23,15 @@ const MinimalLayout = () => {
 			<LogoStyles>
 				<img src={Logo} alt='' />
 			</LogoStyles>
-			<div onClick={() => console.log('clicked')}>
+			<div>
 				<ModalSearch
 					open={modalOpen}
 					onClose={() => handleModal(false)}
 				/>
 			</div>
-			<Outlet />
+			<div className='outlet'>
+				<Outlet />
+			</div>
 		</LayoutStyles>
 	)
 }

@@ -22,25 +22,7 @@ export const ModalStyles = styled(motion.div)`
 			padding-bottom: 5rem;
 		}
 	}
-
-	.container-search {
-		margin: auto;
-		margin-top: -0.2rem;
-		padding-left: 6rem;
-		display: flex;
-		justify-content: center;
-		position: relative;
-		max-width: 83rem;
-		align-items: center;
-		span {
-			margin-left: 4rem;
-			cursor: pointer;
-		}
-	}
-
-	.container-results {
-		margin: auto;
-		max-width: 83rem;
-		margin-top: 7rem;
+	.box-p {
+		padding: 0 14rem;
 	}
 `

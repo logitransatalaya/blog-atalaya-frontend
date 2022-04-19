@@ -14,7 +14,8 @@ export const SliderContainer = styled.div`
 	position: relative;
 	.row {
 		position: relative;
-		width: 70%;
+		width: 83%;
+		//width: 100%;
 		height: 100%;
 		overflow: hidden;
 
