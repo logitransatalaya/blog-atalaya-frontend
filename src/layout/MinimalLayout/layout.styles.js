@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LayoutStyles = styled.div`
-	background: url('https://i.ibb.co/fdzp34q/background.png') no-repeat 0,
+	background: url(${require('assets/images/background.png')}) no-repeat 0,
 		0 var(--sky);
 	background-blend-mode: multiply;
 	background-attachment: fixed, scroll;
@@ -9,7 +9,7 @@ export const LayoutStyles = styled.div`
 	height: 100vh;
 	overflow-y: scroll;
 	position: relative;
-	padding-top: 5rem;
+	padding-top: 3rem;
 
 	.logo {
 		text-align: center;

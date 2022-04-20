@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Outlet } from 'react-router-dom'
-import Logo from 'assets/icons/logo-atalaya.svg'
 import { LayoutStyles } from './layout.styles'
 import ModalSearch from 'components/ModalSearch/index'
 import { LogoStyles } from 'styles/global'
@@ -21,7 +20,7 @@ const MinimalLayout = () => {
 	return (
 		<LayoutStyles>
 			<LogoStyles>
-				<img src={Logo} alt='' />
+				<img src={require(`assets/images/logo-atalaya.svg`).default} />
 			</LogoStyles>
 			<div>
 				<ModalSearch

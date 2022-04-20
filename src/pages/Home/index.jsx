@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import Facebook from 'assets/icons/fb.svg'
 import Instagram from 'assets/icons/ig.svg'
 import Websit from 'assets/icons/websit.svg'
+import Carousel from 'components/Carousel/'
 
 const Home = () => {
 	const dispatch = useDispatch()

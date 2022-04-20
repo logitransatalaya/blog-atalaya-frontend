@@ -10,6 +10,12 @@ html {
   font-size: 10px;
 }
 
+.sc-AxhCb{
+  background: #689 !important;
+  align-items: center !important;
+  
+  } 
+  
 @media (max-width: 1350px) {
   html {
     font-size: 8px;

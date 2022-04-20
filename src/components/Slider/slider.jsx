@@ -5,11 +5,20 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSwipeable } from 'react-swipeable'
 
-let option = parseInt(window.localStorage.getItem('menu'))
+const variantsImg = {
+	center: {
+		x: '-26%'
+	},
+	left: {
+		x: '-42%'
+	},
+	right: {
+		x: '-10%'
+	}
+}
+
 const Slider = () => {
-	const [position, setPosition] = useState(
-		option < slides.length ? option : 0
-	)
+	const [position, setPosition] = useState(0)
 	const [widthScreen, setWidthScreen] = useState(0)
 
 	useEffect(() => {
@@ -20,28 +29,12 @@ const Slider = () => {
 	const onMove = (direction) => {
 		if (direction === 'left') {
 			if (position < slides.length - 1) {
-				localStorage.setItem('menu', position + 1)
 				setPosition(position + 1)
 			}
 		} else if (direction === 'right') {
 			if (position > 0) {
-				localStorage.setItem('menu', position - 1)
 				setPosition(position - 1)
 			}
-		} else {
-			console.error('valor no permitido, intente con left o right')
-		}
-	}
-
-	const variantsImg = {
-		center: {
-			x: '-26%'
-		},
-		left: {
-			x: '-42%'
-		},
-		right: {
-			x: '-10%'
 		}
 	}
 
@@ -77,27 +70,28 @@ const Slider = () => {
 									: `${(index - position) * 35 + 35}%`,
 							scale: index === position ? 1 : 0.8
 						}}
-						transition={{
+						/*	transition={{
 							type: 'keyframes',
 							duration: 1
-						}}
+						}} */
 					>
 						<Link to={item.url} className='navigation'>
 							<motion.img
 								className='image-card'
 								src={item.image}
 								alt={item.alt}
-								animate={
+								animate='center'
+								/*	animate={
 									index === position
 										? 'center'
 										: index > position
 										? 'right'
 										: 'left'
-								}
+								} */
 								variants={variantsImg}
-								transition={{
+								/*transition={{
 									duration: 0.5
-								}}
+								}}*/
 							/>
 							<div className='title'>
 								<h2>{item.alt}</h2>

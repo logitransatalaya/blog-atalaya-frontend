@@ -18,4 +18,9 @@ export const HomeStyles = styled.main`
 			cursor: pointer;
 		}
 	}
+	@media screen and (max-width: 700px) {
+		.searchbox {
+			margin: 2rem;
+		}
+	}
 `

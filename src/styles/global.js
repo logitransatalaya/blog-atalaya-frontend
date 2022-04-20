@@ -42,5 +42,18 @@ export const LogoStyles = styled.div`
 	text-align: center;
 	color: #fff;
 	position: relative;
-	padding-bottom: 5rem;
+	padding-bottom: 3rem;
+	> img {
+		width: 30rem;
+	}
+
+	@media screen and (max-width: 700px) {
+		text-align: center;
+		color: #fff;
+		position: relative;
+		padding-bottom: 2rem;
+		> img {
+			width: 10rem;
+		}
+	}
 `
