@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { HomeStyles } from './Home.styles'
-import Slider from 'components/Slider/slider'
 import { useNavigate } from 'react-router-dom'
 import Search from 'components/Search'
 import { MODAL_OPEN } from 'store/actions'
@@ -22,8 +21,8 @@ const Home = () => {
 			<div className='searchbox'>
 				<Search handleSearch={() => handleModal(true)} />
 			</div>
-
-			<Slider />
+			<Carousel />
+			{/*	<Slider />*/}
 			<div className='social-media'>
 				<span>
 					<img src={Facebook} alt='' />
