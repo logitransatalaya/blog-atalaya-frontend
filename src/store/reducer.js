@@ -4,12 +4,14 @@ import { combineReducers } from 'redux'
 import customizationReducer from './customizationReducer'
 
 import NewsReducer from './newsReducer'
+import ProfileReducer from './Admin/profileReducer'
 
 // ===========================|| COMBINE REDUCER ||=========================== //
 
 const reducer = combineReducers({
 	customization: customizationReducer,
-	lastNews: NewsReducer
+	lastNews: NewsReducer,
+	profile: ProfileReducer
 })
 
 export default reducer

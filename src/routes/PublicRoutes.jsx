@@ -10,6 +10,8 @@ import Home from 'pages/Home/index'
 import LastNews from 'pages/LastNews/index'
 import SearchNews from 'pages/SearchNews/index'
 import AboutUs from 'pages/AboutUs/index'
+import Allies from 'pages/Allies/index'
+import WorkWithUs from 'pages/WorkWithUs/index'
 
 const MinimalLayout = Loadable(lazy(() => import('layout/MinimalLayout/index')))
 // ===========================|| PUBLIC ROUTING ||=========================== //
@@ -54,6 +56,26 @@ const PublicRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<AboutUs />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/aliados',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<Allies />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/trabaja-con-nosotros',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<WorkWithUs />
 					</GuestGuard>
 				</NavMotion>
 			)

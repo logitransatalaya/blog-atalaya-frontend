@@ -1,5 +1,5 @@
 // action - state management
-import { ACCOUNT_INITIALIZE, LOGIN, LOGOUT } from './actions'
+import { ACCOUNT_INITIALIZE, LOGIN, LOGOUT, UNAUTORIZED } from './actions'
 
 // ===========================|| ACCOUNT REDUCER ||=========================== //
 
@@ -27,6 +27,13 @@ const accountReducer = (state, action) => {
 				...state,
 				isLoggedIn: false,
 				user: null
+			}
+		}
+		case UNAUTORIZED: {
+			const { unautorized } = action.payload
+			return {
+				...state,
+				unautorized
 			}
 		}
 		default: {

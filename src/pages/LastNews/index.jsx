@@ -90,7 +90,7 @@ export default function LastNews() {
 	useEffect(() => {
 		setTimeout(() => {
 			dispatch(serviceNews(0))
-		}, 500)
+		}, 200)
 	}, [])
 
 	return (

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { createContext, useEffect, useReducer } from 'react'
 import { baseURL } from 'utils/constant'
+
 // third-party
 import jwtDecode from 'jwt-decode'
 
 // reducer - state management
-import { ACCOUNT_INITIALIZE, LOGIN, LOGOUT } from 'store/actions'
+import { ACCOUNT_INITIALIZE, LOGIN, LOGOUT, UNAUTORIZED } from 'store/actions'
 import accountReducer from 'store/accountReducer'
 
 // project imports
@@ -16,7 +17,8 @@ import Loader from 'components/Loader/'
 const initialState = {
 	isLoggedIn: false,
 	isInitialized: false,
-	user: null
+	user: null,
+	unautorized: false
 }
 //serviceToken - token - remplazar
 const verifyToken = (token) => {
@@ -49,18 +51,24 @@ export const JWTProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(accountReducer, initialState)
 
 	const login = async (email, password) => {
-		const response = await axios.post(`${baseURL}/api/v1/auth/login`, {
-			email,
-			password
-		})
-		const { token, user } = response.data
-		setSession(token)
-		dispatch({
-			type: LOGIN,
-			payload: {
-				user
-			}
-		})
+		try {
+			const response = await axios.post(`${baseURL}/api/v1/auth/login`, {
+				email,
+				password
+			})
+			const { token, user } = response.data
+
+			setSession(token)
+			dispatch({
+				type: LOGIN,
+				payload: {
+					user
+				}
+			})
+			dispatch({ type: UNAUTORIZED, payload: { unautorized: false } })
+		} catch (error) {
+			dispatch({ type: UNAUTORIZED, payload: { unautorized: true } })
+		}
 	}
 
 	const logout = () => {

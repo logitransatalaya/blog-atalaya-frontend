@@ -11,10 +11,16 @@ html {
 }
 
 .sc-AxhCb{
-  background: #689 !important;
+
   align-items: center !important;
   
   } 
+  .bhVOaN{
+    color: #fff;
+    background-color: rgba(103,58,183,.8) !important;
+    box-shadow: 0 0 2px 0 #333;
+  }
+ 
   
 @media (max-width: 1350px) {
   html {

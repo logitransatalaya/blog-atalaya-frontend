@@ -2,6 +2,7 @@
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const ACCOUNT_INITIALIZE = 'ACCOUNT_INITIALIZE'
+export const UNAUTORIZED = 'UNAUTORIZED'
 export const FIREBASE_STATE_CHANGED = 'FIREBASE_STATE_CHANGED'
 
 // action - customization reducer
@@ -38,3 +39,13 @@ export const RESET_CART = '@cart/RESET_CART'
 export const GET_NEWS_SUCCESS = '@posts/GET_NEWS_SUCCESS'
 export const GET_SEARCH_NEWS_SUCCESS = '@posts/GET_SEARCH_NEWS_SUCCESS'
 export const LOADING_SEARCH_NEWS = '@posts/LOADING_SEARCH_NEWS'
+
+//action - profile admin
+export const GET_PROFILE_SUCCESS = '@profile/GET_PROFILE_SUCCESS'
+export const MODIFY_PASSWORD_SUCCESS = '@profile/MODIFY_PASSWORD_SUCCESS'
+export const MODIFY_PASSWORD_ERROR = '@profile/MODIFY_PASSWORD_ERROR'
+export const MODIFY_PASSWORD_RESET = '@profile/MODIFY_PASSWORD_RESET'
+
+//action - create account
+export const CREATE_ACCOUNT_SUCCESS = '@account/CREATE_ACCOUNT_SUCCESS'
+export const CREATE_ACCOUNT_ERROR = '@account/CREATE_ACCOUNT_ERROR'

@@ -5,7 +5,7 @@ export default styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	height: 500px;
+	height: 550px;
 	width: 100%;
 	//background-color: #683bb7;
 	color: #fff;
@@ -18,6 +18,7 @@ export default styled.div`
 		midItemIndex === idx ? 'scale(1.3)' : 'scale(1)'};
 
 	> img {
+		cursor: pointer;
 		border-top-left-radius: ${({ midItemIndex, idx }) =>
 			midItemIndex === idx ? '3vmin' : '4rem'};
 		border-top-right-radius: ${({ midItemIndex, idx }) =>
@@ -27,6 +28,7 @@ export default styled.div`
 		height: 320px;
 	}
 	.title {
+		cursor: pointer;
 		width: 100%;
 		height: 10%;
 		background: var(--primary);
@@ -41,5 +43,12 @@ export default styled.div`
 	@media screen and (max-width: 767px) {
 		padding: 0;
 		margin: 5px;
+		transform: scale(1);
+		> img {
+			border-radius: {
+				border-radius: 4rem 4rem 0 0;
+				height: 300px;
+			}
+		}
 	}
 `
