@@ -39,6 +39,7 @@ export const RESET_CART = '@cart/RESET_CART'
 export const GET_NEWS_SUCCESS = '@posts/GET_NEWS_SUCCESS'
 export const GET_SEARCH_NEWS_SUCCESS = '@posts/GET_SEARCH_NEWS_SUCCESS'
 export const LOADING_SEARCH_NEWS = '@posts/LOADING_SEARCH_NEWS'
+export const GET_NEWS_SLUG_SUCCESS = '@post/GET_NEWS_SLUG_SUCCESS'
 
 //action - profile admin
 export const GET_PROFILE_SUCCESS = '@profile/GET_PROFILE_SUCCESS'

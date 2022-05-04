@@ -9,4 +9,7 @@ export const MainLayoutStyles = styled.div`
 	min-height: 100vh;
 	opacity: 0.8;
 	backdrop-filter: blur(3px);
+	main {
+		padding: 0 10rem;
+	}
 `

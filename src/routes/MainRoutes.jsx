@@ -2,7 +2,13 @@ import Loadable from 'components/Loadable'
 import React, { lazy } from 'react'
 
 // project imports
-import News from 'pages/Admin/News/'
+import Posts from 'pages/Admin/Posts/'
+import ManageNews from 'pages/Admin/Posts/ManageNews/index'
+import Allies from 'pages/Admin/Allies/index'
+import AllyForm from 'pages/Admin/Allies/AlliForm/index'
+import Us from 'pages/Admin/Us/index'
+import Certificates from 'pages/Admin/Us/Certificates/index'
+
 import Profile from 'pages/Admin/Profile/'
 import CreateAccount from 'pages/Admin/CreateAccount/'
 import AuthGuard from 'utils/route-guard/AuthGuard'
@@ -21,8 +27,28 @@ const MainRoutes = {
 			path: '/admin',
 			children: [
 				{
-					path: 'news',
-					element: <News />
+					path: 'posts',
+					element: <Posts />
+				},
+				{
+					path: 'posts/manage-news/',
+					element: <ManageNews />
+				},
+				{
+					path: 'allies',
+					element: <Allies />
+				},
+				{
+					path: 'ally-form',
+					element: <AllyForm />
+				},
+				{
+					path: 'us',
+					element: <Us />
+				},
+				{
+					path: 'us/certificates',
+					element: <Certificates />
 				},
 				{
 					path: 'profile',

@@ -30,10 +30,11 @@ const accountReducer = (state, action) => {
 			}
 		}
 		case UNAUTORIZED: {
-			const { unautorized } = action.payload
+			const { unautorized, message } = action.payload
 			return {
 				...state,
-				unautorized
+				unautorized,
+				message
 			}
 		}
 		default: {

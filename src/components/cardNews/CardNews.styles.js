@@ -6,6 +6,7 @@ export const CardNewStyles = styled.div`
 	border-radius: 18px;
 	margin: 2rem 0;
 	padding: 2rem;
+	cursor: pointer;
 	.title {
 		color: var(--sky);
 		padding: 0.5rem 0;

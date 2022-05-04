@@ -1,6 +1,6 @@
 const config = {
 	basename: '',
-	defaultPath: '/admin/news',
+	defaultPath: '/admin/posts',
 	theme: 'light', // light, dark
 	i18n: 'en',
 	rtlLayout: false,

@@ -24,7 +24,7 @@ const schema = yup.object({
 
 const Login = () => {
 	const { login } = useAuth()
-	const { unautorized } = useAuth()
+	const { unautorized, message } = useAuth()
 	const [state, setState] = useState(false)
 	const alert = useAlert()
 	const {
@@ -41,9 +41,7 @@ const Login = () => {
 	useEffect(() => {
 		if (unautorized) {
 			setState(false)
-			alert.error(
-				'Dirección de correo electrónico o contraseña incorrectas. '
-			)
+			alert.error(message)
 		}
 	}, [login])
 

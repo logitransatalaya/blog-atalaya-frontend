@@ -3,7 +3,8 @@ import { baseURL } from 'utils/constant'
 import {
 	GET_NEWS_SUCCESS,
 	GET_SEARCH_NEWS_SUCCESS,
-	LOADING_SEARCH_NEWS
+	LOADING_SEARCH_NEWS,
+	GET_NEWS_SLUG_SUCCESS
 } from 'store/actions'
 import { limit } from 'utils/constant'
 
@@ -17,6 +18,17 @@ const serviceNews = (offset) => async (dispatch) => {
 		console.log(error)
 	}
 }
+
+const serviceNewsSlug = (slug) => async (dispatch) => {
+	try {
+		const response = await axios.get(`${baseURL}/api/v1/posts/${slug}`)
+		console.log(response)
+		dispatch({ type: GET_NEWS_SLUG_SUCCESS, data: response.data })
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 const serviceSearchNews = (term, offset) => async (dispatch) => {
 	try {
 		const response = await axios.get(
@@ -30,4 +42,4 @@ const serviceSearchNews = (term, offset) => async (dispatch) => {
 	}
 }
 
-export { serviceNews, serviceSearchNews }
+export { serviceNews, serviceSearchNews, serviceNewsSlug }

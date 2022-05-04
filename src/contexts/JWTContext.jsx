@@ -18,7 +18,8 @@ const initialState = {
 	isLoggedIn: false,
 	isInitialized: false,
 	user: null,
-	unautorized: false
+	unautorized: false,
+	message: ''
 }
 //serviceToken - token - remplazar
 const verifyToken = (token) => {
@@ -52,7 +53,7 @@ export const JWTProvider = ({ children }) => {
 
 	const login = async (email, password) => {
 		try {
-			const response = await axios.post(`${baseURL}/api/v1/auth/login`, {
+			const response = await axios.post(`${baseURL}/api/v1/auth/login/`, {
 				email,
 				password
 			})
@@ -67,7 +68,25 @@ export const JWTProvider = ({ children }) => {
 			})
 			dispatch({ type: UNAUTORIZED, payload: { unautorized: false } })
 		} catch (error) {
-			dispatch({ type: UNAUTORIZED, payload: { unautorized: true } })
+			if (error.message) {
+				dispatch({
+					type: UNAUTORIZED,
+					payload: {
+						unautorized: true,
+						message:
+							'Dirección de correo electrónico o contraseña incorrectas.'
+					}
+				})
+			} else {
+				dispatch({
+					type: UNAUTORIZED,
+					payload: {
+						unautorized: true,
+						message:
+							'Se realizó la solicitud pero no se recibió respuesta.'
+					}
+				})
+			}
 		}
 	}
 

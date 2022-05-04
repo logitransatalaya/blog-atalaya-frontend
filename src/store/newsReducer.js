@@ -4,7 +4,8 @@ import * as actionTypes from './actions'
 export const initialState = {
 	news: [],
 	searchResults: null,
-	loading: false
+	loading: false,
+	postSlug: null
 }
 
 // ===========================|| NEWS REDUCER ||=========================== //
@@ -27,6 +28,11 @@ const newsReducer = (state = initialState, action) => {
 				...state,
 				loading: action.loading,
 				searchResults: null
+			}
+		case actionTypes.GET_NEWS_SLUG_SUCCESS:
+			return {
+				...state,
+				postSlug: action.data
 			}
 		default:
 			return state
