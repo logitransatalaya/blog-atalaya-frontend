@@ -4,7 +4,7 @@ import { ModalStyles } from './Modal.styles'
 import Logo from 'assets/icons/logo-atalaya.svg'
 import { LogoStyles } from 'styles/global'
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, children, onClose, head }) {
 	if (!open) return null
 
 	return ReactDOM.createPortal(
@@ -16,9 +16,11 @@ export default function Modal({ open, children, onClose }) {
 				transition={{ duration: 1 }}
 			>
 				<div className='modal-dialog'>
-					<LogoStyles>
-						<img src={Logo} alt='' />
-					</LogoStyles>
+					{!head && (
+						<LogoStyles>
+							<img src={Logo} alt='' />
+						</LogoStyles>
+					)}
 					{children}
 				</div>
 			</ModalStyles>

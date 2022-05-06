@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { baseURL } from 'utils/constant'
-//import { CREATE_POST_SUCCESS, CREATE_POST_ERROR } from 'store/actions'
+import { CREATE_POST_SUCCESS, CREATE_POST_ERROR } from 'store/actions'
 // third-party
 import jwtDecode from 'jwt-decode'
 
@@ -19,22 +19,25 @@ const servicecreatePost = (data) => async (dispatch) => {
 			status,
 			title
 		})
-		console.log('ERRor')
-		console.log('Respuesta => ', response)
-		//dispatch({ type: CREATE_POST_SUCCESS, data: response.data })
+
+		dispatch({ type: CREATE_POST_SUCCESS, data: response.data })
 	} catch (error) {
-		console.log('Error', error)
 		if (error.response) {
-			// Request made and server responded
-			console.log(error.response.data)
-			console.log(error.response.status)
-			console.log(error.response.headers)
+			const { message } = error.response.data
+			dispatch({ type: CREATE_POST_ERROR, message })
+
+			if (error.response.status == 401) {
+				dispatch({ type: CREATE_POST_ERROR, message: ' Unauthorized' })
+				//logout
+			}
 		} else if (error.request) {
-			// The request was made but no response was received
-			console.log(error.request)
+			dispatch({
+				type: CREATE_POST_ERROR,
+				message: ' The request was made but no response was received'
+			})
 		} else {
 			// Something happened in setting up the request that triggered an Error
-			console.log('Error', error.message)
+			console.log('Error ', error.message)
 		}
 	}
 }

@@ -41,7 +41,6 @@ const schema = yup.object({
 export default function Profile() {
 	const alert = useAlert()
 	const dispatch = useDispatch()
-	const {} = useSelector((state) => state.profile)
 
 	const {
 		register,
