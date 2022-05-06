@@ -10,10 +10,12 @@ import { limit } from 'utils/constant'
 
 const serviceNews = (offset) => async (dispatch) => {
 	try {
-		const response = await axios.get(
+		const { data } = await axios.get(
 			`${baseURL}/api/v1/posts?limit=${limit}&offset=${offset}`
 		)
-		dispatch({ type: GET_NEWS_SUCCESS, data: response.data })
+		if (Array.isArray(data)) {
+			dispatch({ type: GET_NEWS_SUCCESS, data })
+		}
 	} catch (error) {
 		console.log(error)
 	}
