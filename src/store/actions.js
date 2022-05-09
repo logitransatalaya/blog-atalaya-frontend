@@ -51,7 +51,8 @@ export const MODIFY_PASSWORD_RESET = '@profile/MODIFY_PASSWORD_RESET'
 export const CREATE_ACCOUNT_SUCCESS = '@account/CREATE_ACCOUNT_SUCCESS'
 export const CREATE_ACCOUNT_ERROR = '@account/CREATE_ACCOUNT_ERROR'
 
-//action - create post admin
+//action -  post admin
 export const CREATE_POST_SUCCESS = '@/post/CREATE_POST_SUCCESS'
 export const CREATE_POST_ERROR = '@/post/CREATE_POST_ERROR'
 export const CREATE_POST_RESET = '@/post/CREATE_POST_RESET'
+export const GET_POSTS_SUCCESS = '@/post/GET_POSTS_SUCCESS'

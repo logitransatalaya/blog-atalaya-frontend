@@ -2,9 +2,20 @@ import React, { useEffect, useState } from 'react'
 import LandscapeMenu from 'components/LandscapeMenu/index'
 import { CardPostStyles, PostStyles } from './Posts.styles'
 import { Link } from 'react-router-dom'
+import { serviceGetPosts } from 'store/Admin/posts/postApi'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function LastNews() {
 	const data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	const dispatch = useDispatch()
+	const { posts } = useSelector((state) => state.posts)
+
+	useEffect(() => {
+		setTimeout(() => {
+			dispatch(serviceGetPosts(0))
+		}, 200)
+	}, [])
+
 	return (
 		<PostStyles>
 			<LandscapeMenu active={1} />

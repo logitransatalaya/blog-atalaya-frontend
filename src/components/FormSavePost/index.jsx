@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import close from 'assets/icons/close2.svg'
 import { convertToSlug } from 'utils/slug'
-import { servicecreatePost } from 'store/Admin/posts/createPostApi'
+import { servicecreatePost } from 'store/Admin/posts/postApi'
 import { useAlert } from 'react-alert'
 import { CREATE_POST_RESET } from 'store/actions'
 const schema = yup.object({
@@ -46,14 +46,15 @@ const FrmSavePost = ({ onClose, content }) => {
 
 	useEffect(() => {
 		if (error) {
+			alert.error(message)
+			dispatch({ type: CREATE_POST_RESET })
+		}
+		if (!error && message) {
+			onClose()
 			alert.show(message)
 			dispatch({ type: CREATE_POST_RESET })
 		}
-		if (!error & message) {
-			alert.show(message)
-			dispatch({ type: CREATE_POST_RESET })
-		}
-	}, [error])
+	}, [error, message])
 
 	useEffect(() => {
 		dispatch({ type: CREATE_POST_RESET })

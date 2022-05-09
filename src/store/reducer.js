@@ -5,7 +5,7 @@ import customizationReducer from './customizationReducer'
 
 import NewsReducer from './newsReducer'
 import ProfileReducer from './Admin/profileReducer'
-import Posts from './Admin/posts/createPostReducer'
+import Posts from './Admin/posts/postReducer'
 // ===========================|| COMBINE REDUCER ||=========================== //
 
 const reducer = combineReducers({

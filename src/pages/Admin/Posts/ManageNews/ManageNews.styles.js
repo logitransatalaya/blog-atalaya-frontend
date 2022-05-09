@@ -8,7 +8,7 @@ export const ManageNewsStyles = styled.div`
 
 	.container-editor {
 		padding-top: 4rem;
-		max-width: 120rem;
+		max-width: 90rem;
 		margin: auto;
 	}
 	p {
@@ -20,6 +20,9 @@ export const ManageNewsStyles = styled.div`
 		font-size: 2.5rem;
 		line-height: 1.2;
 		margin-bottom: 2rem;
+	}
+	img {
+		width: 20% !important;
 	}
 	@media screen and (max-width: 767px) {
 	}

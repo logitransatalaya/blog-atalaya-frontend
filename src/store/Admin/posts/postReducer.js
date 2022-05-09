@@ -2,7 +2,7 @@
 import * as actionTypes from 'store/actions'
 
 export const initialState = {
-	posts: {},
+	posts: [],
 	error: null,
 	message: null
 }
@@ -28,6 +28,11 @@ const postsReducer = (state = initialState, action) => {
 				...state,
 				error: false,
 				message: null
+			}
+		case actionTypes.GET_POSTS_SUCCESS:
+			return {
+				...state,
+				posts: [...state.posts, ...action.data]
 			}
 		default:
 			return state

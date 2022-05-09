@@ -1,6 +1,10 @@
 import axios from 'axios'
-import { baseURL } from 'utils/constant'
-import { CREATE_POST_SUCCESS, CREATE_POST_ERROR } from 'store/actions'
+import { baseURL, limit } from 'utils/constant'
+import {
+	CREATE_POST_SUCCESS,
+	CREATE_POST_ERROR,
+	GET_POSTS_SUCCESS
+} from 'store/actions'
 // third-party
 import jwtDecode from 'jwt-decode'
 
@@ -11,7 +15,7 @@ const servicecreatePost = (data) => async (dispatch) => {
 	const { sub } = jwtDecode(token)
 	const { content, description, slug, status, title } = data
 	try {
-		const response = await axios.post(`${baseURL}/api/v1/posts/`, {
+		const response = await axios.post(`${baseURL}/api/v1/adm/posts/`, {
 			authorId: sub,
 			content,
 			description,
@@ -20,7 +24,10 @@ const servicecreatePost = (data) => async (dispatch) => {
 			title
 		})
 
-		dispatch({ type: CREATE_POST_SUCCESS, data: response.data })
+		dispatch({
+			type: CREATE_POST_SUCCESS,
+			message: 'Post created'
+		})
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
@@ -42,4 +49,17 @@ const servicecreatePost = (data) => async (dispatch) => {
 	}
 }
 
-export { servicecreatePost }
+const serviceGetPosts = (offset) => async (dispatch) => {
+	try {
+		const { data } = await axios.get(
+			`${baseURL}/api/v1/posts?limit=${limit}&offset=${offset}`
+		)
+		if (Array.isArray(data)) {
+			dispatch({ type: GET_POSTS_SUCCESS, data })
+		}
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export { servicecreatePost, serviceGetPosts }

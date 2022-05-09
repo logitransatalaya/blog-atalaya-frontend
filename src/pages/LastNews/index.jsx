@@ -31,12 +31,10 @@ function PaginatedItems({ itemsPerPage }) {
 
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % news.length
-		console.log(event.selected + 1)
 		setItemOffset(newOffset)
 
 		if (pageCount - event.selected <= 1) {
 			const offset = news.length
-
 			dispatch(serviceNews(offset))
 		}
 	}
@@ -81,12 +79,9 @@ const TitleMenus = () => {
 
 export default function LastNews() {
 	const dispatch = useDispatch()
-	const navigate = useNavigate()
+
 	const { news } = useSelector((state) => state.lastNews)
 
-	const handleModal = (val) => {
-		dispatch({ type: MODAL_OPEN, modalOpen: val })
-	}
 	useEffect(() => {
 		setTimeout(() => {
 			dispatch(serviceNews(0))
@@ -96,7 +91,6 @@ export default function LastNews() {
 	return (
 		<LastNewStyles>
 			<MenuHeader back TitleMenu={TitleMenus} />
-
 			{news.length > 0 ? (
 				<PaginatedItems itemsPerPage={5} />
 			) : (
