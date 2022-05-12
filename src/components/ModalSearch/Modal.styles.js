@@ -13,14 +13,7 @@ export const ModalStyles = styled(motion.div)`
 		width: 100vw;
 		height: 100vh;
 		overflow-y: scroll;
-		padding-top: 5rem;
-
-		.logo {
-			text-align: center;
-			color: #fff;
-			position: relative;
-			padding-bottom: 5rem;
-		}
+		padding-top: 3rem;
 	}
 
 	.container-search {
@@ -35,12 +28,15 @@ export const ModalStyles = styled(motion.div)`
 		span {
 			margin-left: 4rem;
 			cursor: pointer;
+			img {
+				width: 20px;
+			}
 		}
 	}
 
 	.container-results {
 		margin: auto;
-		max-width: 83rem;
-		margin-top: 7rem;
+		max-width: 75rem;
+		margin-top: 6rem;
 	}
 `

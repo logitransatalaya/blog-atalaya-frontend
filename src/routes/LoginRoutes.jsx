@@ -15,7 +15,7 @@ const AuthLogin = Loadable(
 
 const LoginRoutes = {
 	path: '',
-	element: <MainLayout />,
+	element: <MainLayout disabled/>,
 	children: [
 		{
 			path: '/login',

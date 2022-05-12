@@ -6,7 +6,7 @@ export const AboutUsStyles = styled.div`
 		margin: auto;
 		width: 86%;
 		display: flex;
-		margin-top: 10rem;
+		margin-top: 8rem;
 		justify-content: space-around;
 		align-items: center;
 	}
@@ -14,7 +14,7 @@ export const AboutUsStyles = styled.div`
 	.card {
 		border-radius: 4rem 4rem 0 0;
 		width: 25%;
-		height: 400px;
+		height: 30rem;
 		background: white;
 		position: relative;
 		transition: 0.4s ease-out;

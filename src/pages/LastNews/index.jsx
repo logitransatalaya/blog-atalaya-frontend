@@ -40,7 +40,7 @@ function PaginatedItems({ itemsPerPage }) {
 	}
 	return (
 		<div className='container-news'>
-			<div className='num-page'>Pagina 01</div>
+			<div className='num-page'><p>PÁGINA 01 </p></div>
 			{currentItems.map((item) => (
 				<CardNews key={item.id} item={item} />
 			))}

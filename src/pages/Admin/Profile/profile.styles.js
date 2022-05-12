@@ -83,6 +83,7 @@ export const ProfileStyles = styled.div`
 				}
 			}
 		}
+		
 		.error-message {
 			padding: 0.5rem;
 		}

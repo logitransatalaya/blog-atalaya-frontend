@@ -1,16 +1,7 @@
 import trabajaNosotros from 'assets/images/trabaja-nosotros.jpg'
 import news from 'assets/images/news.jpg'
-import atalayaMobile from 'assets/images/atalaya-mobile.png'
 import aliados from 'assets/images/aliados.jpg'
 import nosotros from 'assets/images/nosotros.jpg'
-
-let images = [
-	'https://i.ibb.co/BrrvTsB/trabaja-nosotros.jpg',
-	'https://i.ibb.co/qsqLYCs/Mesadetrabajo.png',
-	'https://i.ibb.co/Fb1tVs3/man-reading-newspaper.jpg',
-	'https://i.ibb.co/yyCSNtB/Logo-recepci-n.jpg',
-	'https://i.ibb.co/3M7rbGB/industrial-port-and-container-yard.jpg'
-]
 
 export const slides = [
 	{
@@ -44,9 +35,3 @@ export const breakPoints = [
 	{ width: 1450, itemsToShow: 3 },
 	{ width: 1750, itemsToShow: 3 }
 ]
-/*
-{
-	image: atalayaMobile,
-	alt: 'ATALAYA MOBILE',
-	url: '/atalaya-mobile'
-},*/

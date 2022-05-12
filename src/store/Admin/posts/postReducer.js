@@ -3,8 +3,11 @@ import * as actionTypes from 'store/actions'
 
 export const initialState = {
 	posts: [],
+	postSlug: null,
 	error: null,
-	message: null
+	message: null,
+	page: 0,
+	endPost:false
 }
 
 // ===========================|| POSTS REDUCER ||=========================== //
@@ -32,8 +35,16 @@ const postsReducer = (state = initialState, action) => {
 		case actionTypes.GET_POSTS_SUCCESS:
 			return {
 				...state,
-				posts: [...state.posts, ...action.data]
+				posts: [...state.posts, ...action.data],
+				page: action.page,
+				endPost: action.endPost
 			}
+		case actionTypes.GET_POST_SLUG_SUCCESS:
+			return {
+				...state,
+				postSlug: action.data,
+			}
+			
 		default:
 			return state
 	}

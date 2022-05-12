@@ -13,16 +13,15 @@ export const ModalStyles = styled(motion.div)`
 		width: 100vw;
 		height: 100vh;
 		overflow-y: scroll;
-		padding-top: 5rem;
+		padding-top: 3rem;
 
-		.logo {
-			text-align: center;
-			color: #fff;
-			position: relative;
-			padding-bottom: 5rem;
-		}
 	}
 	.box-p {
-		padding: 0 14rem;
+		padding: 0 8rem;
+	}
+	@media screen and (max-width: 767px) {
+		.box-p {
+			padding: 0;
+		}
 	}
 `

@@ -5,7 +5,7 @@ import { VisionStyles } from './Mission.styles'
 const Vision = ({ handleClose }) => {
 	return (
 		<VisionStyles>
-			<h3 onClick={handleClose}>CERRAR</h3>
+			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
 				<p>

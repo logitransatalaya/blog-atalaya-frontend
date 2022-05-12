@@ -24,7 +24,6 @@ const serviceNews = (offset) => async (dispatch) => {
 const serviceNewsSlug = (slug) => async (dispatch) => {
 	try {
 		const response = await axios.get(`${baseURL}/api/v1/posts/${slug}`)
-		console.log(response)
 		dispatch({ type: GET_NEWS_SLUG_SUCCESS, data: response.data })
 	} catch (error) {
 		console.log(error)

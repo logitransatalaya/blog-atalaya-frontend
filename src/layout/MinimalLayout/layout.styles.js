@@ -17,7 +17,7 @@ export const LayoutStyles = styled.div`
 		position: relative;
 	}
 	.outlet {
-		padding: 0 14rem;
+		padding: 0 8rem;
 	}
 	@media screen and (max-width: 767px) {
 		.outlet {

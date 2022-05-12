@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
@@ -6,6 +6,7 @@ import AlertTemplate from 'react-alert-template-basic'
 // routing
 import Routes from './routes'
 import { JWTProvider } from 'contexts/JWTContext'
+import Snackbar from 'components/Snackbar/index'
 
 // ===========================|| APP ||=========================== //
 const options = {
@@ -22,6 +23,7 @@ const App = () => {
 		<JWTProvider>
 			<AlertProvider template={AlertTemplate} {...options}>
 				<Routes />
+				<Snackbar/>
 			</AlertProvider>
 		</JWTProvider>
 	)

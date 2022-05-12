@@ -7,12 +7,13 @@ export const CardSearchStyles = styled.div`
 	border-radius: 18px;
 	margin: 1rem 0;
 	position: relative;
-	padding: 3rem;
+	padding: 2rem;
 	.title {
 		color: var(--sky);
 	}
 	p {
-		font-size: 1.4rem;
+		padding-top: 0.5rem;
+		font-size: 1.2rem;
 		color: var(--secondary-gray);
 	}
 `

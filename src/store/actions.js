@@ -17,8 +17,11 @@ export const SET_FONT_FAMILY = '@customization/SET_FONT_FAMILY'
 export const SET_BORDER_RADIUS = '@customization/SET_BORDER_RADIUS'
 export const SET_OUTLINED_FILLED = '@customization/SET_OUTLINED_FILLED'
 export const MODAL_OPEN = '@customization/MODAL_OPEN '
+
 // action - snackbar
 export const SNACKBAR_OPEN = '@snackbar/SNACKBAR_OPEN'
+export const SNACKBAR_RESET = '@snackbar/SNACKBAR_RESET'
+
 
 // action - cart
 
@@ -56,3 +59,5 @@ export const CREATE_POST_SUCCESS = '@/post/CREATE_POST_SUCCESS'
 export const CREATE_POST_ERROR = '@/post/CREATE_POST_ERROR'
 export const CREATE_POST_RESET = '@/post/CREATE_POST_RESET'
 export const GET_POSTS_SUCCESS = '@/post/GET_POSTS_SUCCESS'
+export const GET_POST_SLUG_SUCCESS = '@/post/GET_POST_SLUG_SUCCESS'
+export const UPDATE_POST_SLUG_SUCCESS = '@/post/UPDATE_POST_SLUG_SUCCESS'

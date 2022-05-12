@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { LayoutStyles } from './layout.styles'
 import ModalSearch from 'components/ModalSearch/index'

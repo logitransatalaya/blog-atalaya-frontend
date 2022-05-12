@@ -43,7 +43,7 @@ const CarouselC = () => {
 					>
 						<img src={item.image} alt='' />
 						<div className='title'>
-							<h2>{item.alt}</h2>
+							<h3>{item.alt}</h3>
 						</div>
 					</Item>
 				))}

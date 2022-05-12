@@ -44,7 +44,7 @@ export const LogoStyles = styled.div`
 	position: relative;
 	padding-bottom: 3rem;
 	> img {
-		width: 30rem;
+		width: 200px;
 	}
 
 	@media screen and (max-width: 700px) {

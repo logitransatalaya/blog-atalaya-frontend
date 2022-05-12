@@ -5,7 +5,7 @@ import { MissionStyles } from './Mission.styles'
 const Mission = ({ handleClose }) => {
 	return (
 		<MissionStyles>
-			<h3 onClick={handleClose}>CERRAR</h3>
+			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
 				<p>

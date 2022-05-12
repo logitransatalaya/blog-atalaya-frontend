@@ -33,14 +33,14 @@ const Search = ({ handleSearch, active, handleSubmit }) => {
 						onChange={handleChange}
 					/>
 					<span onClick={() => handleSubmit(term)}>
-						<img width='30px' src={lens} alt='' />
+						<img width='20px' src={lens} alt='' />
 					</span>
 				</SearchStyles>
 			) : (
 				<SearchStyles onClick={handleSearch}>
 					<p className='title'>Búsqueda personalizada</p>
 					<span className='linea'>|</span>
-					<img width='30px' src={lens} alt='' />
+					<img width='20px' src={lens} alt='' />
 				</SearchStyles>
 			)}
 		</>

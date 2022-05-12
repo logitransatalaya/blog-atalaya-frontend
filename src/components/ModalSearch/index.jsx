@@ -28,7 +28,7 @@ export default function Modal({ open, children, onClose }) {
 			dispatch({ type: LOADING_SEARCH_NEWS, loading: true })
 			setTimeout(() => {
 				dispatch(serviceSearchNews(term))
-			}, 1000)
+			}, 100)
 			setValSearch(term)
 		}
 	}
@@ -51,7 +51,7 @@ export default function Modal({ open, children, onClose }) {
 					<div className='container-search'>
 						<Search active handleSubmit={handleSubmit} />
 						<span onClick={onClose}>
-							<img src={Cerrar} alt='' />
+							<img   src={Cerrar} alt='' />
 						</span>
 					</div>
 

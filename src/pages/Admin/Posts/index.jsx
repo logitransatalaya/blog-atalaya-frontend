@@ -1,39 +1,51 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useInView } from "react-intersection-observer";
 import LandscapeMenu from 'components/LandscapeMenu/index'
 import { CardPostStyles, PostStyles } from './Posts.styles'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import { serviceGetPosts } from 'store/Admin/posts/postApi'
 import { useDispatch, useSelector } from 'react-redux'
+import iconMas from 'assets/icons/mas.svg'
 
 export default function LastNews() {
-	const data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	const { ref, inView } = useInView({
+		threshold: 0
+	  });
+	  const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const { posts } = useSelector((state) => state.posts)
+	const { posts , page,endPost} = useSelector((state) => state.posts)
+	  
 
 	useEffect(() => {
-		setTimeout(() => {
-			dispatch(serviceGetPosts(0))
-		}, 200)
-	}, [])
+		if(inView && !endPost){
+			dispatch(serviceGetPosts(page + 10))
+		}
+	}, [inView])
 
 	return (
 		<PostStyles>
 			<LandscapeMenu active={1} />
+			<Link className='add-post' to={'manage-news'}>
+				<img src={iconMas} alt="" />	
+				</Link>
 			<div className='container-posts'>
-				{data.map((item) => (
-					<CardPostStyles key={item}>
-						<h3>Lorem ipsum dolor</h3>
+				{posts.map((item) => (
+				
+					<CardPostStyles key={item.id} onClick={ () => navigate(`edit/${item.slug}`)}>
+						<h4>{item.title}</h4>
 						<div className='card-footer'>
-							<p>Publicado por: {'Administrador 1'}</p>
-							<p>Fecha : {'26/06/2022'}</p>
+							<p>Publicado por: {item?.author?.lastName}</p>
+							<p>Fecha :  {item.createdAt}</p>
 						</div>
 					</CardPostStyles>
+				
 				))}
 
-				<Link className='add-post' to={'manage-news'}>
-					Add{' '}
-				</Link>
+			
+				<div ref={ref} className="inview-block">
+      </div>
 			</div>
+			
 		</PostStyles>
 	)
 }

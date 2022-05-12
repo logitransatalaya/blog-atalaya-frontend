@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const SearchStyles = styled.div`
-	border: 3px solid var(--primary-grey);
-	border-radius: 26px;
+	border: 2px solid var(--primary-grey);
+	border-radius: 24px;
 	width: 100%;
 	color: #fff;
 	position: relative;
@@ -10,10 +10,10 @@ export const SearchStyles = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 2rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	cursor: pointer;
 	overflow: hidden;
-	max-width: 640px;
+	max-width: 50rem;
 	z-index: 400;
 	.title {
 		opacity: 0;
@@ -27,12 +27,11 @@ export const SearchStyles = styled.div`
 	}
 	.linea {
 		width: 100%;
-		font-size: 4rem;
+		font-size: 3rem;
 		margin-bottom: 0.7rem;
 		opacity: 0;
 		left: 30%;
 		position: absolute;
-
 		transition: all 0.4s;
 	}
 	&:hover .linea {
@@ -47,11 +46,10 @@ export const SearchStyles = styled.div`
 		width: 90%;
 		background: transparent;
 		border: none;
-		padding: 5px;
 		height: 100%;
 		outline: none;
 		color: #fff;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	@media screen and (max-width: 767px) {
 		&:hover .linea {

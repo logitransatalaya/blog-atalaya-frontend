@@ -12,7 +12,7 @@ const Alies = () => {
 			<div className='box-allies'>
 				{allies.map((item) => (
 					<div className='card-ally'>
-						<div>
+						<div className='card-head'>
 							<h3 className='title-ally'>{item.name}</h3>
 							<p className='description-ally'>
 								{item.description}

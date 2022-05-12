@@ -5,9 +5,7 @@ import { CardSearchStyles } from './CardSearch.styles'
 function CardSearch({ item }) {
 	return (
 		<CardSearchStyles>
-			<h3 className='title'>{item.title}</h3>
-
-			<br />
+			<h4 className='title'>{item.title}</h4>
 			<p>{item.description}</p>
 		</CardSearchStyles>
 	)

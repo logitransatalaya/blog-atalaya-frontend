@@ -8,10 +8,10 @@ const WorkWithUs = () => {
 
 	return (
 		<WorkWithUStyles>
-			<h3 onClick={() => navigate('/')}>CERRAR</h3>
-			<br />
-			<div className='box'>
-				<h1>ATALAYA</h1>
+			<h4 onClick={() => navigate('/')}>CERRAR</h4>
+			
+			<div className='content-work-with-us'>
+				<h3>ATALAYA</h3>
 				<p>
 					Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 					Aenean commodo ligula eget dolor. Aenean massa. Cum sociis

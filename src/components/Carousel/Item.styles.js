@@ -5,12 +5,10 @@ export default styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	height: 550px;
+	height: 450px;
 	width: 100%;
-	//background-color: #683bb7;
 	color: #fff;
-	padding: 0 5rem;
-	margin: 0 15px;
+	margin: 0 5rem;
 
 	transition: ${({ midItemIndex, idx }) =>
 		midItemIndex === idx ? 'transform 700ms ease' : 'transform 300ms ease'};
@@ -25,7 +23,7 @@ export default styled.div`
 			midItemIndex === idx ? '3vmin' : '4rem'};
 		object-fit: cover;
 		width: 100%;
-		height: 320px;
+		height: 280px;
 	}
 	.title {
 		cursor: pointer;
@@ -47,7 +45,7 @@ export default styled.div`
 		> img {
 			border-radius: {
 				border-radius: 4rem 4rem 0 0;
-				height: 300px;
+			
 			}
 		}
 	}

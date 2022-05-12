@@ -11,5 +11,21 @@ export const MainLayoutStyles = styled.div`
 	backdrop-filter: blur(3px);
 	main {
 		padding: 0 10rem;
+		.box-log{
+			padding-top: 3rem;
+		}
+		.box-admin{
+			width: 100%;
+			color:#fff;
+			padding: 0 2rem 1rem;
+			display: grid;
+			grid-template-columns: 1fr 3fr 1fr;
+			.searchbox{
+				justify-content: center;
+				display: flex;
+				height: fit-content;
+			}
+		}	
 	}
+	
 `

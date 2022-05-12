@@ -33,11 +33,11 @@ const MenuHeader = ({ TitleMenu, close, handleClose, back }) => {
 				<div></div>
 				<div className='header-action'>
 					<span onClick={() => handleModal(true)}>
-						<img src={Lupa} alt='' width='25px' />
+						<img src={Lupa} alt=''  />
 					</span>
 					{close && (
 						<span onClick={handleClose}>
-							<img src={Cerrar} alt='' />
+							<img src={Cerrar} alt=''/>
 						</span>
 					)}
 					{back && (

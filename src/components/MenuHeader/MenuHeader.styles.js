@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const MenuHeaderStyles = styled.div`
+
 	.menu-header {
 		display: grid;
 		//grid-template-columns: 640px 640px 1fr;
@@ -11,11 +12,11 @@ export const MenuHeaderStyles = styled.div`
 		color: #fff;
 		padding-left: 2rem;
 		h2 {
-			font-size: 3rem;
+			font-size: 2rem;
 			font-weight: bold;
 		}
 		p {
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 			font-style: italic;
 		}
 	}
@@ -30,6 +31,7 @@ export const MenuHeaderStyles = styled.div`
 		}
 		img {
 			cursor: pointer;
+			width: 2.2rem;
 		}
 	}
 `

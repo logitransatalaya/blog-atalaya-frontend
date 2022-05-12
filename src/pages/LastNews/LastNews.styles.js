@@ -3,14 +3,13 @@ import styled from 'styled-components'
 export const LastNewStyles = styled.div`
 	position: relative;
 
-	padding-top: var(--m-3);
 	.num-page {
-		top: -6.5rem;
+		top: -5rem;
 		position: relative;
-		right: -3rem;
+		right: -2rem;
 		display: flex;
 		justify-content: flex-end;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		color: #fff;
 	}
 

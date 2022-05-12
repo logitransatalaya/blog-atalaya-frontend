@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { FormSavePostStyles } from './FormSavePost.styles'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import close from 'assets/icons/close2.svg'
 import { convertToSlug } from 'utils/slug'
-import { servicecreatePost } from 'store/Admin/posts/postApi'
+import { servicecreatePost, serviceUpdatePost } from 'store/Admin/posts/postApi'
 import { useAlert } from 'react-alert'
 import { CREATE_POST_RESET } from 'store/actions'
+
+const valuesInitial = { title:'',image:'', description:'', status:true}
+
 const schema = yup.object({
 	title: yup
 		.string()
@@ -30,10 +32,11 @@ const schema = yup.object({
 	status: yup.boolean()
 })
 
-const FrmSavePost = ({ onClose, content }) => {
+const FrmSavePost = ({ onClose, content,dataEdit }) => {
 	const dispatch = useDispatch()
 	const alert = useAlert()
 	const { message, error } = useSelector((state) => state.posts)
+   const [values, setValues] = useState(dataEdit ? dataEdit: valuesInitial)
 
 	const {
 		register,
@@ -41,7 +44,13 @@ const FrmSavePost = ({ onClose, content }) => {
 		formState: { errors }
 	} = useForm({
 		mode: 'onBlur',
-		resolver: yupResolver(schema)
+		resolver: yupResolver(schema),
+		defaultValues: {
+			title: values.title,
+			image:values.image,
+			description: values.description,
+			status: values.status
+		  }
 	})
 
 	useEffect(() => {
@@ -62,7 +71,13 @@ const FrmSavePost = ({ onClose, content }) => {
 
 	const onSubmit = (data) => {
 		const slug = convertToSlug(data.title)
-		dispatch(servicecreatePost({ ...data, slug, content }))
+		if(!dataEdit){
+			dispatch(servicecreatePost({ ...data, slug, content }))
+		}else{
+	
+           dispatch(serviceUpdatePost({ ...data, slug, content , slugEdit:values.slug}))
+		}
+		
 	}
 
 	return (
@@ -136,7 +151,7 @@ const FrmSavePost = ({ onClose, content }) => {
 						})}
 						type='checkbox'
 						name='status'
-						defaultChecked={true}
+						//defaultChecked={true}
 						className='checkbox'
 					/>
 

@@ -5,7 +5,7 @@ import { CertificateStyles } from './Certificates.styles'
 const Certificates = ({ handleClose, handleCertificate }) => {
 	return (
 		<CertificateStyles>
-			<h3 onClick={handleClose}>CERRAR</h3>
+			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
 				{[1, 2, 3, 45, 6, 7].map((item, index) => (

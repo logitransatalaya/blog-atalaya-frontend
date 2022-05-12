@@ -5,7 +5,9 @@ export const UsStyles = styled.div`
 	padding: 4rem 12rem;
 	border-radius: 1.5rem 1.5rem 0 0;
 	min-height: 80vh;
+	
 	.container-us {
+		justify-items: center;
 		margin-top: 8rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;

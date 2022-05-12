@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-
+import React from 'react'
 import { HomeStyles } from './Home.styles'
-import { useNavigate } from 'react-router-dom'
 import Search from 'components/Search'
 import { MODAL_OPEN } from 'store/actions'
 import { useDispatch } from 'react-redux'
@@ -21,7 +19,9 @@ const Home = () => {
 			<div className='searchbox'>
 				<Search handleSearch={() => handleModal(true)} />
 			</div>
+		
 			<Carousel />
+			
 			{/*	<Slider />*/}
 			<div className='social-media'>
 				<span>

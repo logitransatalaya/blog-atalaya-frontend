@@ -5,6 +5,7 @@ export const AlliesStyles = styled.div`
 	padding: 4rem 12rem;
 	border-radius:  1.5rem  1.5rem 0 0;
 	min-height: 80vh;
+	position: relative;
 	.container-allies{
 		width: 100%;
 		margin-top: 4rem;
@@ -16,9 +17,16 @@ export const AlliesStyles = styled.div`
 	
 	}
 	.add-ally {
-			position: fixed;
-			right: 6rem;
-			bottom:6rem;
+		position: absolute;
+		background:#0B2370 ;
+		right: 60px;
+		top: 380px;
+		padding: .5rem;
+		border: 3px solid #FFFFFF;
+		border-radius: 10px;
+		&:hover{
+			background: #E55C1E;
+		}
 		}
 	@media screen and (max-width: 767px) {
 	
@@ -26,17 +34,18 @@ export const AlliesStyles = styled.div`
 `
 
 export const CardAllyStyles = styled.div`
-	background:#fff;
+	background: #fff;
 	margin: 1rem;
-	border: 2px solid #ACACAC;
-border-radius: 1.5rem;
-padding: 1rem;
+	border: 2px solid #acacac;
+	border-radius: 1.5rem;
+	padding: 1rem;
+	cursor: pointer;
 
-.card-footer{
-	padding-top: 1rem;
-	display: flex;
-	gap: 3rem;
-}
+	.card-footer {
+		padding-top: 1rem;
+		display: flex;
+		gap: 3rem;
+	}
 	@media screen and (max-width: 767px) {
 	
 	}

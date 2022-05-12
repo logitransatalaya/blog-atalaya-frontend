@@ -47,11 +47,12 @@ const Login = () => {
 
 	return (
 		<LoginStyles state={state}>
+			<div className='box-login'>
 			<div className='box-logo'>
 				<img src={LogoAtalaya} alt='' />
 			</div>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<h2>Inicio de sesión</h2>
+				<h3>Inicio de sesión</h3>
 				<div>
 					<input
 						{...(register && { ...register('email') })}
@@ -92,6 +93,7 @@ const Login = () => {
 					</button>
 				</div>
 			</form>
+			</div>
 		</LoginStyles>
 	)
 }
