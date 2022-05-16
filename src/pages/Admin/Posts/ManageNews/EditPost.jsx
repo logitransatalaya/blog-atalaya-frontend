@@ -5,8 +5,11 @@ import JoditEditor from 'jodit-react'
 import FormSavePost from 'components/FormSavePost/'
 import Modal from 'components/Modal/'
 import { useDispatch, useSelector } from 'react-redux'
-import { serviceGetPostBySlug } from 'store/Admin/posts/postApi'
+import { deletePost, serviceGetPostBySlug } from 'store/Admin/posts/postApi'
 import { useParams } from 'react-router-dom'
+import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
+import basura from 'assets/icons/basura.svg'
+import FrmDeletePost from 'components/FormDeletePost'
 const config = {
 	readonly: false // all options from https://xdsoft.net/jodit/doc/
 }
@@ -14,14 +17,16 @@ const config = {
 export default function ManageNews() {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
-
-	const [open, setOpen] = useState(false)
+	const [removing, setRemoving] = useState(false)
 	const dispatch = useDispatch()
-	const { postSlug } = useSelector((state) => state.posts)
+	const { postSlug, error } = useSelector((state) => state.posts)
+	const { modalOpen } = useSelector((state) => state.customization)
 	let { slug } = useParams()
 
 	useEffect(() => {
-		dispatch(serviceGetPostBySlug(slug))
+		setTimeout(() => {
+			dispatch(serviceGetPostBySlug(slug))
+		}, 500)
 	}, [])
 
 	useEffect(() => {
@@ -30,32 +35,76 @@ export default function ManageNews() {
 		}
 	}, [postSlug])
 
+	useEffect(() => {
+		dispatch({
+			type: CREATE_POST_RESET
+		})
+	}, [])
+
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
+			{postSlug === null ? (
+				error ? (
+					<h1 className='not-found'>Publicación no encontrada.</h1>
+				) : (
+					<h1 className='loading'>Cargando...</h1>
+				)
+			) : (
+				<div className='container-editor'>
+					<div className='editor-head'>
+						<h2>Editar noticia</h2>
+						<div className='box-btn'>
+							<button
+								className='btn-save'
+								onClick={() => {
+									setRemoving(false)
+									dispatch({
+										type: MODAL_OPEN,
+										modalOpen: true
+									})
+								}}
+							>
+								Guardar
+							</button>
+							<button
+								className='btn-delete'
+								onClick={
+									() => {
+										setRemoving(true)
+										dispatch({
+											type: MODAL_OPEN,
+											modalOpen: true
+										})
+									}
+									//dispatch(deletePost(postSlug?.slug))
+								}
+							>
+								<img width='20px' src={basura} alt='' />
+							</button>
+						</div>
+					</div>
 
-			<div className='container-editor'>
-				<div>
-					<h1>Editar noticia</h1>
-					<button onClick={() => setOpen(true)}>Guardar</button>
+					<JoditEditor
+						ref={editor}
+						value={content}
+						config={config}
+						tabIndex={5} // tabIndex of textarea
+						onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+					/>
 				</div>
-
-				<JoditEditor
-					ref={editor}
-					value={content}
-					config={config}
-					tabIndex={5} // tabIndex of textarea
-					onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-				/>
-			</div>
-			{open && (
+			)}
+			{modalOpen && (
 				<Modal open head>
 					<div className='box-p'>
-						<FormSavePost
-							onClose={() => setOpen(false)}
-							content={content}
-							dataEdit={postSlug}
-						/>
+						{!removing ? (
+							<FormSavePost
+								content={content}
+								dataEdit={postSlug}
+							/>
+						) : (
+							<FrmDeletePost />
+						)}
 					</div>
 				</Modal>
 			)}

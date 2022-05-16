@@ -8,9 +8,9 @@ import close from 'assets/icons/close2.svg'
 import { convertToSlug } from 'utils/slug'
 import { servicecreatePost, serviceUpdatePost } from 'store/Admin/posts/postApi'
 import { useAlert } from 'react-alert'
-import { CREATE_POST_RESET } from 'store/actions'
+import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
 
-const valuesInitial = { title:'',image:'', description:'', status:true}
+const valuesInitial = { title: '', image: '', description: '', status: true }
 
 const schema = yup.object({
 	title: yup
@@ -32,11 +32,11 @@ const schema = yup.object({
 	status: yup.boolean()
 })
 
-const FrmSavePost = ({ onClose, content,dataEdit }) => {
+const FrmSavePost = ({ content, dataEdit }) => {
 	const dispatch = useDispatch()
 	const alert = useAlert()
 	const { message, error } = useSelector((state) => state.posts)
-   const [values, setValues] = useState(dataEdit ? dataEdit: valuesInitial)
+	const [values, setValues] = useState(dataEdit ? dataEdit : valuesInitial)
 
 	const {
 		register,
@@ -47,44 +47,40 @@ const FrmSavePost = ({ onClose, content,dataEdit }) => {
 		resolver: yupResolver(schema),
 		defaultValues: {
 			title: values.title,
-			image:values.image,
+			image: values.image,
 			description: values.description,
 			status: values.status
-		  }
+		}
 	})
-
-	useEffect(() => {
-		if (error) {
-			alert.error(message)
-			dispatch({ type: CREATE_POST_RESET })
-		}
-		if (!error && message) {
-			onClose()
-			alert.show(message)
-			dispatch({ type: CREATE_POST_RESET })
-		}
-	}, [error, message])
-
-	useEffect(() => {
-		dispatch({ type: CREATE_POST_RESET })
-	}, [])
 
 	const onSubmit = (data) => {
 		const slug = convertToSlug(data.title)
-		if(!dataEdit){
+		if (!dataEdit) {
 			dispatch(servicecreatePost({ ...data, slug, content }))
-		}else{
-	
-           dispatch(serviceUpdatePost({ ...data, slug, content , slugEdit:values.slug}))
+		} else {
+			dispatch(
+				serviceUpdatePost({
+					...data,
+					slug,
+					content,
+					slugEdit: values.slug
+				})
+			)
 		}
-		
 	}
 
 	return (
 		<FormSavePostStyles>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='head-form'>
-					<span onClick={onClose}>
+					<span
+						onClick={() =>
+							dispatch({
+								type: MODAL_OPEN,
+								modalOpen: false
+							})
+						}
+					>
 						<img src={close} alt='' />
 					</span>
 				</div>
@@ -165,7 +161,15 @@ const FrmSavePost = ({ onClose, content,dataEdit }) => {
 					<button className='btn-send' type='submit'>
 						Ok
 					</button>
-					<button onClick={onClose} className='btn-cacel'>
+					<button
+						onClick={() =>
+							dispatch({
+								type: MODAL_OPEN,
+								modalOpen: false
+							})
+						}
+						className='btn-cacel'
+					>
 						Cancelar
 					</button>
 				</div>

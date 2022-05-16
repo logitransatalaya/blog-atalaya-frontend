@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { SnackbarStyles } from './Snackbar.styles'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,25 +8,24 @@ import { SNACKBAR_RESET } from 'store/actions'
 const Snackbar = () => {
 	const alert = useAlert()
 	const dispatch = useDispatch()
-	const {isOpen , message, navType } = useSelector((state) => state.snackbar)
+	const { isOpen, message, navType } = useSelector((state) => state.snackbar)
 
 	useEffect(() => {
-		if(isOpen){
+		if (isOpen) {
 			switch (navType) {
 				case 'error':
 					alert.error(message)
-					break;
-			
+					break
+				case 'success':
+					alert.success(message)
+					break
 				default:
-					break;
+					break
 			}
-			dispatch ({type: SNACKBAR_RESET})
+			dispatch({ type: SNACKBAR_RESET })
 		}
-    
-     }, [isOpen])
+	}, [isOpen])
 
 	return null
-			
-	
 }
 export default Snackbar

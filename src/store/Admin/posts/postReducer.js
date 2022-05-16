@@ -4,10 +4,9 @@ import * as actionTypes from 'store/actions'
 export const initialState = {
 	posts: [],
 	postSlug: null,
-	error: null,
-	message: null,
-	page: 0,
-	endPost:false
+	page: -20,
+	endPost: false,
+	error: false
 }
 
 // ===========================|| POSTS REDUCER ||=========================== //
@@ -15,22 +14,22 @@ export const initialState = {
 const postsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.CREATE_POST_SUCCESS:
+			let newPost = action.data
 			return {
 				...state,
-				error: false,
-				message: action.message
+				posts: [newPost, ...state.posts]
 			}
-		case actionTypes.CREATE_POST_ERROR:
+		case actionTypes.GET_POST_ERROR:
 			return {
 				...state,
-				error: true,
-				message: action.message
+				error: true
 			}
+
 		case actionTypes.CREATE_POST_RESET:
 			return {
 				...state,
-				error: false,
-				message: null
+				postSlug: null,
+				error: false
 			}
 		case actionTypes.GET_POSTS_SUCCESS:
 			return {
@@ -42,9 +41,24 @@ const postsReducer = (state = initialState, action) => {
 		case actionTypes.GET_POST_SLUG_SUCCESS:
 			return {
 				...state,
-				postSlug: action.data,
+				postSlug: action.data
 			}
-			
+		case actionTypes.UPDATE_POST_SLUG_SUCCESS:
+			let post = action.data
+			return {
+				...state,
+				posts: state.posts.map((item) =>
+					item.id === post.id ? post : item
+				)
+			}
+		case actionTypes.DELETE_POST_SLUG_SUCCESS:
+			let slug = action.slug
+
+			return {
+				...state,
+				posts: state.posts.filter((item) => item.slug !== slug)
+			}
+
 		default:
 			return state
 	}

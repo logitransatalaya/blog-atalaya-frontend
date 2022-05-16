@@ -4,6 +4,8 @@ import { ManageNewsStyles } from './ManageNews.styles'
 import JoditEditor from 'jodit-react'
 import FormSavePost from 'components/FormSavePost/'
 import Modal from 'components/Modal/'
+import { useDispatch, useSelector } from 'react-redux'
+import { MODAL_OPEN } from 'store/actions'
 const config = {
 	readonly: false // all options from https://xdsoft.net/jodit/doc/
 }
@@ -11,14 +13,25 @@ const config = {
 export default function ManageNews() {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
-	const [open, setOpen] = useState(false)
-
+	const { modalOpen } = useSelector((state) => state.customization)
+	const dispatch = useDispatch()
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
 			<div className='container-editor'>
-				<div>
-					<button onClick={() => setOpen(true)}>Guardar</button>
+				<div className='editor-head'>
+					<h2>Nueva noticia</h2>
+					<button
+						className='btn-save'
+						onClick={() =>
+							dispatch({
+								type: MODAL_OPEN,
+								modalOpen: true
+							})
+						}
+					>
+						Guardar
+					</button>
 				</div>
 				<JoditEditor
 					ref={editor}
@@ -28,13 +41,10 @@ export default function ManageNews() {
 					onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
 				/>
 			</div>
-			{open && (
+			{modalOpen && (
 				<Modal open head>
 					<div className='box-p'>
-						<FormSavePost
-							onClose={() => setOpen(false)}
-							content={content}
-						/>
+						<FormSavePost content={content} />
 					</div>
 				</Modal>
 			)}

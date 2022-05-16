@@ -2,11 +2,13 @@ import axios from 'axios'
 import { baseURL, limit } from 'utils/constant'
 import {
 	CREATE_POST_SUCCESS,
-	CREATE_POST_ERROR,
 	GET_POSTS_SUCCESS,
 	GET_POST_SLUG_SUCCESS,
 	UPDATE_POST_SLUG_SUCCESS,
-	SNACKBAR_OPEN
+	SNACKBAR_OPEN,
+	MODAL_OPEN,
+	GET_POST_ERROR,
+	DELETE_POST_SLUG_SUCCESS
 } from 'store/actions'
 // third-party
 import jwtDecode from 'jwt-decode'
@@ -18,7 +20,7 @@ const servicecreatePost = (data) => async (dispatch) => {
 	const { sub } = jwtDecode(token)
 	const { content, description, slug, status, title, image } = data
 	try {
-		const response = await axios.post(`${baseURL}/api/v1/adm/posts/`, {
+		const { data } = await axios.post(`${baseURL}/api/v1/adm/posts/`, {
 			authorId: sub,
 			content,
 			description,
@@ -29,22 +31,43 @@ const servicecreatePost = (data) => async (dispatch) => {
 		})
 
 		dispatch({
+			type: SNACKBAR_OPEN,
+			message: 'Post created',
+			navType: 'success'
+		})
+		dispatch({
 			type: CREATE_POST_SUCCESS,
-			message: 'Post created'
+			data: data?.data
+		})
+		dispatch({
+			type: MODAL_OPEN,
+			modalOpen: false
 		})
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
-			dispatch({ type: CREATE_POST_ERROR, message })
 
+			if (error.response.status == 409) {
+				dispatch({
+					type: SNACKBAR_OPEN,
+					message: `${message} - Ingrese otro titulo`,
+					navType: 'error'
+				})
+			}
 			if (error.response.status == 401) {
-				dispatch({ type: CREATE_POST_ERROR, message: ' Unauthorized' })
+				dispatch({
+					type: SNACKBAR_OPEN,
+					message: 'Unauthorized',
+					navType: 'error'
+				})
+
 				//logout
 			}
 		} else if (error.request) {
 			dispatch({
-				type: CREATE_POST_ERROR,
-				message: ' The request was made but no response was received'
+				type: SNACKBAR_OPEN,
+				message: ' The request was made but no response was received',
+				navType: 'error'
 			})
 		} else {
 			// Something happened in setting up the request that triggered an Error
@@ -78,6 +101,7 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 		dispatch({ type: GET_POST_SLUG_SUCCESS, data })
 	} catch (error) {
 		console.log(error)
+		dispatch({ type: GET_POST_ERROR })
 	}
 }
 
@@ -100,19 +124,57 @@ const serviceUpdatePost = (data) => async (dispatch) => {
 			}
 		)
 
-		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data })
+		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data: data?.data })
 		dispatch({
 			type: SNACKBAR_OPEN,
-			navType: 'error',
+			navType: 'success',
 			message: 'POST UPDATE'
 		})
+		dispatch({
+			type: MODAL_OPEN,
+			modalOpen: false
+		})
 	} catch (error) {
-		console.log(error)
+		if (error.response) {
+			const { message } = error.response.data
+			dispatch({
+				type: SNACKBAR_OPEN,
+				message: message,
+				navType: 'error'
+			})
+		} else {
+			dispatch({
+				type: SNACKBAR_OPEN,
+				message: ' The request was made but no response was received',
+				navType: 'error'
+			})
+		}
 	}
+}
+
+const deletePost = (slug) => async (dispatch) => {
+	const token = window.localStorage.getItem('token')
+	axios.defaults.headers.common.Authorization = `Bearer ${token}`
+	try {
+		const { data } = await axios.delete(
+			`${baseURL}/api/v1/adm/posts/${slug}`
+		)
+		dispatch({
+			type: SNACKBAR_OPEN,
+			navType: 'success',
+			message: data.message
+		})
+
+		dispatch({
+			type: DELETE_POST_SLUG_SUCCESS,
+			slug: data?.slug
+		})
+	} catch (error) {}
 }
 export {
 	servicecreatePost,
 	serviceGetPosts,
 	serviceGetPostBySlug,
-	serviceUpdatePost
+	serviceUpdatePost,
+	deletePost
 }
