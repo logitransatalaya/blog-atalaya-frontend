@@ -38,7 +38,7 @@ const MainRoutes = {
 				},
 				{
 					path: 'posts/edit/:slug',
-					element: <ManageNewsEdit/>
+					element: <ManageNewsEdit />
 				},
 				{
 					path: 'allies',

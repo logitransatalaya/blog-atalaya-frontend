@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const AlieStyles = styled.div`
-	
 	.box-allies {
 		margin-top: 6rem;
 		min-height: 40vh;
@@ -20,23 +19,22 @@ export const AlieStyles = styled.div`
 			border: 1px solid #707070;
 			border-radius: 18px;
 			justify-content: space-between;
-	
-			.card-head{
+
+			.card-head {
 				margin-right: 2rem;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				.title-ally {
-				font-size: 1.8rem;
-				color: #0f216f;
-				padding-bottom: 0.5rem;
+					font-size: 1.8rem;
+					color: #0f216f;
+					padding-bottom: 0.5rem;
+				}
+				.description-ally {
+					font-size: 1.2rem;
+					color: #707070;
+				}
 			}
-			.description-ally {
-				font-size: 1.2rem;
-				color: #707070;
-			}
-			}
-			
 		}
 		.logo-ally {
 			box-shadow: 0px 3px 6px #00000029;

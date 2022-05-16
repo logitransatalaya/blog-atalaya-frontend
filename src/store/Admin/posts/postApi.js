@@ -54,17 +54,15 @@ const servicecreatePost = (data) => async (dispatch) => {
 }
 
 const serviceGetPosts = (offset) => async (dispatch) => {
-	
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		
 		const { data } = await axios.get(
-			`${baseURL}/api/v1/adm/posts?limit=${limit}&offset=${offset}`
+			`${baseURL}/api/v1/adm/posts?limit=${20}&offset=${offset}`
 		)
 		if (Array.isArray(data)) {
-			let endPost = data.length == 0 ? true: false;
-			dispatch({ type: GET_POSTS_SUCCESS, data, page: offset ,endPost})
+			let endPost = data.length == 0 ? true : false
+			dispatch({ type: GET_POSTS_SUCCESS, data, page: offset, endPost })
 		}
 	} catch (error) {
 		console.log(error)
@@ -72,17 +70,12 @@ const serviceGetPosts = (offset) => async (dispatch) => {
 }
 
 const serviceGetPostBySlug = (slug) => async (dispatch) => {
-	
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		
-		const { data } = await axios.get(
-			`${baseURL}/api/v1/adm/posts/${slug}`
-		)
-	
-		dispatch({ type: GET_POST_SLUG_SUCCESS, data})
-		
+		const { data } = await axios.get(`${baseURL}/api/v1/adm/posts/${slug}`)
+
+		dispatch({ type: GET_POST_SLUG_SUCCESS, data })
 	} catch (error) {
 		console.log(error)
 	}
@@ -92,9 +85,8 @@ const serviceUpdatePost = (data) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	const { sub } = jwtDecode(token)
-	const { content, description, slug, status, title,slugEdit,image } = data
+	const { content, description, slug, status, title, slugEdit, image } = data
 	try {
-		
 		const { data } = await axios.patch(
 			`${baseURL}/api/v1/adm/posts/${slugEdit}`,
 			{
@@ -106,13 +98,21 @@ const serviceUpdatePost = (data) => async (dispatch) => {
 				title,
 				image
 			}
-			)
-			
-		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data})
-		dispatch({ type: SNACKBAR_OPEN,navType:'error', message:'POST UPDATE'})
-		
+		)
+
+		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data })
+		dispatch({
+			type: SNACKBAR_OPEN,
+			navType: 'error',
+			message: 'POST UPDATE'
+		})
 	} catch (error) {
 		console.log(error)
 	}
 }
-export { servicecreatePost, serviceGetPosts ,serviceGetPostBySlug,serviceUpdatePost}
+export {
+	servicecreatePost,
+	serviceGetPosts,
+	serviceGetPostBySlug,
+	serviceUpdatePost
+}

@@ -5,25 +5,23 @@ export default styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	height: 450px;
+	height: 500px;
 	width: 100%;
 	color: #fff;
-	margin: 0 5rem;
+	margin: 0 2rem;
 
 	transition: ${({ midItemIndex, idx }) =>
 		midItemIndex === idx ? 'transform 700ms ease' : 'transform 300ms ease'};
 	transform: ${({ midItemIndex, idx }) =>
-		midItemIndex === idx ? 'scale(1.3)' : 'scale(1)'};
+		midItemIndex === idx ? 'scale(1)' : 'scale(.8)'};
 
 	> img {
 		cursor: pointer;
-		border-top-left-radius: ${({ midItemIndex, idx }) =>
-			midItemIndex === idx ? '3vmin' : '4rem'};
-		border-top-right-radius: ${({ midItemIndex, idx }) =>
-			midItemIndex === idx ? '3vmin' : '4rem'};
+		border-top-left-radius: 4rem;
+		border-top-right-radius: 4vmin;
 		object-fit: cover;
 		width: 100%;
-		height: 280px;
+		height: 85%;
 	}
 	.title {
 		cursor: pointer;
@@ -35,18 +33,15 @@ export default styled.div`
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		transform: scale(1);
 	}
 
 	@media screen and (max-width: 767px) {
 		padding: 0;
-		margin: 5px;
+		margin: 15px;
 		transform: scale(1);
 		> img {
-			border-radius: {
-				border-radius: 4rem 4rem 0 0;
-			
-			}
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
 		}
 	}
 `

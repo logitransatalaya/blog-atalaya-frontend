@@ -4,8 +4,8 @@ export const UsStyles = styled.div`
 	background: #fff;
 	padding: 4rem 12rem;
 	border-radius: 1.5rem 1.5rem 0 0;
-	min-height: 80vh;
-	
+	min-height: 70rem;
+
 	.container-us {
 		justify-items: center;
 		margin-top: 8rem;

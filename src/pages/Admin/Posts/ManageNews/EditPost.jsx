@@ -14,24 +14,22 @@ const config = {
 export default function ManageNews() {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
+
 	const [open, setOpen] = useState(false)
 	const dispatch = useDispatch()
 	const { postSlug } = useSelector((state) => state.posts)
 	let { slug } = useParams()
-  
 
-    useEffect(() => {
+	useEffect(() => {
 		dispatch(serviceGetPostBySlug(slug))
-
 	}, [])
 
 	useEffect(() => {
-		if(postSlug){
+		if (postSlug) {
 			setContent(postSlug.content)
 		}
 	}, [postSlug])
-	
-	
+
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
@@ -41,12 +39,12 @@ export default function ManageNews() {
 					<h1>Editar noticia</h1>
 					<button onClick={() => setOpen(true)}>Guardar</button>
 				</div>
-				 
+
 				<JoditEditor
 					ref={editor}
 					value={content}
 					config={config}
-					tabIndex={1} // tabIndex of textarea
+					tabIndex={5} // tabIndex of textarea
 					onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
 				/>
 			</div>
@@ -56,7 +54,7 @@ export default function ManageNews() {
 						<FormSavePost
 							onClose={() => setOpen(false)}
 							content={content}
-							dataEdit = {postSlug}
+							dataEdit={postSlug}
 						/>
 					</div>
 				</Modal>

@@ -26,9 +26,12 @@ const CarouselC = () => {
 	return (
 		<CarouselStyles>
 			<Carousel
-				easing='cubic-bezier(1,.15,.55,1.54)'
-				tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
-				transitionMs={8}
+				//	easing='cubic-bezier(1,.15,.55,1.54)'
+				//	tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
+				//	transitionMs={8}
+				easing='cubic-bezier(.51,.92,.24,1.15)'
+				tiltEasing='cubic-bezier(.51,.92,.24,1.15)'
+				transitionMs={200}
 				breakPoints={breakPoints}
 				itemsToShow={itemsToShow}
 				onNextStart={onChange}

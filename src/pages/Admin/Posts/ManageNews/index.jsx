@@ -12,11 +12,10 @@ export default function ManageNews() {
 	const editor = useRef(null)
 	const [content, setContent] = useState('')
 	const [open, setOpen] = useState(false)
-	
+
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
-
 			<div className='container-editor'>
 				<div>
 					<button onClick={() => setOpen(true)}>Guardar</button>
@@ -25,7 +24,7 @@ export default function ManageNews() {
 					ref={editor}
 					value={content}
 					config={config}
-					tabIndex={1} // tabIndex of textarea
+					tabIndex={5} // tabIndex of textarea
 					onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
 				/>
 			</div>
