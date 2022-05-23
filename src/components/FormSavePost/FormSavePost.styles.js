@@ -27,7 +27,10 @@ export const FormSavePostStyles = styled.div`
 			top: -20px;
 			position: relative;
 			span {
+				padding: 0.8rem 0.9rem 0.5rem;
 				cursor: pointer;
+				border: 2px solid #0b2370;
+				border-radius: 5px;
 			}
 		}
 		.col-25 {

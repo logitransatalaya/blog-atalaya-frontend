@@ -9,6 +9,8 @@ import ManageNewsEdit from 'pages/Admin/Posts/ManageNews/EditPost'
 import Allies from 'pages/Admin/Allies/index'
 import AllyForm from 'pages/Admin/Allies/AlliForm/index'
 import Us from 'pages/Admin/Us/index'
+import MissionAdm from 'pages/Admin/Us/Mission/index'
+import VisionAdm from 'pages/Admin/Us/Vision/index'
 import Certificates from 'pages/Admin/Us/Certificates/index'
 
 import Profile from 'pages/Admin/Profile/'
@@ -55,6 +57,14 @@ const MainRoutes = {
 				{
 					path: 'us/certificates',
 					element: <Certificates />
+				},
+				{
+					path: 'us/mission',
+					element: <MissionAdm />
+				},
+				{
+					path: 'us/vision',
+					element: <VisionAdm />
 				},
 				{
 					path: 'profile',

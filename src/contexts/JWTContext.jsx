@@ -105,7 +105,7 @@ export const JWTProvider = ({ children }) => {
 					const response = await axios.get(
 						`${baseURL}/api/v1/users/${sub}`
 					)
-					const { user } = response.data
+					const user = response.data
 					dispatch({
 						type: ACCOUNT_INITIALIZE,
 						payload: {

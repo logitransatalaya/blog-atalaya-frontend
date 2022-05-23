@@ -64,7 +64,9 @@ export default function Profile() {
 
 	return (
 		<ProfileStyles>
-			<h2>Perfil</h2>
+			<div className='title-profile'>
+				<h2>Perfil</h2>
+			</div>
 			<div className='container-profile'>
 				<div className='box-profile-data'>
 					<div>

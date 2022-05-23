@@ -8,10 +8,11 @@ export const UsStyles = styled.div`
 
 	.container-us {
 		justify-items: center;
-		margin-top: 8rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-gap: 3rem;
+		margin: 8rem auto auto;
+		max-width: 130rem;
 	}
 
 	@media screen and (max-width: 767px) {

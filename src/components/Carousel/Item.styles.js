@@ -5,7 +5,7 @@ export default styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	height: 500px;
+	height: 100%;
 	width: 100%;
 	color: #fff;
 	margin: 0 2rem;
@@ -21,12 +21,12 @@ export default styled.div`
 		border-top-right-radius: 4vmin;
 		object-fit: cover;
 		width: 100%;
-		height: 85%;
+		height: 400px;
 	}
 	.title {
 		cursor: pointer;
 		width: 100%;
-		height: 10%;
+		padding: 1.5rem;
 		background: var(--primary);
 		color: var(--white);
 		display: flex;

@@ -5,7 +5,7 @@ import JoditEditor from 'jodit-react'
 import FormSavePost from 'components/FormSavePost/'
 import Modal from 'components/Modal/'
 import { useDispatch, useSelector } from 'react-redux'
-import { deletePost, serviceGetPostBySlug } from 'store/Admin/posts/postApi'
+import { serviceGetPostBySlug } from 'store/Admin/posts/postApi'
 import { useParams } from 'react-router-dom'
 import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
 import basura from 'assets/icons/basura.svg'
@@ -69,16 +69,13 @@ export default function ManageNews() {
 							</button>
 							<button
 								className='btn-delete'
-								onClick={
-									() => {
-										setRemoving(true)
-										dispatch({
-											type: MODAL_OPEN,
-											modalOpen: true
-										})
-									}
-									//dispatch(deletePost(postSlug?.slug))
-								}
+								onClick={() => {
+									setRemoving(true)
+									dispatch({
+										type: MODAL_OPEN,
+										modalOpen: true
+									})
+								}}
 							>
 								<img width='20px' src={basura} alt='' />
 							</button>

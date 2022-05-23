@@ -2,34 +2,38 @@ import React, { useEffect, useState } from 'react'
 import LandscapeMenu from 'components/LandscapeMenu/index'
 import { CardUsStyles, UsStyles } from './Us.styles'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { serviceGetUs } from 'store/Admin/us/usApi'
+
+const data = [
+	{
+		id: 0,
+		title: 'Misión',
+		url: 'mission',
+		name: 'mision'
+	},
+	{
+		id: 1,
+		title: 'Visión',
+		url: 'vision',
+		name: 'vision'
+	},
+	{
+		id: 2,
+		title: 'Certificados',
+		url: 'certificates',
+		name: 'certificados'
+	}
+]
 
 export default function Us() {
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
+	const { us } = useSelector((state) => state.us)
 
-	const data = [
-		{
-			id: 1,
-			title: 'Misión',
-			url: 'vision',
-			editionDate: '03/05/2022',
-			admEditor: 'Administrador 1'
-		},
-		{
-			id: 2,
-			title: 'Visión',
-			url: 'vision',
-			editionDate: '03/05/2022',
-			admEditor: 'Administrador 2'
-		},
-		{
-			id: 3,
-			url: 'certificates',
-			title: 'Certificados',
-			editionDate: '03/05/2022',
-			admEditor: 'Administrador 1'
-		}
-	]
-
+	useEffect(() => {
+		dispatch(serviceGetUs())
+	}, [])
 	return (
 		<UsStyles>
 			<LandscapeMenu active={2} />
@@ -43,8 +47,8 @@ export default function Us() {
 							<h2>{item.title}</h2>
 						</div>
 						<div className='card-footer'>
-							<p>Fecha: {item.editionDate}</p>
-							<p>Ultima edición: {item.admEditor}</p>
+							<p>Fecha: {us[item.name]?.updatedAt}</p>
+							<p>Ultima edición: {us[item.name]?.firstName}</p>
 						</div>
 					</CardUsStyles>
 				))}

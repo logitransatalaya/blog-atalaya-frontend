@@ -11,21 +11,30 @@ export const MainLayoutStyles = styled.div`
 	backdrop-filter: blur(3px);
 	main {
 		padding: 0 10rem;
-		.box-log{
+		.box-log {
 			padding-top: 3rem;
 		}
-		.box-admin{
+		.box-admin {
 			width: 100%;
-			color:#fff;
+			color: #fff;
 			padding: 0 2rem 1rem;
 			display: grid;
 			grid-template-columns: 1fr 3fr 1fr;
-			.searchbox{
+			.admin-action {
+				font-size: 1.2rem;
+				> a {
+					color: #fff;
+					text-decoration: none;
+					display: block;
+					cursor: pointer;
+					margin: 0.2rem;
+				}
+			}
+			.searchbox {
 				justify-content: center;
 				display: flex;
 				height: fit-content;
 			}
-		}	
+		}
 	}
-	
 `

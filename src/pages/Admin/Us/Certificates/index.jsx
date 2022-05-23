@@ -14,21 +14,24 @@ export default function Allies() {
 		<CertificatesStyles>
 			<LandscapeMenu active={2} />
 			<div className='add-certificate'>
-					<Link to={'/admin/certificate-form'}>	<img src={iconMas} alt="" /></Link>{' '}
+				<Link to={'/admin/certificate-form'}>
+					{' '}
+					<img src={iconMas} alt='' />
+				</Link>{' '}
+			</div>
+			<div className='ct-us'>
+				<h4>Certificados</h4>
+				<div className='contenedor'>
+					{data.map((item) => (
+						<CardCertificatesStyles key={item}>
+							<h4>Lorem ipsum dolor</h4>
+							<div className='card-footer'>
+								<p>Publicado por: {'Administrador 1'}</p>
+								<p>Fecha : {'26/06/2022'}</p>
+							</div>
+						</CardCertificatesStyles>
+					))}
 				</div>
-			<h4>Certificados</h4>
-			<div className='container-certificates'>
-				{data.map((item) => (
-					<CardCertificatesStyles key={item}>
-						<h4>Lorem ipsum dolor</h4>
-						<div className='card-footer'>
-							<p>Publicado por: {'Administrador 1'}</p>
-							<p>Fecha : {'26/06/2022'}</p>
-						</div>
-					</CardCertificatesStyles>
-				))}
-
-				
 			</div>
 		</CertificatesStyles>
 	)

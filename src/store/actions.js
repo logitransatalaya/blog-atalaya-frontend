@@ -62,3 +62,12 @@ export const GET_POSTS_SUCCESS = '@/post/GET_POSTS_SUCCESS'
 export const GET_POST_SLUG_SUCCESS = '@/post/GET_POST_SLUG_SUCCESS'
 export const UPDATE_POST_SLUG_SUCCESS = '@/post/UPDATE_POST_SLUG_SUCCESS'
 export const DELETE_POST_SLUG_SUCCESS = '@/post/DELETE_POST_SLUG_SUCCESS'
+
+//action - company identity
+export const GET_MISSION_SUCCESS = '@/us/GET_MISSION_SUCCESS'
+export const GET_MISSION_ERROR = '@/us/GET_MISSION_ERROR'
+export const RESET_MISSION = '@/us/RESET_MISSION'
+export const GET_VISION_SUCCESS = '@/us/GET_VISION_SUCCESS'
+export const GET_VISION_ERROR = '@/us/GET_VISION_ERROR'
+export const RESET_VISION = '@/us/RESET_VISION'
+export const GET_US_SUCCESS = '@/us/GET_US_SUCCESS'

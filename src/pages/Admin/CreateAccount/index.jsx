@@ -57,7 +57,9 @@ export default function Profile() {
 
 	return (
 		<CreateAccountStyles>
-			<h2>Crear cuenta</h2>
+			<div className='title-create-account'>
+				<h2>Crear cuenta</h2>
+			</div>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='col-25'>

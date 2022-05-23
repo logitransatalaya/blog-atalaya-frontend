@@ -24,9 +24,20 @@ export const FormDeletePostStyles = styled.div`
 			top: -20px;
 			position: relative;
 			span {
-				border: 1px solid #4554;
-				padding: 0.5rem;
+				padding: 0.8rem 0.9rem 0.5rem;
 				cursor: pointer;
+				border: 2px solid #0b2370;
+				border-radius: 5px;
+			}
+		}
+		.content-form {
+			display: flex;
+			justify-content: center;
+			.title {
+				margin-bottom: 2rem;
+			}
+			.s-delete {
+				color: #e55c1e;
 			}
 		}
 	}

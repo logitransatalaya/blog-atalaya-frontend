@@ -19,8 +19,9 @@ const Home = () => {
 			<div className='searchbox'>
 				<Search handleSearch={() => handleModal(true)} />
 			</div>
-
-			<Carousel />
+			<div className='cont-carousel'>
+				<Carousel />
+			</div>
 
 			{/*	<Slider />*/}
 			<div className='social-media'>

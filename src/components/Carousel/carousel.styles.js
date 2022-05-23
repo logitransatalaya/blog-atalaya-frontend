@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
 export const CarouselStyles = styled.div`
-	margin: auto;
-	margin-top: 3rem;
-	padding: 0 2rem;
-	height: 70vh;
+	padding: 5rem 2rem;
 	align-items: center;
 	display: flex;
 

@@ -9,6 +9,7 @@ import { convertToSlug } from 'utils/slug'
 import { servicecreatePost, serviceUpdatePost } from 'store/Admin/posts/postApi'
 import { useAlert } from 'react-alert'
 import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
+import { useNavigate } from 'react-router-dom'
 
 const valuesInitial = { title: '', image: '', description: '', status: true }
 
@@ -37,7 +38,7 @@ const FrmSavePost = ({ content, dataEdit }) => {
 	const alert = useAlert()
 	const { message, error } = useSelector((state) => state.posts)
 	const [values, setValues] = useState(dataEdit ? dataEdit : valuesInitial)
-
+	const navigate = useNavigate()
 	const {
 		register,
 		handleSubmit,
@@ -56,15 +57,18 @@ const FrmSavePost = ({ content, dataEdit }) => {
 	const onSubmit = (data) => {
 		const slug = convertToSlug(data.title)
 		if (!dataEdit) {
-			dispatch(servicecreatePost({ ...data, slug, content }))
+			dispatch(servicecreatePost({ ...data, slug, content }, navigate))
 		} else {
 			dispatch(
-				serviceUpdatePost({
-					...data,
-					slug,
-					content,
-					slugEdit: values.slug
-				})
+				serviceUpdatePost(
+					{
+						...data,
+						slug,
+						content,
+						slugEdit: values.slug
+					},
+					navigate
+				)
 			)
 		}
 	}

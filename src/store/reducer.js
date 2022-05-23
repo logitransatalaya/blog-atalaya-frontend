@@ -7,6 +7,8 @@ import NewsReducer from './newsReducer'
 import ProfileReducer from './Admin/profileReducer'
 import Posts from './Admin/posts/postReducer'
 import snackbarReducer from './snackbarReducer'
+import usReducer from './Admin/us/usReducer'
+
 // ===========================|| COMBINE REDUCER ||=========================== //
 
 const reducer = combineReducers({
@@ -14,7 +16,8 @@ const reducer = combineReducers({
 	lastNews: NewsReducer,
 	profile: ProfileReducer,
 	posts: Posts,
-	snackbar:snackbarReducer
+	snackbar: snackbarReducer,
+	us: usReducer
 })
 
 export default reducer

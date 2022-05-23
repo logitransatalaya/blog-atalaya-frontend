@@ -1,26 +1,29 @@
 import styled from 'styled-components'
-
 export const CreateAccountStyles = styled.div`
-	margin: 0 10rem;
 	background: #fff;
-	color: #0b2370;
 	padding: 4rem 12rem;
-	border-radius: 10px;
-	min-height: 80vh;
-	h2 {
-		padding: 2rem 5rem 6rem 5rem;
+	border-radius: 1.5rem 1.5rem 0 0;
+	position: relative;
+	min-height: 70rem;
+	.title-create-account {
+		padding: 2rem 5rem 5rem 5rem;
+		> h2 {
+			width: fit-content;
+			background: #dddddd;
+			border-radius: 19px;
+			padding: 1rem 1.5rem;
+			color: #0b2370;
+		}
 	}
 	form {
 		display: grid;
-
 		grid-template-columns: 200px 1fr;
 		grid-gap: 16px;
-
 		.col-25 {
 			h4 {
+				color: #0b2370;
 				padding-top: 1rem;
 			}
-
 			text-align: end;
 		}
 		.col-75 {
@@ -56,7 +59,6 @@ export const CreateAccountStyles = styled.div`
 			}
 		}
 	}
-
 	@media screen and (max-width: 767px) {
 		margin: 0;
 		background: #fff;

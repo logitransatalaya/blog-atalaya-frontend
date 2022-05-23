@@ -3,9 +3,14 @@ import { FormDeletePostStyles } from './FormDeletePost.styles'
 import { useDispatch, useSelector } from 'react-redux'
 import close from 'assets/icons/close2.svg'
 import { MODAL_OPEN } from 'store/actions'
+import { serviceDeletePost } from 'store/Admin/posts/postApi'
+import { useNavigate } from 'react-router-dom'
 
 const FrmDeletePost = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	const { postSlug } = useSelector((state) => state.posts)
+
 	return (
 		<FormDeletePostStyles>
 			<div className='box-content'>
@@ -22,10 +27,23 @@ const FrmDeletePost = () => {
 					</span>
 				</div>
 				<div className='content-form'>
-					<h2>Estas seguro que quieres eliminar esta noticia?</h2>
+					<h2 className='title'>
+						¿Estás seguro de que quieres{' '}
+						<span className='ms-delete'>eliminar</span> esta
+						noticia?
+					</h2>
 				</div>
 				<div className='box-actions'>
-					<button className='btn-send'>Ok</button>
+					<button
+						className='btn-send'
+						onClick={() => {
+							dispatch(
+								serviceDeletePost(postSlug?.slug, navigate)
+							)
+						}}
+					>
+						Ok
+					</button>
 					<button
 						onClick={() =>
 							dispatch({

@@ -27,7 +27,7 @@ export default function LastNews() {
 			<Link className='add-post' to={'manage-news'}>
 				<img src={iconMas} alt='' />
 			</Link>
-			<div className='container-posts'>
+			<div className='contenedor'>
 				{posts.map((item) => (
 					<CardPostStyles
 						key={item.id}

@@ -1,14 +1,20 @@
 import styled from 'styled-components'
-
 export const ProfileStyles = styled.div`
-	margin: 0 10rem;
 	background: #fff;
-	color: #0b2370;
 	padding: 4rem 12rem;
-	border-radius: 10px;
-	min-height: 80vh;
-	h2 {
-		padding: 2rem 5rem;
+	border-radius: 1.5rem 1.5rem 0 0;
+	position: relative;
+	min-height: 70rem;
+	.title-profile {
+		margin: 2rem 5rem;
+		> h2 {
+			width: fit-content;
+			background: #dddddd;
+			border-radius: 19px;
+			padding: 1rem 1.5rem;
+			color: #0b2370;
+			margin-bottom: 4rem;
+		}
 	}
 	.container-profile {
 		display: grid;
@@ -26,9 +32,11 @@ export const ProfileStyles = styled.div`
 			margin: 1.5rem 0;
 			align-items: center;
 			gap: 2rem;
+			> h4 {
+				color: #0b2370;
+			}
 		}
 	}
-
 	.typography {
 		background: #ffffff;
 		border: 2px solid #acacac;
@@ -55,7 +63,8 @@ export const ProfileStyles = styled.div`
 		box-shadow: 0px 0px 3px #0b2370;
 		border-radius: 19px;
 		padding: 4rem 2rem;
-		max-width: 40rem;
+		max-width: 38rem;
+		margin-left: 3rem;
 		div {
 			input {
 				margin-top: 2rem;
@@ -65,7 +74,6 @@ export const ProfileStyles = styled.div`
 				padding: 1rem;
 			}
 		}
-
 		.save-password {
 			margin-top: 3rem;
 			text-align: center;
@@ -83,7 +91,6 @@ export const ProfileStyles = styled.div`
 				}
 			}
 		}
-		
 		.error-message {
 			padding: 0.5rem;
 		}

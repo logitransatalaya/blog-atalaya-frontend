@@ -2,13 +2,17 @@ import styled from 'styled-components'
 
 export const HomeStyles = styled.main`
 	width: 100%;
-	height: 90vh;
-	
 	.searchbox {
-		margin: auto;
-
 		display: flex;
 		justify-content: center;
+		margin-bottom: 2rem;
+	}
+	.cont-carousel {
+		min-height: 70vh;
+		align-items: center;
+		display: grid;
+		max-width: 90%;
+		margin: auto;
 	}
 	.social-media {
 		position: relative;

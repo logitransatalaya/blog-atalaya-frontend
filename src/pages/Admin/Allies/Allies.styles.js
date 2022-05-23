@@ -6,14 +6,15 @@ export const AlliesStyles = styled.div`
 	border-radius: 1.5rem 1.5rem 0 0;
 	min-height: 70rem;
 	position: relative;
-	.container-allies {
+	.contenedor {
 		width: 100%;
-		margin-top: 4rem;
+		margin: 4rem auto auto;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		max-height: 50vh;
 		overflow-y: scroll;
 		position: relative;
+		max-width: 130rem;
 	}
 	.add-ally {
 		position: absolute;

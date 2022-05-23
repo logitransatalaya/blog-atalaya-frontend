@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { baseURL, limit } from 'utils/constant'
+
 import {
 	CREATE_POST_SUCCESS,
 	GET_POSTS_SUCCESS,
@@ -13,7 +14,7 @@ import {
 // third-party
 import jwtDecode from 'jwt-decode'
 
-const servicecreatePost = (data) => async (dispatch) => {
+const servicecreatePost = (data, history) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
@@ -43,6 +44,7 @@ const servicecreatePost = (data) => async (dispatch) => {
 			type: MODAL_OPEN,
 			modalOpen: false
 		})
+		history('/admin/posts')
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
@@ -105,7 +107,7 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 	}
 }
 
-const serviceUpdatePost = (data) => async (dispatch) => {
+const serviceUpdatePost = (data, history) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	const { sub } = jwtDecode(token)
@@ -134,6 +136,7 @@ const serviceUpdatePost = (data) => async (dispatch) => {
 			type: MODAL_OPEN,
 			modalOpen: false
 		})
+		history('/admin/posts')
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
@@ -152,7 +155,7 @@ const serviceUpdatePost = (data) => async (dispatch) => {
 	}
 }
 
-const deletePost = (slug) => async (dispatch) => {
+const serviceDeletePost = (slug, history) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
@@ -169,6 +172,11 @@ const deletePost = (slug) => async (dispatch) => {
 			type: DELETE_POST_SLUG_SUCCESS,
 			slug: data?.slug
 		})
+		dispatch({
+			type: MODAL_OPEN,
+			modalOpen: false
+		})
+		history('/admin/posts')
 	} catch (error) {}
 }
 export {
@@ -176,5 +184,5 @@ export {
 	serviceGetPosts,
 	serviceGetPostBySlug,
 	serviceUpdatePost,
-	deletePost
+	serviceDeletePost
 }

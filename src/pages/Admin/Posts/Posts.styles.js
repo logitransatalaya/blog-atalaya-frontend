@@ -6,16 +6,17 @@ export const PostStyles = styled.div`
 	border-radius: 1.5rem 1.5rem 0 0;
 	position: relative;
 	min-height: 70rem;
-	.container-posts {
+	.contenedor {
 		width: 100%;
-		margin-top: 4rem;
+		margin: 4rem auto auto;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-
+		max-width: 130rem;
 		max-height: 50vh;
 		overflow-y: scroll;
 		position: relative;
 	}
+
 	.add-post {
 		position: absolute;
 		background: #0b2370;

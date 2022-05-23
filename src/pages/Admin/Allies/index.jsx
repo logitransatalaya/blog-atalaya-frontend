@@ -5,15 +5,18 @@ import { Link } from 'react-router-dom'
 import iconMas from 'assets/icons/mas.svg'
 
 export default function Allies() {
-	const data = [1, 2, 3, 4]
+	const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 20, 8, 7, 7]
 
 	return (
 		<AlliesStyles>
 			<LandscapeMenu active={3} />
 			<div className='add-ally'>
-					<Link to={'/admin/ally-form'}>	<img src={iconMas} alt="" />	</Link>{' '}
-				</div>
-			<div className='container-allies'>
+				<Link to={'/admin/ally-form'}>
+					{' '}
+					<img src={iconMas} alt='' />{' '}
+				</Link>{' '}
+			</div>
+			<div className='contenedor'>
 				{data.map((item) => (
 					<CardAllyStyles key={item}>
 						<h4>Lorem ipsum dolor</h4>
@@ -23,7 +26,6 @@ export default function Allies() {
 						</div>
 					</CardAllyStyles>
 				))}
-
 			</div>
 		</AlliesStyles>
 	)

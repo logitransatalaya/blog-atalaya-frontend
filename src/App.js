@@ -18,12 +18,12 @@ const options = {
 	}
 }
 
-const App = () => {
+function App() {
 	return (
 		<JWTProvider>
 			<AlertProvider template={AlertTemplate} {...options}>
 				<Routes />
-				<Snackbar/>
+				<Snackbar />
 			</AlertProvider>
 		</JWTProvider>
 	)

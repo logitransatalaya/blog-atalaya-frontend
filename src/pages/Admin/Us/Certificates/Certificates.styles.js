@@ -6,12 +6,17 @@ export const CertificatesStyles = styled.div`
 	border-radius: 1.5rem 1.5rem 0 0;
 	min-height: 80vh;
 	position: relative;
-	>h4{
-		margin-top: 4rem;
-		padding-left: 1rem;
-		color: #0B2370;
+
+	.ct-us {
+		margin: auto;
+		max-width: 130rem;
+		> h4 {
+			margin-top: 4rem;
+			padding-left: 1rem;
+			color: #0b2370;
+		}
 	}
-	.container-certificates {
+	.contenedor {
 		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -21,14 +26,14 @@ export const CertificatesStyles = styled.div`
 	}
 	.add-certificate {
 		position: absolute;
-		background:#0B2370 ;
+		background: #0b2370;
 		right: 60px;
 		top: 380px;
-		padding: .5rem;
-		border: 3px solid #FFFFFF;
+		padding: 0.5rem;
+		border: 3px solid #ffffff;
 		border-radius: 10px;
-		&:hover{
-			background: #E55C1E;
+		&:hover {
+			background: #e55c1e;
 		}
 	}
 	@media screen and (max-width: 767px) {
