@@ -8,6 +8,7 @@ import ProfileReducer from './Admin/profileReducer'
 import Posts from './Admin/posts/postReducer'
 import snackbarReducer from './snackbarReducer'
 import usReducer from './Admin/us/usReducer'
+import certificateReducer from './Admin/us/certificateReducer'
 
 // ===========================|| COMBINE REDUCER ||=========================== //
 
@@ -17,7 +18,8 @@ const reducer = combineReducers({
 	profile: ProfileReducer,
 	posts: Posts,
 	snackbar: snackbarReducer,
-	us: usReducer
+	us: usReducer,
+	certificate: certificateReducer
 })
 
 export default reducer

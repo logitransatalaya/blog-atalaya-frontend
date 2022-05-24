@@ -30,8 +30,8 @@ export const slides = [
 export const breakPoints = [
 	{ width: 1, itemsToShow: 1, itemsToScroll: 1, transitionMs: 700 },
 	{ width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-	{ width: 850, itemsToShow: 3 },
-	{ width: 1150, itemsToShow: 3, itemsToScroll: 1 },
-	{ width: 1450, itemsToShow: 3 },
-	{ width: 1750, itemsToShow: 3 }
+	{ width: 850, itemsToShow: 3, pagination: false  },
+	{ width: 1150, itemsToShow: 3, itemsToScroll: 1 , pagination: false },
+	{ width: 1450, itemsToShow: 3, pagination: false  },
+	{ width: 1750, itemsToShow: 3, pagination: false  }
 ]

@@ -14,6 +14,7 @@ export default function LastNews() {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const { posts, page, endPost } = useSelector((state) => state.posts)
+	
 
 	useEffect(() => {
 		if (inView && !endPost) {
@@ -35,7 +36,7 @@ export default function LastNews() {
 					>
 						<h4>{item.title}</h4>
 						<div className='card-footer'>
-							<p>Publicado por: {item?.author?.lastName}</p>
+							<p>Publicado por: {item?.author?.firstName}</p>
 							<p>Fecha : {item.createdAt}</p>
 						</div>
 					</CardPostStyles>

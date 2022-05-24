@@ -14,7 +14,7 @@ import {
 // third-party
 import jwtDecode from 'jwt-decode'
 
-const servicecreatePost = (data, history) => async (dispatch) => {
+const servicecreatePost = (data, history,user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
@@ -30,7 +30,8 @@ const servicecreatePost = (data, history) => async (dispatch) => {
 			title,
 			image
 		})
-
+		let item = {...data.data, author:{firstName:user.firstName}}
+	
 		dispatch({
 			type: SNACKBAR_OPEN,
 			message: 'Post created',
@@ -38,12 +39,13 @@ const servicecreatePost = (data, history) => async (dispatch) => {
 		})
 		dispatch({
 			type: CREATE_POST_SUCCESS,
-			data: data?.data
+			data: item
 		})
 		dispatch({
 			type: MODAL_OPEN,
 			modalOpen: false
 		})
+		console.log( data?.data);
 		history('/admin/posts')
 	} catch (error) {
 		if (error.response) {
@@ -107,7 +109,7 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 	}
 }
 
-const serviceUpdatePost = (data, history) => async (dispatch) => {
+const serviceUpdatePost = (data, history,user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	const { sub } = jwtDecode(token)
@@ -116,7 +118,6 @@ const serviceUpdatePost = (data, history) => async (dispatch) => {
 		const { data } = await axios.patch(
 			`${baseURL}/api/v1/adm/posts/${slugEdit}`,
 			{
-				authorId: sub,
 				content,
 				description,
 				slug,
@@ -125,8 +126,8 @@ const serviceUpdatePost = (data, history) => async (dispatch) => {
 				image
 			}
 		)
-
-		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data: data?.data })
+		let item = {...data.data, author:{firstName:user.firstName}}
+		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data: item })
 		dispatch({
 			type: SNACKBAR_OPEN,
 			navType: 'success',

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseURL, limit } from 'utils/constant'
+import { baseURL } from 'utils/constant'
 
 import {
 	GET_MISSION_SUCCESS,

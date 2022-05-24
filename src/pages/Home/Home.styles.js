@@ -8,16 +8,18 @@ export const HomeStyles = styled.main`
 		margin-bottom: 2rem;
 	}
 	.cont-carousel {
-		min-height: 70vh;
+		min-height: 68vh;
 		align-items: center;
 		display: grid;
 		max-width: 90%;
 		margin: auto;
+		
 	}
 	.social-media {
 		position: relative;
 		display: flex;
-		margin: 2rem 8rem;
+		margin: 0rem 8rem;
+		top: -1rem;
 		span {
 			margin: 0 1rem;
 			cursor: pointer;

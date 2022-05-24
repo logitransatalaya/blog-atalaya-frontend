@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FormSavePostStyles } from './FormSavePost.styles'
+import { FormCertificateStyles } from './FormCertificate.styles'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import close from 'assets/icons/close2.svg'
-import { convertToSlug } from 'utils/slug'
-import { servicecreatePost, serviceUpdatePost } from 'store/Admin/posts/postApi'
-import { useAlert } from 'react-alert'
-import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
-import { useNavigate } from 'react-router-dom'
-import useAuth from 'hooks/useAuth'
+import LandscapeMenu from 'components/LandscapeMenu'
 
-const valuesInitial = { title: '', image: '', description: '', status: true }
 
 const schema = yup.object({
 	title: yup
@@ -34,11 +27,10 @@ const schema = yup.object({
 	status: yup.boolean()
 })
 
-const FrmSavePost = ({ content, dataEdit }) => {
+const AddCertificate = () => {
+
 	const dispatch = useDispatch()
-	const { user } = useAuth()
-	const [values, setValues] = useState(dataEdit ? dataEdit : valuesInitial)
-	const navigate = useNavigate()
+
 	const {
 		register,
 		handleSubmit,
@@ -46,48 +38,31 @@ const FrmSavePost = ({ content, dataEdit }) => {
 	} = useForm({
 		mode: 'onBlur',
 		resolver: yupResolver(schema),
-		defaultValues: {
-			title: values.title,
-			image: values.image,
-			description: values.description,
-			status: values.status
-		}
 	})
 
 	const onSubmit = (data) => {
-		const slug = convertToSlug(data.title)
-		if (!dataEdit) {
-			dispatch(servicecreatePost({ ...data, slug, content }, navigate, user))
-		} else {
-			dispatch(
-				serviceUpdatePost(
-					{
-						...data,
-						slug,
-						content,
-						slugEdit: values.slug
-					},
-					navigate,user
-				)
-			)
-		}
+        console.log(data);
+		
 	}
 
 	return (
-		<FormSavePostStyles>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className='head-form'>
-					<span
+		<FormCertificateStyles>
+            	<LandscapeMenu active={2} />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                <div className='frm-head'>
+					<h2>Nuevo certificado</h2>
+					<button
+						className='btn-save'
 						onClick={() =>
-							dispatch({
-								type: MODAL_OPEN,
-								modalOpen: false
-							})
+							true
 						}
 					>
-						<img src={close} alt='' />
-					</span>
+						Guardar
+					</button>
 				</div>
+				<div className='frm-cont'>
+
+            
 				<div className='col-25'>
 					<h4>Titulo: </h4>
 				</div>
@@ -106,7 +81,7 @@ const FrmSavePost = ({ content, dataEdit }) => {
 					)}
 				</div>
 				<div className='col-25'>
-					<h4>Portada: </h4>
+					<h4>Pdf: </h4>
 				</div>
 				<div className='col-75'>
 					<input
@@ -141,45 +116,10 @@ const FrmSavePost = ({ content, dataEdit }) => {
 						</p>
 					)}
 				</div>
-				<div className='col-25'>
-					<h4>Estado</h4>
-				</div>
-				<div className='col-75'>
-					<input
-						{...(register && {
-							...register('status')
-						})}
-						type='checkbox'
-						name='status'
-						//defaultChecked={true}
-						className='checkbox'
-					/>
-
-					{errors && (
-						<p className='error-message'>
-							{errors?.status?.message}
-						</p>
-					)}
-				</div>
-				<div className='box-actions'>
-					<button className='btn-send' type='submit'>
-						Ok
-					</button>
-					<button
-						onClick={() =>
-							dispatch({
-								type: MODAL_OPEN,
-								modalOpen: false
-							})
-						}
-						className='btn-cacel'
-					>
-						Cancelar
-					</button>
-				</div>
+                </div>
 			</form>
-		</FormSavePostStyles>
+		</FormCertificateStyles>
 	)
 }
 
-export default FrmSavePost
+export default AddCertificate

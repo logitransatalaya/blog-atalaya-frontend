@@ -2,9 +2,11 @@ import Loadable from 'components/Loadable'
 import React, { lazy } from 'react'
 
 // project imports
+import Profile from 'pages/Admin/Profile/'
+import CreateAccount from 'pages/Admin/CreateAccount/'
+import AuthGuard from 'utils/route-guard/AuthGuard'
 import Posts from 'pages/Admin/Posts/'
 import ManageNews from 'pages/Admin/Posts/ManageNews/index'
-
 import ManageNewsEdit from 'pages/Admin/Posts/ManageNews/EditPost'
 import Allies from 'pages/Admin/Allies/index'
 import AllyForm from 'pages/Admin/Allies/AlliForm/index'
@@ -12,10 +14,8 @@ import Us from 'pages/Admin/Us/index'
 import MissionAdm from 'pages/Admin/Us/Mission/index'
 import VisionAdm from 'pages/Admin/Us/Vision/index'
 import Certificates from 'pages/Admin/Us/Certificates/index'
+import AddCertificate from 'pages/Admin/Us/Certificates/AddCertificate'
 
-import Profile from 'pages/Admin/Profile/'
-import CreateAccount from 'pages/Admin/CreateAccount/'
-import AuthGuard from 'utils/route-guard/AuthGuard'
 const MainLayout = Loadable(lazy(() => import('layout/MainLayout')))
 // ===========================|| MAIN ROUTING ||=========================== //
 
@@ -58,6 +58,11 @@ const MainRoutes = {
 					path: 'us/certificates',
 					element: <Certificates />
 				},
+				{
+				path: 'us/add-certificate',
+				element: <AddCertificate />
+			},
+				
 				{
 					path: 'us/mission',
 					element: <MissionAdm />

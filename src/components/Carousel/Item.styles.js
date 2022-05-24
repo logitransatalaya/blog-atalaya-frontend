@@ -21,7 +21,7 @@ export default styled.div`
 		border-top-right-radius: 4vmin;
 		object-fit: cover;
 		width: 100%;
-		height: 400px;
+		height: 30rem;
 	}
 	.title {
 		cursor: pointer;

@@ -71,3 +71,6 @@ export const GET_VISION_SUCCESS = '@/us/GET_VISION_SUCCESS'
 export const GET_VISION_ERROR = '@/us/GET_VISION_ERROR'
 export const RESET_VISION = '@/us/RESET_VISION'
 export const GET_US_SUCCESS = '@/us/GET_US_SUCCESS'
+
+// action - certificates admin
+export const GET_CERTIFICATES_SUCCESS = '@/us/GET_CERTIFICATES_SUCCESS'
