@@ -17,7 +17,6 @@ export default function NewsSlug() {
 	const dispatch = useDispatch()
 	let { newsSlug } = useParams()
 	const { postSlug } = useSelector((state) => state.lastNews)
-	console.log(postSlug)
 
 	useEffect(() => {
 		dispatch(serviceNewsSlug(newsSlug))

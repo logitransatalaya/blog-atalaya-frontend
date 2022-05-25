@@ -35,7 +35,6 @@ const serviceSearchNews = (term, offset) => async (dispatch) => {
 		const response = await axios.get(
 			`${baseURL}/api/v1/posts/search?term=${term}&limit=50&offset=0`
 		)
-		console.log(response)
 		dispatch({ type: GET_SEARCH_NEWS_SUCCESS, data: response.data })
 	} catch (error) {
 		dispatch({ type: LOADING_SEARCH_NEWS, loading: false })

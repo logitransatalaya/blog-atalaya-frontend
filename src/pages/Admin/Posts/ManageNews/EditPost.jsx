@@ -5,13 +5,24 @@ import JoditEditor from 'jodit-react'
 import FormSavePost from 'components/FormSavePost/'
 import Modal from 'components/Modal/'
 import { useDispatch, useSelector } from 'react-redux'
-import { serviceGetPostBySlug } from 'store/Admin/posts/postApi'
-import { useParams } from 'react-router-dom'
+import {
+	serviceDeletePost,
+	serviceGetPostBySlug
+} from 'store/Admin/posts/postApi'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
 import basura from 'assets/icons/basura.svg'
-import FrmDeletePost from 'components/FormDeletePost'
+import FrmDeleteItem from 'components/FormDeleteItem'
 const config = {
 	readonly: false // all options from https://xdsoft.net/jodit/doc/
+}
+const Title = () => {
+	return (
+		<h2 className='title'>
+			¿Estás seguro de que quieres{' '}
+			<span className='ms-delete'>eliminar</span> esta noticia?
+		</h2>
+	)
 }
 
 export default function ManageNews() {
@@ -22,7 +33,7 @@ export default function ManageNews() {
 	const { postSlug, error } = useSelector((state) => state.posts)
 	const { modalOpen } = useSelector((state) => state.customization)
 	let { slug } = useParams()
-
+	const navigate = useNavigate()
 	useEffect(() => {
 		setTimeout(() => {
 			dispatch(serviceGetPostBySlug(slug))
@@ -41,6 +52,9 @@ export default function ManageNews() {
 		})
 	}, [])
 
+	const haldleDeleteItem = () => {
+		dispatch(serviceDeletePost(postSlug?.slug, navigate))
+	}
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
@@ -100,7 +114,10 @@ export default function ManageNews() {
 								dataEdit={postSlug}
 							/>
 						) : (
-							<FrmDeletePost />
+							<FrmDeleteItem
+								Title={Title}
+								haldleDeleteItem={haldleDeleteItem}
+							/>
 						)}
 					</div>
 				</Modal>

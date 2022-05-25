@@ -5,23 +5,26 @@ import {
 	CardCertificatesStyles
 } from './Certificates.styles'
 import iconMas from 'assets/icons/mas.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { serviceGetCertificates } from 'store/Admin/us/certificateApi'
 
 export default function Allies() {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const { certificates } = useSelector((state) => state.certificate)
-		
+
 	useEffect(() => {
-		dispatch(serviceGetCertificates())
-	}, [])
-	
+		if (certificates.length === 0) {
+			dispatch(serviceGetCertificates())
+		}
+	}, [certificates])
+
 	return (
 		<CertificatesStyles>
 			<LandscapeMenu active={2} />
 			<div className='add-certificate'>
-				<Link to={'/admin/us/add-certificate'}>
+				<Link to={'add'}>
 					{' '}
 					<img src={iconMas} alt='' />
 				</Link>{' '}
@@ -30,7 +33,10 @@ export default function Allies() {
 				<h4>Certificados</h4>
 				<div className='contenedor'>
 					{certificates.map((item) => (
-						<CardCertificatesStyles key={item.id}>
+						<CardCertificatesStyles
+							key={item.id}
+							onClick={() => navigate(`edit/${item.id}`)}
+						>
 							<h4>{item.title}</h4>
 							<div className='card-footer'>
 								<p>Publicado por: {item.author?.firstName}</p>

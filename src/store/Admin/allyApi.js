@@ -1,42 +1,39 @@
 import axios from 'axios'
 import {
-	GET_CERTIFICATES_SUCCESS,
+	GET_ALLIES_SUCCESS,
 	SNACKBAR_OPEN,
-	CREATE_CERTIFICATE_SUCCESS,
-	GET_CERTIFICATE_ID_SUCCESS,
-	GET_CERTIFICATE_ID_ERROR,
-	UPDATE_CERTIFICATE_ID_SUCCESS,
-	DELETE_POST_ID_SUCCESS,
+	CREATE_ALLY_SUCCESS,
+	GET_ALLY_ID_SUCCESS,
+	GET_ALLY_ID_ERROR,
+	UPDATE_ALLY_ID_SUCCESS,
 	MODAL_OPEN,
-	DELETE_CERTIFICATE_ID_SUCCESS
+	DELETE_ALLY_ID_SUCCESS
 } from 'store/actions'
 import { baseURL } from 'utils/constant'
 import jwtDecode from 'jwt-decode'
 
-const serviceGetCertificates = () => async (dispatch) => {
+const serviceGetAllies = () => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		const { data } = await axios.get(`${baseURL}/api/v1/adm/certificates`)
+		const { data } = await axios.get(`${baseURL}/api/v1/adm/allies`)
 
-		dispatch({ type: GET_CERTIFICATES_SUCCESS, data })
+		dispatch({ type: GET_ALLIES_SUCCESS, data })
 	} catch (error) {
 		console.log(error)
 	}
 }
 
-const serviceGetCertificateId = (id) => async (dispatch) => {
+const serviceGetallyId = (id) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		const { data } = await axios.get(
-			`${baseURL}/api/v1/adm/certificates/${id}`
-		)
+		const { data } = await axios.get(`${baseURL}/api/v1/adm/allies/${id}`)
 
-		dispatch({ type: GET_CERTIFICATE_ID_SUCCESS, data })
+		dispatch({ type: GET_ALLY_ID_SUCCESS, data })
 	} catch (error) {
 		if (error.response.status == 404) {
-			dispatch({ type: GET_CERTIFICATE_ID_ERROR })
+			dispatch({ type: GET_ALLY_ID_ERROR })
 		} else {
 			dispatch({
 				type: SNACKBAR_OPEN,
@@ -48,35 +45,33 @@ const serviceGetCertificateId = (id) => async (dispatch) => {
 	}
 }
 
-const servicecreateCertificate = (data, history, user) => async (dispatch) => {
+const serviceCreateAlly = (data, history, user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
 	const { sub } = jwtDecode(token)
-	const { title, pdf, description } = data
+	const { name, image, description, url } = data
 	try {
-		const { data } = await axios.post(
-			`${baseURL}/api/v1/adm/certificates`,
-			{
-				authorId: sub,
-				title,
-				description,
-				url: pdf
-			}
-		)
+		const { data } = await axios.post(`${baseURL}/api/v1/adm/allies`, {
+			authorId: sub,
+			name,
+			image,
+			description,
+			url
+		})
 		let item = { ...data.data, author: { firstName: user.firstName } }
 
 		dispatch({
 			type: SNACKBAR_OPEN,
-			message: 'Certificate created',
+			message: 'Ally created',
 			navType: 'success'
 		})
 		dispatch({
-			type: CREATE_CERTIFICATE_SUCCESS,
+			type: CREATE_ALLY_SUCCESS,
 			data: item
 		})
 
-		history('/admin/us/certificates')
+		history('/admin/allies')
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
@@ -110,29 +105,30 @@ const servicecreateCertificate = (data, history, user) => async (dispatch) => {
 	}
 }
 
-const serviceUpdateCertificate = (data, history, user) => async (dispatch) => {
+const serviceUpdateAlly = (data, history, user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
+	const { name, image, description, url, id } = data
 
-	const { title, pdf, description, id } = data
 	try {
 		const { data } = await axios.patch(
-			`${baseURL}/api/v1/adm/certificates/${id}`,
+			`${baseURL}/api/v1/adm/allies/${id}`,
 			{
-				title,
-				url: pdf,
-				description
+				name,
+				image,
+				description,
+				url
 			}
 		)
 		let item = { ...data.data, author: { firstName: user.firstName } }
-		dispatch({ type: UPDATE_CERTIFICATE_ID_SUCCESS, data: item })
+		dispatch({ type: UPDATE_ALLY_ID_SUCCESS, data: item })
 		dispatch({
 			type: SNACKBAR_OPEN,
 			navType: 'success',
-			message: 'Certificate update'
+			message: 'Ally update'
 		})
 
-		history('/admin/us/certificates')
+		history('/admin/allies')
 	} catch (error) {
 		if (error.response) {
 			const { message } = error.response.data
@@ -151,12 +147,12 @@ const serviceUpdateCertificate = (data, history, user) => async (dispatch) => {
 	}
 }
 
-const serviceDeleteCertificate = (id, history) => async (dispatch) => {
+const serviceDeleteAlly = (id, history) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
 		const { data } = await axios.delete(
-			`${baseURL}/api/v1/adm/certificates/${id}`
+			`${baseURL}/api/v1/adm/allies/${id}`
 		)
 		dispatch({
 			type: SNACKBAR_OPEN,
@@ -165,22 +161,22 @@ const serviceDeleteCertificate = (id, history) => async (dispatch) => {
 		})
 
 		dispatch({
-			type: DELETE_CERTIFICATE_ID_SUCCESS,
+			type: DELETE_ALLY_ID_SUCCESS,
 			id: data?.id?.id
 		})
 		dispatch({
 			type: MODAL_OPEN,
 			modalOpen: false
 		})
-		history('/admin/us/certificates')
+		history('/admin/allies')
 	} catch (error) {
 		console.log(error)
 	}
 }
 export {
-	serviceGetCertificates,
-	servicecreateCertificate,
-	serviceGetCertificateId,
-	serviceUpdateCertificate,
-	serviceDeleteCertificate
+	serviceGetAllies,
+	serviceCreateAlly,
+	serviceGetallyId,
+	serviceUpdateAlly,
+	serviceDeleteAlly
 }

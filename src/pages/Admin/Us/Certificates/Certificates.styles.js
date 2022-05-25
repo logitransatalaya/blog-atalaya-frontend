@@ -46,7 +46,7 @@ export const CardCertificatesStyles = styled.div`
 	border: 2px solid #acacac;
 	border-radius: 1.5rem;
 	padding: 1rem;
-
+	cursor: pointer;
 	.card-footer {
 		padding-top: 1rem;
 		display: flex;

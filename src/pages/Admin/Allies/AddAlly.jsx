@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FormCertificateStyles } from './FormCertificate.styles'
+import { FormAllyStyles } from './FormAlly.styles'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import LandscapeMenu from 'components/LandscapeMenu'
-import { servicecreateCertificate } from 'store/Admin/us/certificateApi'
 import useAuth from 'hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+import { serviceCreateAlly } from 'store/Admin/allyApi'
 
 const schema = yup.object({
 	title: yup
@@ -16,11 +16,14 @@ const schema = yup.object({
 		.min(3, 'Titulo debe tener al menos 3 caracteres')
 		.max(255, 'Titulo no puede exceder los 255 caracteres')
 		.required('Titulo es requerido'),
-	pdf: yup
+	url: yup
 		.string()
-		.trim('Pdf no puede incluir espacios iniciales y finales')
-		.min(3, 'Pdf debe tener al menos 3 caracteres'),
-
+		.trim('Url no puede incluir espacios iniciales y finales')
+		.min(3, 'Url debe tener al menos 3 caracteres'),
+	image: yup
+		.string()
+		.trim('Imagen no puede incluir espacios iniciales y finales')
+		.min(3, 'Imagen debe tener al menos 3 caracteres'),
 	description: yup
 		.string()
 		.trim('Descripción no puede incluir espacios iniciales y finales')
@@ -28,7 +31,7 @@ const schema = yup.object({
 		.required('Descripción es requerida')
 })
 
-const AddCertificate = () => {
+const AddAlly = () => {
 	const dispatch = useDispatch()
 	const { user } = useAuth()
 	const navigate = useNavigate()
@@ -42,22 +45,23 @@ const AddCertificate = () => {
 	})
 
 	const onSubmit = (data) => {
-		dispatch(servicecreateCertificate(data, navigate, user))
+		console.log(data)
+		dispatch(serviceCreateAlly(data, navigate, user))
 	}
 
 	return (
-		<FormCertificateStyles>
+		<FormAllyStyles>
 			<LandscapeMenu active={2} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='frm-head'>
-					<h2>Nuevo certificado</h2>
+					<h2>Nuevo aliado</h2>
 					<button className='btn-save' onClick={() => true}>
 						Guardar
 					</button>
 				</div>
 				<div className='frm-cont'>
 					<div className='col-25'>
-						<h4>Titulo: </h4>
+						<h4>Aliado: </h4>
 					</div>
 					<div className='col-75'>
 						<input
@@ -74,7 +78,7 @@ const AddCertificate = () => {
 						)}
 					</div>
 					<div className='col-25'>
-						<h4>Pdf: </h4>
+						<h4>Url: </h4>
 					</div>
 					<div className='col-75'>
 						<input
@@ -87,6 +91,23 @@ const AddCertificate = () => {
 						{errors && (
 							<p className='error-message'>
 								{errors?.pdf?.message}
+							</p>
+						)}
+					</div>
+					<div className='col-25'>
+						<h4>Imagen: </h4>
+					</div>
+					<div className='col-75'>
+						<input
+							{...(register && {
+								...register('image')
+							})}
+							name='image'
+							autoComplete='off'
+						/>
+						{errors && (
+							<p className='error-message'>
+								{errors?.image?.message}
 							</p>
 						)}
 					</div>
@@ -111,8 +132,8 @@ const AddCertificate = () => {
 					</div>
 				</div>
 			</form>
-		</FormCertificateStyles>
+		</FormAllyStyles>
 	)
 }
 
-export default AddCertificate
+export default AddAlly

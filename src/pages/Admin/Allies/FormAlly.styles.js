@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormCertificateStyles = styled.div`
+export const FormAllyStyles = styled.div`
 	background: #fff;
 	padding: 4rem 12rem;
 	border-radius: 1.5rem 1.5rem 0 0;

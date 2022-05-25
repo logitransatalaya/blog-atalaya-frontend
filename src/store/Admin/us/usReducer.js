@@ -60,7 +60,20 @@ const usReducer = (state = initialState, action) => {
 
 			return {
 				...state,
-				us: { mision, vision }
+				us: { ...state.us, mision, vision }
+			}
+
+		case actionTypes.GET_US_CERTIFICATE_SUCCESS:
+			let item = action?.data[0]
+
+			let certificate = {
+				name: 'certificados',
+				firstName: item.author.firstName,
+				updatedAt: item.updatedAt
+			}
+			return {
+				...state,
+				us: { ...state.us, certificados: certificate }
 			}
 		default:
 			return state

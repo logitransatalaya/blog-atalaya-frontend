@@ -15,6 +15,8 @@ import MissionAdm from 'pages/Admin/Us/Mission/index'
 import VisionAdm from 'pages/Admin/Us/Vision/index'
 import Certificates from 'pages/Admin/Us/Certificates/index'
 import AddCertificate from 'pages/Admin/Us/Certificates/AddCertificate'
+import EditCertificate from 'pages/Admin/Us/Certificates/EditCertificate'
+import AddAlly from 'pages/Admin/Allies/AddAlly'
 
 const MainLayout = Loadable(lazy(() => import('layout/MainLayout')))
 // ===========================|| MAIN ROUTING ||=========================== //
@@ -47,6 +49,10 @@ const MainRoutes = {
 					element: <Allies />
 				},
 				{
+					path: 'allies/add',
+					element: <AddAlly />
+				},
+				{
 					path: 'ally-form',
 					element: <AllyForm />
 				},
@@ -59,10 +65,14 @@ const MainRoutes = {
 					element: <Certificates />
 				},
 				{
-				path: 'us/add-certificate',
-				element: <AddCertificate />
-			},
-				
+					path: 'us/certificates/add',
+					element: <AddCertificate />
+				},
+				{
+					path: 'us/certificates/edit/:id',
+					element: <EditCertificate />
+				},
+
 				{
 					path: 'us/mission',
 					element: <MissionAdm />

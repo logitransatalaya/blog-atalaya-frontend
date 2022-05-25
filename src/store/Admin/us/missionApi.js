@@ -71,7 +71,7 @@ const serviceGetMission = () => async (dispatch) => {
 		const { data } = await axios.get(
 			`${baseURL}/api/v1/adm/companyIdentity/MISION`
 		)
-		console.log(data)
+
 		dispatch({ type: GET_MISSION_SUCCESS, data })
 	} catch (error) {
 		if (error.response.status == 404) {

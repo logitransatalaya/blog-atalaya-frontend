@@ -16,7 +16,7 @@ const servicecreateAccount = (data) => async (dispatch) => {
 			email,
 			password
 		})
-		console.log('Respuesta => ', response)
+
 		//dispatch({ type: CREATE_ACCOUNT_SUCCESS, data: response.data })
 	} catch (error) {
 		console.log('Error', error)

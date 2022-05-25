@@ -3,7 +3,7 @@ import LandscapeMenu from 'components/LandscapeMenu/index'
 import { CardUsStyles, UsStyles } from './Us.styles'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { serviceGetUs } from 'store/Admin/us/usApi'
+import { serviceGetUs, serviceGetUsCertificate } from 'store/Admin/us/usApi'
 
 const data = [
 	{
@@ -32,6 +32,7 @@ export default function Us() {
 	const { us } = useSelector((state) => state.us)
 
 	useEffect(() => {
+		dispatch(serviceGetUsCertificate())
 		dispatch(serviceGetUs())
 	}, [])
 	return (

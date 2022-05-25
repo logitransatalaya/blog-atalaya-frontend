@@ -14,7 +14,7 @@ import {
 // third-party
 import jwtDecode from 'jwt-decode'
 
-const servicecreatePost = (data, history,user) => async (dispatch) => {
+const servicecreatePost = (data, history, user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
@@ -30,8 +30,8 @@ const servicecreatePost = (data, history,user) => async (dispatch) => {
 			title,
 			image
 		})
-		let item = {...data.data, author:{firstName:user.firstName}}
-	
+		let item = { ...data.data, author: { firstName: user.firstName } }
+
 		dispatch({
 			type: SNACKBAR_OPEN,
 			message: 'Post created',
@@ -45,7 +45,6 @@ const servicecreatePost = (data, history,user) => async (dispatch) => {
 			type: MODAL_OPEN,
 			modalOpen: false
 		})
-		console.log( data?.data);
 		history('/admin/posts')
 	} catch (error) {
 		if (error.response) {
@@ -109,7 +108,7 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 	}
 }
 
-const serviceUpdatePost = (data, history,user) => async (dispatch) => {
+const serviceUpdatePost = (data, history, user) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	const { sub } = jwtDecode(token)
@@ -126,7 +125,7 @@ const serviceUpdatePost = (data, history,user) => async (dispatch) => {
 				image
 			}
 		)
-		let item = {...data.data, author:{firstName:user.firstName}}
+		let item = { ...data.data, author: { firstName: user.firstName } }
 		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data: item })
 		dispatch({
 			type: SNACKBAR_OPEN,

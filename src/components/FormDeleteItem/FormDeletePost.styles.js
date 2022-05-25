@@ -36,7 +36,7 @@ export const FormDeletePostStyles = styled.div`
 			.title {
 				margin-bottom: 2rem;
 			}
-			.s-delete {
+			.ms-delete {
 				color: #e55c1e;
 			}
 		}

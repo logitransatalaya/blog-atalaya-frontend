@@ -6,10 +6,9 @@ import { MODAL_OPEN } from 'store/actions'
 import { serviceDeletePost } from 'store/Admin/posts/postApi'
 import { useNavigate } from 'react-router-dom'
 
-const FrmDeletePost = () => {
+const FrmDeletePost = ({ Title, haldleDeleteItem }) => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { postSlug } = useSelector((state) => state.posts)
 
 	return (
 		<FormDeletePostStyles>
@@ -27,21 +26,10 @@ const FrmDeletePost = () => {
 					</span>
 				</div>
 				<div className='content-form'>
-					<h2 className='title'>
-						¿Estás seguro de que quieres{' '}
-						<span className='ms-delete'>eliminar</span> esta
-						noticia?
-					</h2>
+					<Title />
 				</div>
 				<div className='box-actions'>
-					<button
-						className='btn-send'
-						onClick={() => {
-							dispatch(
-								serviceDeletePost(postSlug?.slug, navigate)
-							)
-						}}
-					>
+					<button className='btn-send' onClick={haldleDeleteItem}>
 						Ok
 					</button>
 					<button

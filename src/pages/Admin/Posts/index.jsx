@@ -14,7 +14,6 @@ export default function LastNews() {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const { posts, page, endPost } = useSelector((state) => state.posts)
-	
 
 	useEffect(() => {
 		if (inView && !endPost) {
