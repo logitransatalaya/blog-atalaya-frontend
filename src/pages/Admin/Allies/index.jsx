@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function Allies() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { allies } = useSelector((state) => state.allies)
+	const { allies } = useSelector((state) => state.ally)
 
 	useEffect(() => {
 		if (allies.length === 0) {

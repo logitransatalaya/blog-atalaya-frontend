@@ -17,6 +17,7 @@ import Certificates from 'pages/Admin/Us/Certificates/index'
 import AddCertificate from 'pages/Admin/Us/Certificates/AddCertificate'
 import EditCertificate from 'pages/Admin/Us/Certificates/EditCertificate'
 import AddAlly from 'pages/Admin/Allies/AddAlly'
+import EditAlly from 'pages/Admin/Allies/EditAlly'
 
 const MainLayout = Loadable(lazy(() => import('layout/MainLayout')))
 // ===========================|| MAIN ROUTING ||=========================== //
@@ -34,7 +35,8 @@ const MainRoutes = {
 			children: [
 				{
 					path: 'posts',
-					element: <Posts />
+					element: <Posts />,
+					key: 'page1'
 				},
 				{
 					path: 'posts/manage-news/',
@@ -45,20 +47,10 @@ const MainRoutes = {
 					element: <ManageNewsEdit />
 				},
 				{
-					path: 'allies',
-					element: <Allies />
-				},
-				{
-					path: 'allies/add',
-					element: <AddAlly />
-				},
-				{
-					path: 'ally-form',
-					element: <AllyForm />
-				},
-				{
 					path: 'us',
-					element: <Us />
+					element: <Us />,
+					key: 'page2',
+					hash: '345'
 				},
 				{
 					path: 'us/certificates',
@@ -80,6 +72,18 @@ const MainRoutes = {
 				{
 					path: 'us/vision',
 					element: <VisionAdm />
+				},
+				{
+					path: 'allies',
+					element: <Allies close />
+				},
+				{
+					path: 'allies/add',
+					element: <AddAlly />
+				},
+				{
+					path: 'allies/edit/:id',
+					element: <EditAlly />
 				},
 				{
 					path: 'profile',

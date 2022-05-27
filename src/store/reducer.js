@@ -21,7 +21,7 @@ const reducer = combineReducers({
 	snackbar: snackbarReducer,
 	us: usReducer,
 	certificate: certificateReducer,
-	allies: alliesReducer
+	ally: alliesReducer
 })
 
 export default reducer

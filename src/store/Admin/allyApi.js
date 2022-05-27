@@ -53,11 +53,11 @@ const serviceCreateAlly = (data, history, user) => async (dispatch) => {
 	const { name, image, description, url } = data
 	try {
 		const { data } = await axios.post(`${baseURL}/api/v1/adm/allies`, {
-			authorId: sub,
 			name,
+			url,
 			image,
 			description,
-			url
+			authorId: sub
 		})
 		let item = { ...data.data, author: { firstName: user.firstName } }
 
@@ -148,6 +148,7 @@ const serviceUpdateAlly = (data, history, user) => async (dispatch) => {
 }
 
 const serviceDeleteAlly = (id, history) => async (dispatch) => {
+	console.log(id)
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {

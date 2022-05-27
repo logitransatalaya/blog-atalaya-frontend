@@ -35,6 +35,14 @@ export const MainLayoutStyles = styled.div`
 				display: flex;
 				height: fit-content;
 			}
+			.go-back {
+				padding-top: 1.3rem;
+				padding-left: 2rem;
+				img {
+					cursor: pointer;
+					width: 2rem;
+				}
+			}
 		}
 	}
 `

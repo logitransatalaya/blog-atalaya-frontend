@@ -1,35 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FormAllyStyles } from './FormAlly.styles'
-import * as yup from 'yup'
+
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import LandscapeMenu from 'components/LandscapeMenu'
 import useAuth from 'hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { serviceCreateAlly } from 'store/Admin/allyApi'
-
-const schema = yup.object({
-	title: yup
-		.string()
-		.trim('Titulo no puede incluir espacios iniciales y finales')
-		.min(3, 'Titulo debe tener al menos 3 caracteres')
-		.max(255, 'Titulo no puede exceder los 255 caracteres')
-		.required('Titulo es requerido'),
-	url: yup
-		.string()
-		.trim('Url no puede incluir espacios iniciales y finales')
-		.min(3, 'Url debe tener al menos 3 caracteres'),
-	image: yup
-		.string()
-		.trim('Imagen no puede incluir espacios iniciales y finales')
-		.min(3, 'Imagen debe tener al menos 3 caracteres'),
-	description: yup
-		.string()
-		.trim('Descripción no puede incluir espacios iniciales y finales')
-		.min(3, 'Descripción debe tener al menos 3 caracteres')
-		.required('Descripción es requerida')
-})
+import { allySchema } from 'utils/schemas/allySchema'
 
 const AddAlly = () => {
 	const dispatch = useDispatch()
@@ -41,11 +20,10 @@ const AddAlly = () => {
 		formState: { errors }
 	} = useForm({
 		mode: 'onBlur',
-		resolver: yupResolver(schema)
+		resolver: yupResolver(allySchema)
 	})
 
 	const onSubmit = (data) => {
-		console.log(data)
 		dispatch(serviceCreateAlly(data, navigate, user))
 	}
 
@@ -55,7 +33,7 @@ const AddAlly = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='frm-head'>
 					<h2>Nuevo aliado</h2>
-					<button className='btn-save' onClick={() => true}>
+					<button className='btn-save' type='submit'>
 						Guardar
 					</button>
 				</div>
@@ -66,14 +44,14 @@ const AddAlly = () => {
 					<div className='col-75'>
 						<input
 							{...(register && {
-								...register('title')
+								...register('name')
 							})}
-							name='title'
+							name='name'
 							autoComplete='off'
 						/>
 						{errors && (
 							<p className='error-message'>
-								{errors?.title?.message}
+								{errors?.name?.message}
 							</p>
 						)}
 					</div>
@@ -83,14 +61,14 @@ const AddAlly = () => {
 					<div className='col-75'>
 						<input
 							{...(register && {
-								...register('pdf')
+								...register('url')
 							})}
-							name='pdf'
+							name='url'
 							autoComplete='off'
 						/>
 						{errors && (
 							<p className='error-message'>
-								{errors?.pdf?.message}
+								{errors?.url?.message}
 							</p>
 						)}
 					</div>

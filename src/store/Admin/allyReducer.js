@@ -40,14 +40,14 @@ const alliesReducer = (state = initialState, action) => {
 					item.id === ally.id ? ally : item
 				)
 			}
-		case actionTypes.RESET_CERTIFICATE:
+		case actionTypes.RESET_ALLY:
 			return {
 				...state,
 				allyId: null,
 				allyNotFound: false
 			}
 
-		case actionTypes.DELETE_CERTIFICATE_ID_SUCCESS:
+		case actionTypes.DELETE_ALLY_ID_SUCCESS:
 			let id = action.id
 
 			return {
