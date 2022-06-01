@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import LandscapeMenu from 'components/LandscapeMenu'
 import {
-	serviceGetallyId,
+	serviceGetallyIdAdm,
 	serviceUpdateAlly,
 	serviceDeleteAlly
 } from 'store/Admin/allyApi'
@@ -32,7 +32,7 @@ const EditAlly = () => {
 	const navigate = useNavigate()
 	let { id } = useParams()
 	const { modalOpen } = useSelector((state) => state.customization)
-	const { allyId, allyNotFound } = useSelector((state) => state.ally)
+	const { allyId, allyNotFound } = useSelector((state) => state.allyAdm)
 
 	const {
 		register,
@@ -50,7 +50,7 @@ const EditAlly = () => {
 
 	useEffect(() => {
 		setTimeout(() => {
-			dispatch(serviceGetallyId(id))
+			dispatch(serviceGetallyIdAdm(id))
 		}, 500)
 	}, [])
 
@@ -74,7 +74,7 @@ const EditAlly = () => {
 
 	return (
 		<FormAllyStyles>
-			<LandscapeMenu active={2} />
+			<LandscapeMenu active={3} />
 			{allyId === null ? (
 				allyNotFound ? (
 					<h1 className='not-found'>Publicación no encontrada.</h1>

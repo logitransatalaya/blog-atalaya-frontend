@@ -9,8 +9,10 @@ import Posts from './Admin/posts/postReducer'
 import snackbarReducer from './snackbarReducer'
 import usReducer from './Admin/us/usReducer'
 import certificateReducer from './Admin/us/certificateReducer'
-import alliesReducer from './Admin/allyReducer'
-
+import alliesAdmReducer from './Admin/allyReducer'
+import alliesReducer from './allyReducer'
+import companyIdentityReducer from './us/companyIdentityReducer'
+import certificateUsReducer from './us/certificateReducer'
 // ===========================|| COMBINE REDUCER ||=========================== //
 
 const reducer = combineReducers({
@@ -21,7 +23,10 @@ const reducer = combineReducers({
 	snackbar: snackbarReducer,
 	us: usReducer,
 	certificate: certificateReducer,
-	ally: alliesReducer
+	allyAdm: alliesAdmReducer,
+	ally: alliesReducer,
+	companyIdentity:companyIdentityReducer,
+	certificateUs:certificateUsReducer
 })
 
 export default reducer

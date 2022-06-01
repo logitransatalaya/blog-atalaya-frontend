@@ -17,6 +17,7 @@
 		"react": "^18.1.0",
 		"react-alert": "^7.0.3",
 		"react-alert-template-basic": "^1.0.2",
+		"react-documents": "^1.1.2",
 		"react-dom": "^18.1.0",
 		"react-elastic-carousel": "^0.11.5",
 		"react-hook-form": "^7.30.0",

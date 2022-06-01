@@ -1,25 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { serviceGetCertificatesUs } from 'store/us/certificateAPi'
 import { CertificateStyles } from './Certificates.styles'
-// ===========================|| Mission ||=========================== //
+
+// ===========================|| Certificates ||=========================== //
 
 const Certificates = ({ handleClose, handleCertificate }) => {
+	const dispatch = useDispatch()
+	const { certificates } = useSelector((state) => state.certificateUs)
+
+	useEffect(() => {
+		dispatch(
+			serviceGetCertificatesUs()
+		)
+	}, [])
+
 	return (
 		<CertificateStyles>
 			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
-				{[1, 2, 3, 45, 6, 7].map((item, index) => (
+				{certificates.map((item ) => (
 					<div
-						key={index}
+						key={item.id}
 						className='card-certificate'
-						onClick={() => handleCertificate(index)}
+						onClick={() => handleCertificate(item.id)}
 					>
-						<h2>Certificates</h2>
-						<p>
-							Lorem ip|sum dolor sit amet, consectetuer adipiscing
-							elit. Aenean commodo ligula eget dolor. Aenean
-							massa. Cum sociis natoque penatibus et magnis dis
-							parturient montes, nascetur ridiculus.
+						<h2>{item.title}</h2>
+						<p className='description'>
+							{item.description}
 						</p>
 					</div>
 				))}

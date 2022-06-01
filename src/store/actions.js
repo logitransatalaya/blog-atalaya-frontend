@@ -63,7 +63,7 @@ export const GET_POST_SLUG_SUCCESS = '@/post/GET_POST_SLUG_SUCCESS'
 export const UPDATE_POST_SLUG_SUCCESS = '@/post/UPDATE_POST_SLUG_SUCCESS'
 export const DELETE_POST_SLUG_SUCCESS = '@/post/DELETE_POST_SLUG_SUCCESS'
 
-//action - company identity
+//action - company identity admin
 export const GET_MISSION_SUCCESS = '@/us/GET_MISSION_SUCCESS'
 export const GET_MISSION_ERROR = '@/us/GET_MISSION_ERROR'
 export const RESET_MISSION = '@/us/RESET_MISSION'
@@ -85,10 +85,21 @@ export const DELETE_CERTIFICATE_ID_SUCCESS =
 	'@/us/DELETE_CERTIFICATE_ID_SUCCESS'
 
 // action - allies admin
-export const GET_ALLIES_SUCCESS = '@/ally/GET_ALLIES_SUCCESS'
+export const GET_ALLIES_ADM_SUCCESS = '@/ally/GET_ALLIES_ADM_SUCCESS'
 export const CREATE_ALLY_SUCCESS = '@/ally/CREATE_ALLY_SUCCESS'
-export const GET_ALLY_ID_SUCCESS = '@/ally/GET_ALLY_ID_SUCCESS'
-export const GET_ALLY_ID_ERROR = '@/ally/GET_ALLY_ID_ERROR'
+export const GET_ALLY_ID_ADM_SUCCESS = '@/ally/GET_ALLY_ID_ADM_SUCCESS'
+export const GET_ALLY_ID_ADM_ERROR = '@/ally/GET_ALLY_ID_ADM_ERROR'
 export const RESET_ALLY = '@/ally/RESET_ALLY'
 export const UPDATE_ALLY_ID_SUCCESS = '@/ally/UPDATE_ALLY_ID_SUCCESS'
 export const DELETE_ALLY_ID_SUCCESS = '@/ally/DELETE_ALLY_ID_SUCCESS'
+
+// action - allies 
+export const GET_ALLIES_SUCCESS = '@/ally/GET_ALLIES_SUCCESS'
+
+// action - company identity 
+export const GET_MISION_US_SUCCESS = '@/us/GET_MISION_US_SUCCESS'
+export const GET_VISION_US_SUCCESS = '@/us/GET_VISION_US_SUCCESS'
+
+// action - certificates
+export const GET_CERTIFICATES_US_SUCCESS = '@/us/GET_CERTIFICATES_US_SUCCESS'
+export const GET_CERTIFICATE_ID_US_SUCCESS = '@/us/GET_CERTIFICATE_ID_US_SUCCESS'

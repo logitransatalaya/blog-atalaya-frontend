@@ -18,11 +18,13 @@ export const CertificateStyles = styled.div`
 		padding: 4rem 5rem 5rem;
 		border: 1px solid #707070;
 		border-radius: 30px;
-		> h3 {
+		
+		 .title {
 			text-align: left;
 			font-size: 1.5rem;
 			letter-spacing: 0px;
 			color: #0F216F;
+			margin-bottom: 2rem;
 		}
 		p{
 			padding-top: 1rem;

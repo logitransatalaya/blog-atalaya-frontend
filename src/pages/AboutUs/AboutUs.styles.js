@@ -4,11 +4,12 @@ export const AboutUsStyles = styled.div`
 	width: 100%;
 	.wrapper {
 		margin: auto;
-		width: 86%;
+		padding: 0 5rem ;
 		display: flex;
-		margin-top: 8rem;
+		margin-top: 2rem;
 		justify-content: space-around;
 		align-items: center;
+		height: 70vh;
 	}
 
 	.card {
@@ -82,4 +83,13 @@ export const AboutUsStyles = styled.div`
 	.title-h {
 		visibility: ${({ seeTitle }) => (seeTitle ? 'hidden' : 'visible')};
 	}
+
+	@media screen and (max-width: 700px) {
+		.wrapper {
+			padding: 0;
+			flex-direction: column;
+		}
+	}
+
 `
+

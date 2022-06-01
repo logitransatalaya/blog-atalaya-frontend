@@ -9,12 +9,24 @@ export const NewsSlugStyles = styled.div`
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		margin: 5rem 0;
+		margin: 5.15rem 0;
+		position: relative;
+		width: 100%;
+		overflow: hidden;
 	}
 	.news-slug {
 		width: 80rem;
-		margin: auto;
+		margin:2rem auto;
+		position: relative;
+		max-width: 100%;
 	}
 	@media screen and (max-width: 767px) {
+		margin: 0 2rem;
+		.container-news-slug {
+		padding: 1rem 2rem;
+		
+		}
+		
+		
 	}
 `

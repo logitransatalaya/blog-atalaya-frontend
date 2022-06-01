@@ -11,7 +11,7 @@ import { limit } from 'utils/constant'
 const serviceNews = (offset) => async (dispatch) => {
 	try {
 		const { data } = await axios.get(
-			`${baseURL}/api/v1/posts?limit=${limit}&offset=${offset}`
+			`${baseURL}/api/v1/posts?limit=20&offset=${offset}`
 		)
 		if (Array.isArray(data)) {
 			dispatch({ type: GET_NEWS_SUCCESS, data })

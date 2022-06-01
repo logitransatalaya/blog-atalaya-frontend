@@ -21,7 +21,12 @@ export const LastNewStyles = styled.div`
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		margin: 5rem 0;
+		margin: 4rem 0;
+		
+		.loading1 {
+			margin-top: 15rem;
+			text-align: center;
+	  }
 	}
 	.container-pagination {
 		display: flex;

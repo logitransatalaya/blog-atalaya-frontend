@@ -7,9 +7,9 @@ export const initialState = {
 	allyNotFound: false
 }
 
-// ===========================|| ALLIES REDUCER ||=========================== //
+// ===========================|| ALLIES ADM REDUCER ||=========================== //
 
-const alliesReducer = (state = initialState, action) => {
+const alliesAdmReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.CREATE_ALLY_SUCCESS:
 			let newAlly = action.data
@@ -17,17 +17,17 @@ const alliesReducer = (state = initialState, action) => {
 				...state,
 				allies: [newAlly, ...state.allies]
 			}
-		case actionTypes.GET_ALLIES_SUCCESS:
+		case actionTypes.GET_ALLIES_ADM_SUCCESS:
 			return {
 				...state,
 				allies: action.data
 			}
-		case actionTypes.GET_ALLY_ID_SUCCESS:
+		case actionTypes.GET_ALLY_ID_ADM_SUCCESS:
 			return {
 				...state,
 				allyId: action.data
 			}
-		case actionTypes.GET_ALLY_ID_ERROR:
+		case actionTypes.GET_ALLY_ID_ADM_ERROR:
 			return {
 				...state,
 				allyNotFound: true
@@ -60,4 +60,4 @@ const alliesReducer = (state = initialState, action) => {
 	}
 }
 
-export default alliesReducer
+export default alliesAdmReducer

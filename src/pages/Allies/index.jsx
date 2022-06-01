@@ -1,8 +1,18 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import MenuHeader from 'components/MenuHeader'
-
 import { AlieStyles } from './Alies.styles'
-import { allies } from 'utils/allies'
+import { allies2 } from 'utils/allies'
+import { serviceGetAllies } from 'store/alliesAPi'
 const Alies = () => {
+	const dispatch = useDispatch()
+	const { allies } = useSelector((state) => state.ally)
+	
+	useEffect(() => {
+		dispatch(
+			serviceGetAllies()
+		)
+	}, [])
 	return (
 		<AlieStyles>
 			<MenuHeader
@@ -19,7 +29,7 @@ const Alies = () => {
 							</p>
 						</div>
 						<div className='logo-ally'>
-							<img src={item.logo} alt='' />
+							<img src={item.image} alt='' />
 						</div>
 					</div>
 				))}

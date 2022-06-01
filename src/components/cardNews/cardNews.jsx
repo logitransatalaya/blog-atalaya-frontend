@@ -7,7 +7,7 @@ function CardNews({ item }) {
 	return (
 		<CardNewStyles onClick={() => navigate(item.slug)}>
 			<div>
-				<h2 className='title'>{item.title}</h2>
+				<h2 className='title'>{item.id} - {item.title}</h2>
 
 				<p>{item.description}</p>
 			</div>

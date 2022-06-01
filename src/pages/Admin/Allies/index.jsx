@@ -3,17 +3,17 @@ import LandscapeMenu from 'components/LandscapeMenu/index'
 import { CardAllyStyles, AlliesStyles } from './Allies.styles'
 import { Link, useNavigate } from 'react-router-dom'
 import iconMas from 'assets/icons/mas.svg'
-import { serviceGetAllies } from 'store/Admin/allyApi'
+import { serviceGetAlliesAdm } from 'store/Admin/allyApi'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function Allies() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { allies } = useSelector((state) => state.ally)
+	const { allies } = useSelector((state) => state.allyAdm)
 
 	useEffect(() => {
 		if (allies.length === 0) {
-			dispatch(serviceGetAllies())
+			dispatch(serviceGetAlliesAdm())
 		}
 	}, [allies])
 

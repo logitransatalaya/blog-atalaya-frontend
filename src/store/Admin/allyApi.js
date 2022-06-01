@@ -1,10 +1,10 @@
 import axios from 'axios'
 import {
-	GET_ALLIES_SUCCESS,
+	GET_ALLIES_ADM_SUCCESS,
 	SNACKBAR_OPEN,
 	CREATE_ALLY_SUCCESS,
-	GET_ALLY_ID_SUCCESS,
-	GET_ALLY_ID_ERROR,
+	GET_ALLY_ID_ADM_SUCCESS,
+	GET_ALLY_ID_ADM_ERROR,
 	UPDATE_ALLY_ID_SUCCESS,
 	MODAL_OPEN,
 	DELETE_ALLY_ID_SUCCESS
@@ -12,28 +12,28 @@ import {
 import { baseURL } from 'utils/constant'
 import jwtDecode from 'jwt-decode'
 
-const serviceGetAllies = () => async (dispatch) => {
+const serviceGetAlliesAdm = () => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
 		const { data } = await axios.get(`${baseURL}/api/v1/adm/allies`)
 
-		dispatch({ type: GET_ALLIES_SUCCESS, data })
+		dispatch({ type: GET_ALLIES_ADM_SUCCESS, data })
 	} catch (error) {
 		console.log(error)
 	}
 }
 
-const serviceGetallyId = (id) => async (dispatch) => {
+const serviceGetallyIdAdm = (id) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
 		const { data } = await axios.get(`${baseURL}/api/v1/adm/allies/${id}`)
 
-		dispatch({ type: GET_ALLY_ID_SUCCESS, data })
+		dispatch({ type: GET_ALLY_ID_ADM_SUCCESS, data })
 	} catch (error) {
 		if (error.response.status == 404) {
-			dispatch({ type: GET_ALLY_ID_ERROR })
+			dispatch({ type: GET_ALLY_ID_ADM_ERROR })
 		} else {
 			dispatch({
 				type: SNACKBAR_OPEN,
@@ -148,7 +148,6 @@ const serviceUpdateAlly = (data, history, user) => async (dispatch) => {
 }
 
 const serviceDeleteAlly = (id, history) => async (dispatch) => {
-	console.log(id)
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
@@ -175,9 +174,9 @@ const serviceDeleteAlly = (id, history) => async (dispatch) => {
 	}
 }
 export {
-	serviceGetAllies,
+	serviceGetAlliesAdm,
 	serviceCreateAlly,
-	serviceGetallyId,
+	serviceGetallyIdAdm,
 	serviceUpdateAlly,
 	serviceDeleteAlly
 }

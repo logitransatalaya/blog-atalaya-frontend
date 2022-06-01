@@ -37,9 +37,15 @@ export const CertificateStyles = styled.div`
 			letter-spacing: 0px;
 			color: #0f216f;
 		}
-		> p {
+		.description {
 			padding-top: 0.5rem;
 			font-size: 1.2rem;
+			  overflow: hidden;
+			text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3; 
+		   -webkit-box-orient: vertical;
 		}
 	}
 `

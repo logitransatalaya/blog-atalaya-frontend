@@ -29,7 +29,7 @@ const AddAlly = () => {
 
 	return (
 		<FormAllyStyles>
-			<LandscapeMenu active={2} />
+			<LandscapeMenu active={3} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='frm-head'>
 					<h2>Nuevo aliado</h2>
