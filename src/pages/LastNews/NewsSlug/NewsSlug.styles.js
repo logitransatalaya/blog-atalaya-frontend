@@ -21,10 +21,10 @@ export const NewsSlugStyles = styled.div`
 		max-width: 100%;
 	}
 	@media screen and (max-width: 767px) {
-		margin: 0 2rem;
+		margin: 0 1rem;
 		.container-news-slug {
 		padding: 1rem 2rem;
-		
+		margin: 4rem 0;
 		}
 		
 		

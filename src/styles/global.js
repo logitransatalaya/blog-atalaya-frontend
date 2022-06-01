@@ -53,7 +53,7 @@ export const LogoStyles = styled.div`
 		position: relative;
 		padding-bottom: 2rem;
 		> img {
-			width: 10rem;
+			width: 12rem;
 		}
 	}
 `

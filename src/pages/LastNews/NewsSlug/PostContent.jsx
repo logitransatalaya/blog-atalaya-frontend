@@ -1,11 +1,11 @@
 
 import styled from 'styled-components'
 
-const Policy = ({ className, policy }) => (
-    <div className={className} dangerouslySetInnerHTML={{ __html: policy }}></div>
+const PostContent = ({ className, post }) => (
+    <div className={className} dangerouslySetInnerHTML={{ __html: post }}></div>
 )
 
-const StyledPolicy = styled(Policy)`
+const StyledPostContent = styled(PostContent)`
       max-width: 100% !important;
       position: relative;
       display: grid;
@@ -33,4 +33,4 @@ const StyledPolicy = styled(Policy)`
 
 `;
 
-export { StyledPolicy }
+export { StyledPostContent }

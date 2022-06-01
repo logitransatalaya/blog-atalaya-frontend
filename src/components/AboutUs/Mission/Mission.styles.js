@@ -3,8 +3,10 @@ import styled from 'styled-components'
 export const MissionStyles = styled.div`
 	color: #fff;
 	max-width: 75rem;
+	padding: 1rem;
 	margin: auto;
 	margin-top: 6rem;
+	width: calc(100% - 100px);
 	> h4 {
 		position: relative;
        cursor: pointer;
@@ -22,5 +24,20 @@ export const MissionStyles = styled.div`
 			color: #707070;
 			font-size: 1.5rem;
 		}
+	}
+
+
+	@media screen and (max-width: 700px) {
+		margin-top: 2rem;
+		padding: 1rem;
+		width: 100%;
+		> h4 {
+			left: 0;
+			margin-bottom: 0;
+			font-size: 1.2rem;
+	}
+	.box {
+		padding: 3rem 3rem 2rem;
+	}
 	}
 `

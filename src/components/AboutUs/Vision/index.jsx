@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { serviceGetVisionUs } from 'store/us/companyIdentityApi'
-import { VisionStyles } from './Mission.styles'
-// ===========================|| Mission ||=========================== //
+import { VisionStyles } from './Vision.styles'
+// ===========================|| Vision ||=========================== //
 
 const Vision = ({ handleClose }) => {
 	const dispatch = useDispatch()

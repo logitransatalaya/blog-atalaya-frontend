@@ -3,8 +3,11 @@ import styled from 'styled-components'
 export const CertificateStyles = styled.div`
 	color: #fff;
 	max-width: 75rem;
+	padding: 1rem;
 	margin: auto;
 	margin-top: 6rem;
+	width: calc(100% - 100px);
+
 	> h4 {
 		position: relative;
        cursor: pointer;
@@ -30,5 +33,17 @@ export const CertificateStyles = styled.div`
 			padding-top: 1rem;
 		}
 	}
-	
+	@media screen and (max-width: 700px) {
+		margin-top: 2rem;
+		padding: 1rem;
+		width: 100%;
+		> h4 {
+			left: 0;
+			margin-bottom: 0;
+			font-size: 1.2rem;
+	}
+	.box {
+		padding: 1rem 2rem 3rem;
+	}
+}
 `

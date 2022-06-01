@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const VisionStyles = styled.div`
 	color: #fff;
 	max-width: 75rem;
+	width: calc(100% - 100px);
 	margin: auto;
 	margin-top: 6rem;
 	> h4 {
@@ -22,5 +23,18 @@ export const VisionStyles = styled.div`
 			color: #707070;
 			font-size: 1.5rem;
 		}
+	}
+	@media screen and (max-width: 700px) {
+		margin-top: 2rem;
+		padding: 1rem;
+		width: 100%;
+		> h4 {
+			left: 0;
+			margin-bottom: 0;
+			font-size: 1.2rem;
+	}
+	.box {
+		padding: 3rem 3rem 2rem;
+	}
 	}
 `

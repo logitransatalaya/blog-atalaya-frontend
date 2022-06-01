@@ -82,9 +82,10 @@ export const LastNewStyles = styled.div`
 	}
 	@media screen and (max-width: 767px) {
 		width: 100%;
-		margin: 0.5rem 0;
-		padding: 1rem;
-
+		
+		.num-page {
+			font-size: 1rem;
+		}
 		.pagination {
 			overflow-x: scroll;
 			overflow-y: hidden;
@@ -92,6 +93,9 @@ export const LastNewStyles = styled.div`
 
 		.header-search {
 			display: none;
+		}
+		.container-news {
+			margin: 4rem 1rem;
 		}
 	}
 `

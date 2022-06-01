@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const AlieStyles = styled.div`
 	.box-allies {
 		margin-top: 6rem;
+		padding: 2rem;
 		min-height: 60vh;
 		background: #fff;
 		border-radius: 3rem;
 		display: grid;
-		
+	
 		grid-template-columns: repeat(auto-fill ,36rem);
 		justify-content: space-around;
-		padding: 2rem;
 
 		.card-ally {
 			margin: 1rem;
@@ -42,7 +42,7 @@ export const AlieStyles = styled.div`
 			box-shadow: 0px 3px 6px #00000029;
 			border: 1px solid #707070;
 			width: 90px;
-			height: 85px;
+			height: 90px;
 			border-radius: 50%;
 			padding: 0.5rem;
 			overflow: hidden;
@@ -60,5 +60,11 @@ export const AlieStyles = styled.div`
 		}
 	}
 	@media screen and (max-width: 700px) {
+		
+		margin: 1rem;
+		.box-allies {
+		margin-top: 2rem;
+		grid-template-columns: repeat(auto-fill ,32rem);
 	}
+}
 `

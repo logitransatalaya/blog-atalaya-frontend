@@ -4,15 +4,9 @@ import { NewsSlugStyles } from './NewsSlug.styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { serviceNewsSlug } from 'store/newsApi'
 import MenuHeader from 'components/MenuHeader'
-import { StyledPolicy } from './Polici'
+import { StyledPostContent } from './PostContent'
 
-const TitleMenus = () => {
-	return (
-		<>
-			<h2>NOVEDADES</h2>
-		</>
-	)
-}
+const TitleMenus = () =>(<h2>NOVEDADES</h2>)
 
 
 export default function NewsSlug() {
@@ -29,12 +23,8 @@ export default function NewsSlug() {
 			<MenuHeader back TitleMenu={TitleMenus} toShare/>
 			<div className='container-news-slug'>
 				<div className='news-slug'>
-				<StyledPolicy policy={postSlug?.content } />
-				{/*}
-					<div
-						dangerouslySetInnerHTML={{ __html: postSlug?.content }}
-					></div>
-	*/}
+				<StyledPostContent post={postSlug?.content } />
+				
 
 Número de visitas a esta página 249
 Fecha de publicación 24/02/2022

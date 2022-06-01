@@ -4,18 +4,18 @@ export const AboutUsStyles = styled.div`
 	width: 100%;
 	.wrapper {
 		margin: auto;
-		padding: 0 5rem ;
+		margin-top: 1rem;
 		display: flex;
-		margin-top: 2rem;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		align-items: center;
 		height: 70vh;
 	}
 
 	.card {
 		border-radius: 4rem 4rem 0 0;
-		width: 25%;
-		height: 30rem;
+		width: 28%;
+		max-width: 25rem;
+		height: 26rem;
 		background: white;
 		position: relative;
 		transition: 0.4s ease-out;
@@ -88,7 +88,16 @@ export const AboutUsStyles = styled.div`
 		.wrapper {
 			padding: 0;
 			flex-direction: column;
+			height: fit-content;
+			margin-top: 3rem;
 		}
+
+	.card {
+		width: 90%;
+		max-width: 30rem;
+		height: 25rem;
+		margin-bottom: 6rem;
+	}
 	}
 
 `

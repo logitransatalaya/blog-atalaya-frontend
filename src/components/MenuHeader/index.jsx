@@ -50,9 +50,9 @@ const MenuHeader = ({ TitleMenu, close, handleClose, back ,toShare}) => {
 					</span>
 
 					{toShare && (
-						<span onClick={handleGoback}>
+						<div onClick={handleGoback} className='to-share'>
 						<h4>COMPARTIR</h4>
-						</span>
+						</div>
 					)}
 				</div>
 			</div>
