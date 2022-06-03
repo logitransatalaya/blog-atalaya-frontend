@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/logitransatalaya/blog-atalaya-frontend/static/css/main.a7a3ae37.css",
+    "main.js": "/logitransatalaya/blog-atalaya-frontend/static/js/main.8a0df7d5.js",
+    "static/js/418.8e3cc063.chunk.js": "/logitransatalaya/blog-atalaya-frontend/static/js/418.8e3cc063.chunk.js",
+    "static/js/632.8474bfab.chunk.js": "/logitransatalaya/blog-atalaya-frontend/static/js/632.8474bfab.chunk.js",
+    "static/media/trabaja-nosotros.jpg": "/logitransatalaya/blog-atalaya-frontend/static/media/trabaja-nosotros.cd88c27d38ade05eae32.jpg",
+    "static/media/aliados.jpg": "/logitransatalaya/blog-atalaya-frontend/static/media/aliados.3e9adf619928196d4027.jpg",
+    "static/media/bg-adm.jpg": "/logitransatalaya/blog-atalaya-frontend/static/media/bg-adm.186100d19b24a95225b0.jpg",
+    "static/media/background.png": "/logitransatalaya/blog-atalaya-frontend/static/media/background.55f27a15d2ac57e6f2bc.png",
+    "static/media/nosotros.jpg": "/logitransatalaya/blog-atalaya-frontend/static/media/nosotros.460ff1f0fd6278d86343.jpg",
+    "static/media/news.jpg": "/logitransatalaya/blog-atalaya-frontend/static/media/news.592d6ed6c60d6d6652eb.jpg",
+    "static/media/logo-atalaya.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/logo-atalaya.8ac1040810ba7464fac3286cd881c7f5.svg",
+    "static/media/atalaya.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/atalaya.0b5c54a151d66651b209ef79de7d5225.svg",
+    "static/media/websit.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/websit.c655851399f50f858db941e1ca730334.svg",
+    "static/media/ig.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/ig.502802d1e64543e9a07a0e5d3ee8409d.svg",
+    "static/media/basura.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/basura.68369ca3d4ae45e241e9fe496b4f0930.svg",
+    "static/media/lupa.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/lupa.b0b05f3bad80666a972d1bf890562e17.svg",
+    "static/media/visible.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/visible.c8f994c9a297eeaf38870512fa800b1e.svg",
+    "static/media/notvisible.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/notvisible.d27b10fc05217335d1fb0ae0570655fe.svg",
+    "index.html": "/logitransatalaya/blog-atalaya-frontend/index.html",
+    "static/media/fb.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/fb.0f9e07235c60feff27df369cefc8fc41.svg",
+    "static/media/volver.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/volver.2d294c3b29eec47d529eb42f5faec74e.svg",
+    "static/media/close2.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/close2.a08ae6f5a80e1a6f9a2a17252f7ff963.svg",
+    "static/media/mas.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/mas.3baeabad66c6203a36586189364da112.svg",
+    "static/media/cerrar.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/cerrar.ddfa46f1c8384ba9e04e7dc2d8db827f.svg",
+    "static/media/home.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/home.50b18d65feb3f0c5fbfe992282641c0f.svg",
+    "static/media/lens.svg": "/logitransatalaya/blog-atalaya-frontend/static/media/lens.3da7eeab6c82aaa4d60fb835a637dea4.svg",
+    "main.a7a3ae37.css.map": "/logitransatalaya/blog-atalaya-frontend/static/css/main.a7a3ae37.css.map",
+    "main.8a0df7d5.js.map": "/logitransatalaya/blog-atalaya-frontend/static/js/main.8a0df7d5.js.map",
+    "418.8e3cc063.chunk.js.map": "/logitransatalaya/blog-atalaya-frontend/static/js/418.8e3cc063.chunk.js.map",
+    "632.8474bfab.chunk.js.map": "/logitransatalaya/blog-atalaya-frontend/static/js/632.8474bfab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7a3ae37.css",
+    "static/js/main.8a0df7d5.js"
+  ]
+}
