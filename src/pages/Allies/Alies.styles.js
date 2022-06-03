@@ -8,8 +8,8 @@ export const AlieStyles = styled.div`
 		background: #fff;
 		border-radius: 3rem;
 		display: grid;
-	
-		grid-template-columns: repeat(auto-fill ,36rem);
+
+		grid-template-columns: repeat(auto-fill, 36rem);
 		justify-content: space-around;
 
 		.card-ally {
@@ -52,7 +52,7 @@ export const AlieStyles = styled.div`
 				object-fit: cover;
 				width: 100%;
 				height: 100%;
-			
+
 				&:hover {
 					transform: scale(1.5);
 				}
@@ -60,11 +60,10 @@ export const AlieStyles = styled.div`
 		}
 	}
 	@media screen and (max-width: 700px) {
-		
 		margin: 1rem;
 		.box-allies {
-		margin-top: 2rem;
-		grid-template-columns: repeat(auto-fill ,32rem);
+			margin-top: 2rem;
+			grid-template-columns: repeat(auto-fill, 32rem);
+		}
 	}
-}
 `

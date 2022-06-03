@@ -14,7 +14,9 @@ export default function LastNews() {
 						TitleMenu={() => <h2>TRABAJA CON NOSOTROS</h2>}
 					/>
 					<WorkWithUs />
-				{/*	<ContactUs /> */}
+					<div className='contact'>
+						<ContactUs />
+					</div>
 				</div>
 			</Modal>
 		</WorkWithUStyles>

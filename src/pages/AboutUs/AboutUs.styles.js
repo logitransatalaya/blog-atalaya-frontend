@@ -14,7 +14,7 @@ export const AboutUsStyles = styled.div`
 	.card {
 		border-radius: 4rem 4rem 0 0;
 		width: 28%;
-		max-width: 25rem;
+		max-width: 30rem;
 		height: 26rem;
 		background: white;
 		position: relative;
@@ -92,13 +92,21 @@ export const AboutUsStyles = styled.div`
 			margin-top: 3rem;
 		}
 
-	.card {
-		width: 90%;
-		max-width: 30rem;
-		height: 25rem;
-		margin-bottom: 6rem;
+		.card {
+			width: 90%;
+			max-width: 26rem;
+			border-radius: 2rem 2rem 0 0;
+			height: 25rem;
+			margin-bottom: 6rem;
+			> img {
+				border-radius: 2rem 2rem 0 0;
+			}
+		}
 	}
+	.contact {
+		position: relative;
 	}
 
+	@media screen and (max-width: 767px) {
+	}
 `
-

@@ -93,7 +93,9 @@ const AboutUs = () => {
 							TitleMenu={() => <h2>{open.title}</h2>}
 						/>
 						<HandleView />
-						<ContactUs />
+						<div className='contact'>
+							<ContactUs />
+						</div>
 					</div>
 				</Modal>
 			)}

@@ -13,21 +13,22 @@ export const HomeStyles = styled.main`
 		display: grid;
 		max-width: 90%;
 		margin: auto;
-		
 	}
 	.social-media {
-		position: relative;
-		display: flex;
-		margin: 0rem 8rem;
-		top: -1rem;
-		span {
-			margin: 0 1rem;
-			cursor: pointer;
-		}
 	}
 	@media screen and (max-width: 700px) {
 		.searchbox {
 			margin: 2rem;
+		}
+		.cont-carousel {
+			min-height: 50vh;
+			align-items: center;
+			display: grid;
+			max-width: 100%;
+			margin: 1rem;
+		}
+		.social-media {
+			padding: 3rem 1rem 2rem 2rem;
 		}
 	}
 `

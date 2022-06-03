@@ -38,11 +38,19 @@ export default styled.div`
 
 	@media screen and (max-width: 767px) {
 		padding: 0;
-		margin: 15px;
+		margin-top: 1rem;
+		margin-left: 1rem;
 		transform: scale(1);
 		> img {
 			border-top-left-radius: 20px;
 			border-top-right-radius: 20px;
+			height: 30rem;
+		}
+		.title {
+			padding: 1rem;
+			h3 {
+				font-size: 1.4rem;
+			}
 		}
 	}
 `
