@@ -10,7 +10,7 @@ export function PaginatedItems({ itemsPerPage }) {
 	const [currentItems, setCurrentItems] = useState([])
 	const [pageCount, setPageCount] = useState(0)
 	const [itemOffset, setItemOffset] = useState(0)
-    const [page, setPage] = useState(1)
+	const [page, setPage] = useState(1)
 
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage
@@ -19,7 +19,7 @@ export function PaginatedItems({ itemsPerPage }) {
 	}, [itemOffset, itemsPerPage, news])
 
 	const handlePageClick = (event) => {
-        setPage(event.selected+1);
+		setPage(event.selected + 1)
 		const newOffset = (event.selected * itemsPerPage) % news.length
 		setItemOffset(newOffset)
 
@@ -28,12 +28,14 @@ export function PaginatedItems({ itemsPerPage }) {
 			dispatch(serviceNews(offset))
 		}
 	}
-  
+
 	return (
 		<div className='container-news'>
-			<div className='num-page'><p>PÁGINA {page < 10 ? `0${page}` :page } </p></div>
+			<div className='num-page'>
+				<p>PÁGINA {page < 10 ? `0${page}` : page} </p>
+			</div>
 			{currentItems.map((item) => (
-				<CardNews key={item.id} item={item} />
+				<CardNews key={item.id + 'cardnews'} item={item} />
 			))}
 			<div className='container-pagination'>
 				<ReactPaginate

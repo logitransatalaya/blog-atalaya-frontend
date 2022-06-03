@@ -2,16 +2,13 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MenuHeader from 'components/MenuHeader'
 import { AlieStyles } from './Alies.styles'
-import { allies2 } from 'utils/allies'
 import { serviceGetAllies } from 'store/alliesAPi'
 const Alies = () => {
 	const dispatch = useDispatch()
 	const { allies } = useSelector((state) => state.ally)
-	
+
 	useEffect(() => {
-		dispatch(
-			serviceGetAllies()
-		)
+		dispatch(serviceGetAllies())
 	}, [])
 	return (
 		<AlieStyles>
@@ -21,7 +18,7 @@ const Alies = () => {
 			/>
 			<div className='box-allies'>
 				{allies.map((item) => (
-					<div className='card-ally'>
+					<div key={item.id + 'ally'} className='card-ally'>
 						<div className='card-head'>
 							<h3 className='title-ally'>{item.name}</h3>
 							<p className='description-ally'>

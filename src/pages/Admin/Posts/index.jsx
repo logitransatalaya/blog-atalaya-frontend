@@ -30,7 +30,7 @@ export default function LastNews() {
 			<div className='contenedor'>
 				{posts.map((item) => (
 					<CardPostStyles
-						key={item.id}
+						key={item.id + 'admpost'}
 						onClick={() => navigate(`edit/${item.slug}`)}
 					>
 						<h4>{item.title}</h4>

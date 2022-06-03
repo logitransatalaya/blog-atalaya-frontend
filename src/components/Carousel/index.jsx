@@ -19,9 +19,6 @@ const CarouselC = () => {
 		const mid = getMid()
 		setMidItemIndex(mid + next.index)
 	}
-	const handlePage = (url) => {
-		navigate(url)
-	}
 
 	return (
 		<CarouselStyles>
@@ -29,9 +26,7 @@ const CarouselC = () => {
 				//	easing='cubic-bezier(1,.15,.55,1.54)'
 				//	tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
 				//	transitionMs={8}
-				easing='cubic-bezier(.51,.92,.24,1.15)'
-				tiltEasing='cubic-bezier(.51,.92,.24,1.15)'
-				transitionMs={200}
+
 				breakPoints={breakPoints}
 				itemsToShow={itemsToShow}
 				onNextStart={onChange}
@@ -41,8 +36,8 @@ const CarouselC = () => {
 					<Item
 						midItemIndex={midItemIndex}
 						idx={idx}
-						key={item}
-						onClick={() => handlePage(item.url)}
+						key={item.id}
+						onClick={() => navigate(item.url)}
 					>
 						<img src={item.image} alt='' />
 						<div className='title'>

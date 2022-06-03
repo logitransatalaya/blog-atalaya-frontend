@@ -10,9 +10,7 @@ const Certificates = ({ handleClose, handleCertificate }) => {
 	const { certificates } = useSelector((state) => state.certificateUs)
 
 	useEffect(() => {
-		dispatch(
-			serviceGetCertificatesUs()
-		)
+		dispatch(serviceGetCertificatesUs())
 	}, [])
 
 	return (
@@ -20,16 +18,14 @@ const Certificates = ({ handleClose, handleCertificate }) => {
 			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
-				{certificates.map((item ) => (
+				{certificates.map((item) => (
 					<div
-						key={item.id}
+						key={`ct${item.id}`}
 						className='card-certificate'
 						onClick={() => handleCertificate(item.id)}
 					>
 						<h2>{item.title}</h2>
-						<p className='description'>
-							{item.description}
-						</p>
+						<p className='description'>{item.description}</p>
 					</div>
 				))}
 			</div>

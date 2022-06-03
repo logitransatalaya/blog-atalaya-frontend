@@ -7,31 +7,35 @@ export const slides = [
 	{
 		image: trabajaNosotros,
 		alt: 'TRABAJA CON NOSOTROS',
-		url: '/trabaja-con-nosotros'
+		url: '/trabaja-con-nosotros',
+		id: 'c01'
 	},
 
 	{
 		image: news,
 		alt: 'ULTIMAS NOTICIAS',
-		url: '/ultimas-noticias'
+		url: '/ultimas-noticias',
+		id: 'c02'
 	},
 	{
 		image: nosotros,
 		alt: 'NOSOTROS',
-		url: '/nosotros'
+		url: '/nosotros',
+		id: 'c03'
 	},
 	{
 		image: aliados,
 		alt: 'ALIADOS',
-		url: '/aliados'
+		url: '/aliados',
+		id: 'c04'
 	}
 ]
 
 export const breakPoints = [
 	{ width: 1, itemsToShow: 1, itemsToScroll: 1, transitionMs: 700 },
 	{ width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-	{ width: 850, itemsToShow: 3, pagination: false  },
-	{ width: 1150, itemsToShow: 3, itemsToScroll: 1 , pagination: false },
-	{ width: 1450, itemsToShow: 3, pagination: false  },
-	{ width: 1750, itemsToShow: 3, pagination: false  }
+	{ width: 850, itemsToShow: 3, pagination: false },
+	{ width: 1150, itemsToShow: 3, itemsToScroll: 1, pagination: false },
+	{ width: 1450, itemsToShow: 3, pagination: false },
+	{ width: 1750, itemsToShow: 3, pagination: false }
 ]

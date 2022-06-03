@@ -51,13 +51,13 @@ export default function Modal({ open, children, onClose }) {
 					<div className='container-search'>
 						<Search active handleSubmit={handleSubmit} />
 						<span onClick={onClose}>
-							<img   src={Cerrar} alt='' />
+							<img src={Cerrar} alt='' />
 						</span>
 					</div>
 
 					<div className='container-results'>
 						{searchResults?.map((item) => (
-							<CardSearch key={item.id} item={item} />
+							<CardSearch key={item.id + 'result'} item={item} />
 						))}
 						{searchResults?.length < 1 && (
 							<div style={{ color: '#fff' }}>

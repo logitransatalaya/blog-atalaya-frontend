@@ -41,7 +41,7 @@ export default function Us() {
 			<div className='container-us'>
 				{data.map((item) => (
 					<CardUsStyles
-						key={item.id}
+						key={item.id + 'admus'}
 						onClick={() => navigate(item.url)}
 					>
 						<div className='card-title'>

@@ -34,7 +34,7 @@ export default function Allies() {
 				<div className='contenedor'>
 					{certificates.map((item) => (
 						<CardCertificatesStyles
-							key={item.id}
+							key={item.id + 'adm-c'}
 							onClick={() => navigate(`edit/${item.id}`)}
 						>
 							<h4>{item.title}</h4>

@@ -30,7 +30,7 @@ export default function Allies() {
 			<div className='contenedor'>
 				{allies.map((item) => (
 					<CardAllyStyles
-						key={item.id}
+						key={item.id + 'admAlly'}
 						onClick={() => navigate(`edit/${item.id}`)}
 					>
 						<h4>{item.name}</h4>

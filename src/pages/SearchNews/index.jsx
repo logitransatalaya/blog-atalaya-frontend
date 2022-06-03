@@ -57,7 +57,7 @@ export default function LastNews() {
 			<div className='container-dark'></div>
 			<div className='searchResults'>
 				{searchResults?.map((item) => (
-					<CardSearch key={item.id} item={item} />
+					<CardSearch key={item.id + 'cardsearch'} item={item} />
 				))}
 				{searchResults?.length < 1 && (
 					<div style={{ color: '#fff' }}>

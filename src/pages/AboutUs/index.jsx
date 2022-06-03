@@ -66,7 +66,7 @@ const AboutUs = () => {
 			<div className='wrapper'>
 				{Menu.map((item) => (
 					<div
-						key={item.id}
+						key={item.id + 'menu'}
 						className='card'
 						onClick={() =>
 							setOpen({
