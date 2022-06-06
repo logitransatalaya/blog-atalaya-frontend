@@ -38,8 +38,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"preview": "serve -s build",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"dev": "serve -s build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -58,5 +58,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"gh-pages": "^4.0.0"
 	}
 }
