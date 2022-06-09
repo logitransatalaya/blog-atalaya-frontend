@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.div`
+export const ItemStyles = styled.div`
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -14,15 +14,21 @@ export default styled.div`
 		midItemIndex === idx ? 'transform 700ms ease' : 'transform 300ms ease'};
 	transform: ${({ midItemIndex, idx }) =>
 		midItemIndex === idx ? 'scale(1)' : 'scale(.8)'};
-
-	> img {
-		cursor: pointer;
-		border-top-left-radius: 4rem;
-		border-top-right-radius: 4vmin;
-		object-fit: cover;
-		width: 100%;
+	.img-item {
 		height: 35rem;
-		max-height: 100%;
+		cursor: pointer;
+		width: 100%;
+		background: transparent;
+		border: none;
+		> img {
+			cursor: pointer;
+			border-top-left-radius: 4rem;
+			border-top-right-radius: 4vmin;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+		}
 	}
 	.title {
 		cursor: pointer;
@@ -37,14 +43,19 @@ export default styled.div`
 	}
 
 	@media screen and (max-width: 767px) {
-		padding: 0;
-		margin-top: 1rem;
-		margin-left: 1rem;
+		padding: 1rem;
+		margin: 0;
+		margin-top: 2rem;
+
 		transform: scale(1);
-		> img {
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
-			height: 30rem;
+		transition: all 2s;
+		border-radius: 20px 20px 0 0;
+		.img-item {
+			border-radius: 20px 20px 0 0;
+			height: 28rem;
+			> img {
+				border-radius: 20px 20px 0 0;
+			}
 		}
 		.title {
 			padding: 1rem;

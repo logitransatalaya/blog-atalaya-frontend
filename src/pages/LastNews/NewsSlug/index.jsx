@@ -6,33 +6,57 @@ import { serviceNewsSlug } from 'store/newsApi'
 import MenuHeader from 'components/MenuHeader'
 import { StyledPostContent } from './PostContent'
 
-const TitleMenus = () =>(<h2>NOVEDADES</h2>)
+import { formatDate } from 'utils/date'
+import Modal from 'components/Modal'
+import SharePost from 'components/SharePost'
 
+const TitleMenus = () => <h2>NOVEDADES</h2>
 
 export default function NewsSlug() {
 	const dispatch = useDispatch()
 	let { newsSlug } = useParams()
 	const { postSlug } = useSelector((state) => state.lastNews)
+	const [statusModal, setStatusModal] = useState(false)
 
 	useEffect(() => {
 		dispatch(serviceNewsSlug(newsSlug))
 	}, [])
 
+	const handleShare = () => {
+		setStatusModal(true)
+	}
+
 	return (
 		<NewsSlugStyles>
-			<MenuHeader back TitleMenu={TitleMenus} toShare/>
+			<MenuHeader
+				back
+				TitleMenu={TitleMenus}
+				toShare
+				handleShare={handleShare}
+			/>
 			<div className='container-news-slug'>
 				<div className='news-slug'>
-				<StyledPostContent post={postSlug?.content } />
-				
-
-Número de visitas a esta página 249
-Fecha de publicación 24/02/2022
-Última modificación 24/02/2022
+					<StyledPostContent post={postSlug?.content} />
+					{postSlug?.updatedAt && (
+						<p className='text-update'>
+							Última modificación{' '}
+							{formatDate(new Date(postSlug?.updatedAt))}
+						</p>
+					)}
 				</div>
 			</div>
+			{statusModal && (
+				<div>
+					<Modal open>
+						<div className='box-p'>
+							<SharePost
+								slug={postSlug?.slug}
+								handleClose={() => setStatusModal(false)}
+							/>
+						</div>
+					</Modal>
+				</div>
+			)}
 		</NewsSlugStyles>
 	)
 }
-
-

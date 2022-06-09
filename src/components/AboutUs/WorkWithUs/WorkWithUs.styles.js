@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 export const WorkWithUStyles = styled.div`
-		color: #fff;
+	color: #fff;
 	max-width: 75rem;
 	padding: 1rem;
 	margin: auto;
 	margin-top: 6rem;
 	width: calc(100% - 100px);
 	> h4 {
-	   position: relative;
-       cursor: pointer;
-       margin-bottom: 1rem;
-       left: -4rem;
+		position: relative;
+		cursor: pointer;
+		margin-bottom: 1rem;
+		left: -4rem;
 	}
 	h3 {
 		color: #0f216f;
@@ -56,9 +56,9 @@ export const WorkWithUStyles = styled.div`
 			left: 0;
 			margin-bottom: 1rem;
 			font-size: 1.2rem;
+		}
+		.content-work-with-us {
+			padding: 3rem;
+		}
 	}
-	.content-work-with-us {
-		padding: 3rem;
-	}
-}
 `

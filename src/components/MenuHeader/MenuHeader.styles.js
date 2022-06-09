@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const MenuHeaderStyles = styled.div`
-
 	.menu-header {
 		display: grid;
 		grid-template-columns: 2fr 2fr 1fr;
@@ -25,7 +24,7 @@ export const MenuHeaderStyles = styled.div`
 		display: flex;
 		color: #fff;
 		font-size: 2rem;
-	
+
 		span {
 			margin-right: 2rem;
 		}
@@ -33,29 +32,34 @@ export const MenuHeaderStyles = styled.div`
 			cursor: pointer;
 			width: 2.2rem;
 		}
-		.to-share{
-			
+		.to-share {
+			cursor: pointer;
+			border: 2px solid #dddddd;
+			border-radius: 6px;
+			padding: 0.5rem 1.5rem;
+
+			&:hover {
+				background: #e55c1e;
+			}
 		}
 	}
 
 	@media screen and (max-width: 700px) {
 		.menu-header {
-		grid-template-columns: 2fr 4rem 1fr;
-	}
+			grid-template-columns: 2fr 4rem 1fr;
+		}
 		.header-title {
-			
-		h2 {
-			font-size: 1.5rem;
-			font-weight: bold;
+			h2 {
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
+			p {
+				font-size: 1rem;
+				font-style: italic;
+			}
 		}
-		p {
-			font-size: 1rem;
-			font-style: italic;
-		}
-	}
 		.header-action {
-		
-			.to-share{
+			.to-share {
 				top: 4rem;
 				right: 0;
 				width: 50%;
@@ -64,7 +68,7 @@ export const MenuHeaderStyles = styled.div`
 				position: absolute;
 				text-align: center;
 				font-size: 1rem;
-		}	
+			}
+		}
 	}
-}
 `

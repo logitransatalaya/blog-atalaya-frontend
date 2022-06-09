@@ -16,17 +16,27 @@ export const NewsSlugStyles = styled.div`
 	}
 	.news-slug {
 		width: 80rem;
-		margin:2rem auto;
+		margin: 2rem auto;
 		position: relative;
 		max-width: 100%;
+	}
+	.text-update {
+		margin-top: 4rem;
+		padding-right: 10px;
+		text-align: end;
+		color: #0f216f;
+		font-style: italic;
+		font-weight: 600;
+		font-size: 1.6rem;
 	}
 	@media screen and (max-width: 767px) {
 		margin: 0 1rem;
 		.container-news-slug {
-		padding: 1rem 2rem;
-		margin: 4rem 0;
+			padding: 1rem 2rem;
+			margin: 5rem 0;
 		}
-		
-		
+		.text-update {
+			font-size: 1.2rem;
+		}
 	}
 `

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ReactPaginate from 'react-paginate'
 import CardNews from 'components/cardNews/cardNews'
 import { useDispatch, useSelector } from 'react-redux'
 import { serviceNews } from 'store/newsApi'
+import { SCROLL_TOP } from 'store/actions'
 
 export function PaginatedItems({ itemsPerPage }) {
 	const dispatch = useDispatch()
@@ -27,16 +28,24 @@ export function PaginatedItems({ itemsPerPage }) {
 			const offset = news.length
 			dispatch(serviceNews(offset))
 		}
+		scrollTop()
 	}
-
+	const scrollTop = () => {
+		dispatch({
+			type: SCROLL_TOP,
+			scroll: { key: 'news', val: true }
+		})
+	}
 	return (
 		<div className='container-news'>
 			<div className='num-page'>
 				<p>PÁGINA {page < 10 ? `0${page}` : page} </p>
 			</div>
-			{currentItems.map((item) => (
-				<CardNews key={item.id + 'cardnews'} item={item} />
-			))}
+			<div className='grid'>
+				{currentItems.map((item) => (
+					<CardNews key={item.id + 'cardnews'} item={item} />
+				))}
+			</div>
 			<div className='container-pagination'>
 				<ReactPaginate
 					nextLabel=' > '

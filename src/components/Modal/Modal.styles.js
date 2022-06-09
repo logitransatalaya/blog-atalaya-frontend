@@ -14,7 +14,7 @@ export const ModalStyles = styled(motion.div)`
 		height: 100vh;
 		overflow-y: scroll;
 		padding-top: 3rem;
-
+		position: relative;
 	}
 	.box-p {
 		padding: 0 8rem;

@@ -11,7 +11,8 @@ export const HomeStyles = styled.main`
 		min-height: 68vh;
 		align-items: center;
 		display: grid;
-		max-width: 90%;
+		max-width: 1300px;
+		width: 90%;
 		margin: auto;
 	}
 	.social-media {
@@ -24,9 +25,10 @@ export const HomeStyles = styled.main`
 			min-height: 50vh;
 			align-items: center;
 			display: grid;
-			max-width: 100%;
-			margin: 1rem;
+			width: 100vw;
+			padding: 0.5rem;
 		}
+
 		.social-media {
 			padding: 3rem 1rem 2rem 2rem;
 		}

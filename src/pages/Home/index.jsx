@@ -23,7 +23,6 @@ const Home = () => {
 			<div className='social-media'>
 				<SocialMedia />
 			</div>
-			{/*	<Slider />*/}
 		</HomeStyles>
 	)
 }

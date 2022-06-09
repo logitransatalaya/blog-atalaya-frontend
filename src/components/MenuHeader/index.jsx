@@ -8,7 +8,14 @@ import { MenuHeaderStyles } from './MenuHeader.styles'
 import { MODAL_OPEN } from 'store/actions'
 import { useNavigate } from 'react-router-dom'
 
-const MenuHeader = ({ TitleMenu, close, handleClose, back ,toShare}) => {
+const MenuHeader = ({
+	TitleMenu,
+	close,
+	handleClose,
+	back,
+	toShare,
+	handleShare
+}) => {
 	const navigate = useNavigate()
 
 	const dispatch = useDispatch()
@@ -33,11 +40,11 @@ const MenuHeader = ({ TitleMenu, close, handleClose, back ,toShare}) => {
 				<div></div>
 				<div className='header-action'>
 					<span onClick={() => handleModal(true)}>
-						<img src={Lupa} alt=''  />
+						<img src={Lupa} alt='' />
 					</span>
 					{close && (
 						<span onClick={handleClose}>
-							<img src={Cerrar} alt=''/>
+							<img src={Cerrar} alt='' />
 						</span>
 					)}
 					{back && (
@@ -50,8 +57,8 @@ const MenuHeader = ({ TitleMenu, close, handleClose, back ,toShare}) => {
 					</span>
 
 					{toShare && (
-						<div onClick={handleGoback} className='to-share'>
-						<h4>COMPARTIR</h4>
+						<div onClick={handleShare} className='to-share'>
+							<h5>COMPARTIR</h5>
 						</div>
 					)}
 				</div>

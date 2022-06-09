@@ -17,7 +17,7 @@ export const SET_FONT_FAMILY = '@customization/SET_FONT_FAMILY'
 export const SET_BORDER_RADIUS = '@customization/SET_BORDER_RADIUS'
 export const SET_OUTLINED_FILLED = '@customization/SET_OUTLINED_FILLED'
 export const MODAL_OPEN = '@customization/MODAL_OPEN '
-
+export const SCROLL_TOP = '@customization/SCROLL_TOP'
 // action - snackbar
 export const SNACKBAR_OPEN = '@snackbar/SNACKBAR_OPEN'
 export const SNACKBAR_RESET = '@snackbar/SNACKBAR_RESET'
@@ -93,13 +93,14 @@ export const RESET_ALLY = '@/ally/RESET_ALLY'
 export const UPDATE_ALLY_ID_SUCCESS = '@/ally/UPDATE_ALLY_ID_SUCCESS'
 export const DELETE_ALLY_ID_SUCCESS = '@/ally/DELETE_ALLY_ID_SUCCESS'
 
-// action - allies 
+// action - allies
 export const GET_ALLIES_SUCCESS = '@/ally/GET_ALLIES_SUCCESS'
 
-// action - company identity 
+// action - company identity
 export const GET_MISION_US_SUCCESS = '@/us/GET_MISION_US_SUCCESS'
 export const GET_VISION_US_SUCCESS = '@/us/GET_VISION_US_SUCCESS'
 
 // action - certificates
 export const GET_CERTIFICATES_US_SUCCESS = '@/us/GET_CERTIFICATES_US_SUCCESS'
-export const GET_CERTIFICATE_ID_US_SUCCESS = '@/us/GET_CERTIFICATE_ID_US_SUCCESS'
+export const GET_CERTIFICATE_ID_US_SUCCESS =
+	'@/us/GET_CERTIFICATE_ID_US_SUCCESS'

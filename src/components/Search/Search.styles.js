@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SearchStyles = styled.div`
 	border: 2px solid var(--primary-grey);
 	border-radius: 24px;
-	width: 100%;
+	width: 100vw;
 	color: #fff;
 	position: relative;
 	display: flex;

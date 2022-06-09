@@ -51,7 +51,7 @@ export const LogoStyles = styled.div`
 		text-align: center;
 		color: #fff;
 		position: relative;
-		padding-bottom: 2rem;
+		padding-bottom: 0rem;
 		> img {
 			width: 12rem;
 		}

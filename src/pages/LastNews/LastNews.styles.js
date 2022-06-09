@@ -12,6 +12,15 @@ export const LastNewStyles = styled.div`
 		font-size: 1.2rem;
 		color: #fff;
 	}
+	.grid {
+		margin: auto;
+		display: grid;
+		width: 100%;
+		max-width: 1300px;
+		grid-gap: 6rem;
+		grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+		align-items: start;
+	}
 
 	.container-news {
 		background-color: var(--white);
@@ -22,11 +31,11 @@ export const LastNewStyles = styled.div`
 		flex-direction: column;
 		justify-content: space-between;
 		margin: 4rem 0;
-		
+
 		.loading1 {
 			margin-top: 15rem;
 			text-align: center;
-	  }
+		}
 	}
 	.container-pagination {
 		display: flex;
@@ -82,7 +91,7 @@ export const LastNewStyles = styled.div`
 	}
 	@media screen and (max-width: 767px) {
 		width: 100%;
-		
+
 		.num-page {
 			font-size: 1rem;
 		}
@@ -96,6 +105,10 @@ export const LastNewStyles = styled.div`
 		}
 		.container-news {
 			margin: 4rem 1rem;
+			padding: 2rem;
+		}
+		.grid {
+			grid-template-columns: 1fr;
 		}
 	}
 `

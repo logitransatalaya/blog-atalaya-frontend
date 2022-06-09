@@ -14,7 +14,8 @@ export const initialState = {
 	locale: config.i18n,
 	rtlLayout: config.rtlLayout,
 	opened: true,
-	modalOpen: false
+	modalOpen: false,
+	scroll: { key: '', val: false }
 }
 
 // ===========================|| CUSTOMIZATION REDUCER ||=========================== //
@@ -33,7 +34,11 @@ const customizationReducer = (state = initialState, action) => {
 				...state,
 				modalOpen: action.modalOpen
 			}
-
+		case actionTypes.SCROLL_TOP:
+			return {
+				...state,
+				scroll: action.scroll
+			}
 		default:
 			return state
 	}

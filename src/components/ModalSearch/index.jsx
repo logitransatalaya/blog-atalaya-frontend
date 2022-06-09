@@ -50,11 +50,10 @@ export default function Modal({ open, children, onClose }) {
 
 					<div className='container-search'>
 						<Search active handleSubmit={handleSubmit} />
-						<span onClick={onClose}>
+						<span className='close' onClick={onClose}>
 							<img src={Cerrar} alt='' />
 						</span>
 					</div>
-
 					<div className='container-results'>
 						{searchResults?.map((item) => (
 							<CardSearch key={item.id + 'result'} item={item} />
@@ -73,8 +72,9 @@ export default function Modal({ open, children, onClose }) {
 							</div>
 						)}
 					</div>
-
-					<ContactUs />
+					<div className='contact-p'>
+						<ContactUs />
+					</div>
 				</div>
 			</ModalStyles>
 		</>,
