@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const LoginStyles = styled.div`
+export const RecoveryStyles = styled.div`
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	.box-login {
+	.box-recovery {
 		padding: 5rem 4rem;
 		margin: auto;
 		background: #fff;
@@ -35,19 +35,17 @@ export const LoginStyles = styled.div`
 		padding: 0.5rem;
 		color: red;
 	}
-	.box-forgot-password {
+	.box-txt {
 		width: 100%;
-		cursor: pointer;
-		text-align: center;
-		padding: 4rem 0 1rem;
-		a {
-			text-decoration: none;
-			color: #0b2370;
+
+		padding: 2rem 0 1rem 0;
+		p {
+			color: #000000b3;
 			font-size: 1.3rem;
 			font-weight: bold;
 		}
 	}
-	.box-log-in {
+	.box-next {
 		text-align: end;
 		padding: 1rem 0;
 		position: relative;
@@ -91,6 +89,13 @@ export const LoginStyles = styled.div`
 		}
 	}
 
+	.box-sent-email {
+		padding: 2rem 0 1rem 0;
+		.text-message {
+			font-size: 1.5rem;
+			color: #0b2370;
+		}
+	}
 	@keyframes button-loading-spinner {
 		from {
 			transform: rotate(0turn);

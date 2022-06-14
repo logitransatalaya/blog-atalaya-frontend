@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useAlert } from 'react-alert'
+import { Link } from 'react-router-dom'
 
 const schema = yup.object({
 	email: yup
@@ -48,51 +49,53 @@ const Login = () => {
 	return (
 		<LoginStyles state={state}>
 			<div className='box-login'>
-			<div className='box-logo'>
-				<img src={LogoAtalaya} alt='' />
-			</div>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<h3>Inicio de sesión</h3>
-				<div>
-					<input
-						{...(register && { ...register('email') })}
-						placeholder='Usuario'
-						name='email'
-						type='email'
-					/>
-					<div className='container-message'>
+				<div className='box-logo'>
+					<img src={LogoAtalaya} alt='' />
+				</div>
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<h3>Inicio de sesión</h3>
+					<div>
+						<input
+							{...(register && { ...register('email') })}
+							placeholder='Usuario'
+							name='email'
+							type='email'
+						/>
+						<div className='container-message'>
+							{errors && (
+								<p className='error-message'>
+									{errors?.email?.message}
+								</p>
+							)}
+						</div>
+						<input
+							{...(register && { ...register('password') })}
+							placeholder='Contraseñas'
+							type='password'
+							name='password'
+							autoComplete='off'
+						/>
 						{errors && (
 							<p className='error-message'>
-								{errors?.email?.message}
+								{errors?.password?.message}
 							</p>
 						)}
 					</div>
-					<input
-						{...(register && { ...register('password') })}
-						placeholder='Contraseñas'
-						type='password'
-						name='password'
-						autoComplete='off'
-					/>
-					{errors && (
-						<p className='error-message'>
-							{errors?.password?.message}
-						</p>
-					)}
-				</div>
-				<div className='box-forgot-password'>
-					<p>¿Has olvidado la contraseña?</p>
-				</div>
-				<div className='box-log-in'>
-					<button type='submit' className='button-loading'>
-						{state ? (
-							<span className='box-loading'></span>
-						) : (
-							<span>Iniciar sesión</span>
-						)}
-					</button>
-				</div>
-			</form>
+					<div className='box-forgot-password'>
+						<Link to={'/recovery'}>
+							¿Has olvidado la contraseña?
+						</Link>
+					</div>
+					<div className='box-log-in'>
+						<button type='submit' className='button-loading'>
+							{state ? (
+								<span className='box-loading'></span>
+							) : (
+								<span>Iniciar sesión</span>
+							)}
+						</button>
+					</div>
+				</form>
 			</div>
 		</LoginStyles>
 	)

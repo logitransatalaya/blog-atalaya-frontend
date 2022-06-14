@@ -10,12 +10,15 @@ import Loadable from 'components/Loadable/'
 const AuthLogin = Loadable(
 	lazy(() => import('pages/Authentication/Login/index'))
 )
+const AuthRecovery = Loadable(
+	lazy(() => import('pages/Authentication/Recovery/index'))
+)
 
 // ===========================|| AUTH ROUTING ||=========================== //
 
 const LoginRoutes = {
 	path: '',
-	element: <MainLayout disabled/>,
+	element: <MainLayout disabled />,
 	children: [
 		{
 			path: '/login',
@@ -23,6 +26,16 @@ const LoginRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<AuthLogin />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/recovery',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<AuthRecovery />
 					</GuestGuard>
 				</NavMotion>
 			)

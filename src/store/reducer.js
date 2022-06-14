@@ -13,6 +13,7 @@ import alliesAdmReducer from './Admin/allyReducer'
 import alliesReducer from './allyReducer'
 import companyIdentityReducer from './us/companyIdentityReducer'
 import certificateUsReducer from './us/certificateReducer'
+import authReducer from './authReducer'
 // ===========================|| COMBINE REDUCER ||=========================== //
 
 const reducer = combineReducers({
@@ -25,8 +26,9 @@ const reducer = combineReducers({
 	certificate: certificateReducer,
 	allyAdm: alliesAdmReducer,
 	ally: alliesReducer,
-	companyIdentity:companyIdentityReducer,
-	certificateUs:certificateUsReducer
+	companyIdentity: companyIdentityReducer,
+	certificateUs: certificateUsReducer,
+	auth: authReducer
 })
 
 export default reducer
