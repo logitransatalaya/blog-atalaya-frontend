@@ -7,6 +7,7 @@ export const WorkWithUStyles = styled.div`
 	margin: auto;
 	margin-top: 6rem;
 	width: calc(100% - 100px);
+	min-height: 50vh;
 	> h4 {
 		position: relative;
 		cursor: pointer;

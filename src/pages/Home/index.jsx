@@ -3,8 +3,9 @@ import { HomeStyles } from './Home.styles'
 import Search from 'components/Search'
 import { MODAL_OPEN } from 'store/actions'
 import { useDispatch } from 'react-redux'
-import Carousel from 'components/Carousel/'
+import Carousel from 'components/Carrousel/'
 import SocialMedia from 'components/SocialMedia'
+import ContactUs from 'components/ContactUs'
 
 const Home = () => {
 	const dispatch = useDispatch()
@@ -17,12 +18,9 @@ const Home = () => {
 			<div className='searchbox'>
 				<Search handleSearch={() => handleModal(true)} />
 			</div>
-			<div className='cont-carousel'>
-				<Carousel />
-			</div>
-			<div className='social-media'>
-				<SocialMedia />
-			</div>
+
+			<Carousel />
+			<ContactUs />
 		</HomeStyles>
 	)
 }

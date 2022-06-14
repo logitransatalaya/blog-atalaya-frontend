@@ -5,7 +5,7 @@ export const SearchNewStyles = styled(motion.div)`
 	padding-top: var(--m-3);
 
 	.container-dark {
-		background: rgba(2, 6, 26, 0.9);
+		background: rgba(2, 6, 26, 0.96);
 		width: 100%;
 		position: absolute;
 		top: -16rem;

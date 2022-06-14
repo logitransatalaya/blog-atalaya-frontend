@@ -9,21 +9,17 @@ const Mission = ({ handleClose }) => {
 	const { mision } = useSelector((state) => state.companyIdentity)
 
 	useEffect(() => {
-		dispatch(
-			serviceGetMissionUs()
-		)
+		dispatch(serviceGetMissionUs())
 	}, [])
-	
+
 	return (
 		<MissionStyles>
 			<h4 onClick={handleClose}>CERRAR</h4>
 			<br />
 			<div className='box'>
-			<div
-				dangerouslySetInnerHTML={{ __html: mision?.content }}
-			>
-			</div>
-				
+				<div
+					dangerouslySetInnerHTML={{ __html: mision?.content }}
+				></div>
 			</div>
 		</MissionStyles>
 	)

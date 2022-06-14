@@ -8,6 +8,8 @@ const ContactUs = ({}) => {
 			<p>gerenciacomercial@logitransatalaya.com</p>
 			<p>www.logitransatalaya.com</p>
 			<p>Tel. 314 555 4983</p>
+			<p>Seguridad y Trafico: 3145675345 </p>
+
 			<div className='social'>
 				<SocialMedia width={'3rem'} />
 			</div>

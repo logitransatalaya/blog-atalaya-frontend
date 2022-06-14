@@ -30,6 +30,7 @@
 		"redux-thunk": "^2.4.1",
 		"serve": "^13.0.2",
 		"styled-components": "^5.3.5",
+		"swiper": "^8.2.2",
 		"thunk": "0.0.1",
 		"web-vitals": "^2.1.4",
 		"yup": "^0.32.11"

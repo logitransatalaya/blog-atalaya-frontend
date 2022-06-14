@@ -9,7 +9,7 @@ export const colors = css`
     --secondary-light: rgba(243, 166, 28, 1):
     --dark-gray: rgba(112, 112, 112, 1);
     --black: rgba(2, 6, 26, 1);
-    --black-opacity: rgba(2, 6, 26, 0.9);
+    --black-opacity: rgba(2, 6, 26, 0.96);
     --white: rgba(255, 255, 255, 1);
 	--sky: #0f216fcc;
 	--secondary-gray: #707070;

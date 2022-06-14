@@ -7,11 +7,12 @@ export const MissionStyles = styled.div`
 	margin: auto;
 	margin-top: 6rem;
 	width: calc(100% - 100px);
+	min-height: 50vh;
 	> h4 {
 		position: relative;
-       cursor: pointer;
-       margin-bottom: 1rem;
-       left: -4rem;
+		cursor: pointer;
+		margin-bottom: 1rem;
+		left: -4rem;
 	}
 	.box {
 		color: #000;
@@ -26,7 +27,6 @@ export const MissionStyles = styled.div`
 		}
 	}
 
-
 	@media screen and (max-width: 700px) {
 		margin-top: 2rem;
 		padding: 1rem;
@@ -35,9 +35,9 @@ export const MissionStyles = styled.div`
 			left: 0;
 			margin-bottom: 0;
 			font-size: 1.2rem;
-	}
-	.box {
-		padding: 3rem 3rem 2rem;
-	}
+		}
+		.box {
+			padding: 3rem 3rem 2rem;
+		}
 	}
 `

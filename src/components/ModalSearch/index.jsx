@@ -26,9 +26,7 @@ export default function Modal({ open, children, onClose }) {
 			alert.error('Minimo 3 caracteres')
 		} else {
 			dispatch({ type: LOADING_SEARCH_NEWS, loading: true })
-			setTimeout(() => {
-				dispatch(serviceSearchNews(term))
-			}, 100)
+			dispatch(serviceSearchNews(term))
 			setValSearch(term)
 		}
 	}
@@ -72,7 +70,7 @@ export default function Modal({ open, children, onClose }) {
 							</div>
 						)}
 					</div>
-					<div className='contact-p'>
+					<div className='contact'>
 						<ContactUs />
 					</div>
 				</div>

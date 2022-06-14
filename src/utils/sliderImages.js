@@ -31,11 +31,31 @@ export const slides = [
 	}
 ]
 
-export const breakPoints = [
-	{ width: 1, itemsToShow: 1, itemsToScroll: 1, transitionMs: 700 },
-	{ width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-	{ width: 850, itemsToShow: 3, pagination: false },
-	{ width: 1150, itemsToShow: 3, itemsToScroll: 1, pagination: false },
-	{ width: 1450, itemsToShow: 3, pagination: false },
-	{ width: 1750, itemsToShow: 3, pagination: false }
-]
+export const breakPoints = {
+	// when window width is >= 640px
+
+	640: {
+		//width: 640,
+		slidesPerView: 1
+	},
+	// when window width is >= 768px
+	768: {
+		//width: 768,
+		slidesPerView: 2
+	},
+	968: {
+		//width: 768,
+		slidesPerView: 3
+	}
+}
+export const variantsImg = {
+	center: {
+		x: '-26%'
+	},
+	left: {
+		x: '-42%'
+	},
+	right: {
+		x: '-10%'
+	}
+}

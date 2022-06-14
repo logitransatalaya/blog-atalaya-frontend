@@ -7,11 +7,12 @@ export const CertificateStyles = styled.div`
 	margin: auto;
 	margin-top: 6rem;
 	width: calc(100% - 100px);
+	min-height: 50vh;
 	> h4 {
 		position: relative;
-       cursor: pointer;
-       margin-bottom: 1rem;
-       left: -4rem;
+		cursor: pointer;
+		margin-bottom: 1rem;
+		left: -4rem;
 	}
 	.box {
 		color: #000;
@@ -30,7 +31,7 @@ export const CertificateStyles = styled.div`
 		box-shadow: 0px 3px 6px #00000029;
 		border: 1px solid #707070;
 		border-radius: 19px;
-		padding:2rem;
+		padding: 2rem;
 		margin: 2rem 0;
 		cursor: pointer;
 		> h2 {
@@ -42,12 +43,12 @@ export const CertificateStyles = styled.div`
 		.description {
 			padding-top: 0.5rem;
 			font-size: 1.2rem;
-			  overflow: hidden;
+			overflow: hidden;
 			text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 3; /* number of lines to show */
-           line-clamp: 3; 
-		   -webkit-box-orient: vertical;
+			display: -webkit-box;
+			-webkit-line-clamp: 3; /* number of lines to show */
+			line-clamp: 3;
+			-webkit-box-orient: vertical;
 		}
 	}
 
@@ -59,9 +60,9 @@ export const CertificateStyles = styled.div`
 			left: 0;
 			margin-bottom: 0;
 			font-size: 1.2rem;
-	}
-	.box {
-		padding: 1rem 2rem 2rem;
-	}
+		}
+		.box {
+			padding: 1rem 2rem 2rem;
+		}
 	}
 `

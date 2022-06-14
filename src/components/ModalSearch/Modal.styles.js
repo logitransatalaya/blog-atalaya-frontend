@@ -7,17 +7,18 @@ export const ModalStyles = styled(motion.div)`
 	right: 0;
 	bottom: 0;
 	z-index: 1000;
-	background-color: rgba(2, 6, 26, 0.9);
+	background-color: rgba(2, 6, 26, 0.96);
 	width: 100%;
 	.modal-dialog {
 		width: 100%;
 		height: 100vh;
 		padding-top: 3rem;
-		overflow-y: scroll;
+		position: relative;
+		overflow: auto;
 		overflow-x: hidden;
 	}
-	.contact-p {
-		margin-left: 6rem;
+	.contact {
+		padding: 0 0 2rem 6rem;
 	}
 	.container-search {
 		margin: auto;
@@ -67,8 +68,8 @@ export const ModalStyles = styled(motion.div)`
 				width: 1.5rem;
 			}
 		}
-		.contact-p {
-			margin-left: 1rem;
+		.contact {
+			padding-left: 1rem;
 		}
 	}
 `

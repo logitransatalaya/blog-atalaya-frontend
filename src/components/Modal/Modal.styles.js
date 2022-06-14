@@ -7,7 +7,7 @@ export const ModalStyles = styled(motion.div)`
 	right: 0;
 	bottom: 0;
 	z-index: 1000;
-	background-color: rgba(2, 6, 26, 0.9);
+	background-color: rgba(2, 6, 26, 0.96);
 
 	.modal-dialog {
 		width: 100vw;

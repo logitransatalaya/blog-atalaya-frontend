@@ -6,11 +6,12 @@ export const VisionStyles = styled.div`
 	width: calc(100% - 100px);
 	margin: auto;
 	margin-top: 6rem;
+	min-height: 50vh;
 	> h4 {
 		position: relative;
-       cursor: pointer;
-       margin-bottom: 1rem;
-       left: -4rem;
+		cursor: pointer;
+		margin-bottom: 1rem;
+		left: -4rem;
 	}
 	.box {
 		color: #000;
@@ -32,9 +33,9 @@ export const VisionStyles = styled.div`
 			left: 0;
 			margin-bottom: 0;
 			font-size: 1.2rem;
-	}
-	.box {
-		padding: 3rem 3rem 2rem;
-	}
+		}
+		.box {
+			padding: 3rem 3rem 2rem;
+		}
 	}
 `
