@@ -31,8 +31,10 @@ const authReducer = (state = initialState, action) => {
 			}
 		case actionTypes.AUTH_RECOVERY_INITIALIZED:
 			return {
+				...state,
 				loading: false,
-				error: false
+				error: false,
+				email: ''
 			}
 		default:
 			return state

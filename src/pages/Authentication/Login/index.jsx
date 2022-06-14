@@ -70,7 +70,7 @@ const Login = () => {
 						</div>
 						<input
 							{...(register && { ...register('password') })}
-							placeholder='Contraseñas'
+							placeholder='Contraseña'
 							type='password'
 							name='password'
 							autoComplete='off'
@@ -82,9 +82,7 @@ const Login = () => {
 						)}
 					</div>
 					<div className='box-forgot-password'>
-						<Link to={'/recovery'}>
-							¿Has olvidado la contraseña?
-						</Link>
+						<Link to={'/forgot'}>¿Has olvidado la contraseña?</Link>
 					</div>
 					<div className='box-log-in'>
 						<button type='submit' className='button-loading'>

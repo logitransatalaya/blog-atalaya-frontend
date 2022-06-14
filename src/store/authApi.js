@@ -27,4 +27,22 @@ const serviceRecovery = (email) => async (dispatch) => {
 	}
 }
 
-export { serviceRecovery }
+const serviceChagePassword = (data) => async (dispatch) => {
+	try {
+		dispatch({ type: AUTH_RECOVERY_LOADING })
+		let { toke, newPassword } = data
+		const response = await axios.post(
+			`${baseURL}/api/v1/auth/change-password-token`,
+			{ toke, newPassword }
+		)
+		dispatch({ type: AUTH_RECOVERY_SUCCESS })
+	} catch (error) {
+		dispatch({
+			type: SNACKBAR_OPEN,
+			message: 'Not authorized',
+			navType: 'error'
+		})
+		dispatch({ type: AUTH_RECOVERY_ERROR })
+	}
+}
+export { serviceRecovery, serviceChagePassword }

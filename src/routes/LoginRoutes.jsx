@@ -13,6 +13,9 @@ const AuthLogin = Loadable(
 const AuthRecovery = Loadable(
 	lazy(() => import('pages/Authentication/Recovery/index'))
 )
+const AuthForgot = Loadable(
+	lazy(() => import('pages/Authentication/Forgot/index'))
+)
 
 // ===========================|| AUTH ROUTING ||=========================== //
 
@@ -26,6 +29,16 @@ const LoginRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<AuthLogin />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '/forgot',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<AuthForgot />
 					</GuestGuard>
 				</NavMotion>
 			)

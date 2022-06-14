@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const RecoveryStyles = styled.div`
+export const ForgotStyles = styled.div`
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -35,11 +35,15 @@ export const RecoveryStyles = styled.div`
 		padding: 0.5rem;
 		color: red;
 	}
-	.label-password {
-		padding-top: 1.5rem;
-		color: #000000b3;
-		font-size: 1.3rem;
-		font-weight: bold;
+	.box-txt {
+		width: 100%;
+
+		padding: 2rem 0 1rem 0;
+		p {
+			color: #000000b3;
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
 	}
 	.box-next {
 		text-align: end;
