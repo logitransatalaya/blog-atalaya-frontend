@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CarrouselStyles = styled.main`
-	width: 95%;
+	width: 90%;
 	max-width: 1300px;
 	margin: auto;
 	margin-top: 5rem;
@@ -38,14 +38,12 @@ export const CarrouselStyles = styled.main`
 			border-radius: 10% 10% 0 0;
 			.card__img {
 				border: none;
-
 				width: 100%;
 				object-fit: cover;
 				height: 85%;
 				display: block;
 				width: calc(100% * 2);
 				position: relative;
-				z-index: -1;
 			}
 			.img {
 				transform: translateX(-26%) translateZ(0px);
@@ -53,12 +51,12 @@ export const CarrouselStyles = styled.main`
 			.card__title {
 				cursor: pointer;
 				width: 100%;
-				padding: 1.5rem;
+				padding: 1rem;
 				background: var(--primary);
 				color: var(--white);
 				display: flex;
 				justify-content: center;
-				align-items: center;
+				font-size: 20px;
 				text-align: center;
 			}
 		}
@@ -68,10 +66,12 @@ export const CarrouselStyles = styled.main`
 			transform: scale(1);
 		}
 	}
+	@media screen and (max-width: 1240px) {
+		width: 100%;
+	}
 
 	@media screen and (max-width: 700px) {
 		height: 400px;
-		width: 100%;
 		margin-top: 2.5rem;
 		.swiper {
 			padding: 0 30px;
@@ -87,7 +87,7 @@ export const CarrouselStyles = styled.main`
 					height: 80%;
 				}
 				.card__title {
-					font-size: 1.6rem;
+					font-size: 14px;
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 // action - account reducer
 export const LOGIN = 'LOGIN'
+export const ACTION_LOGOUT = 'ACTION_LOGOUT'
 export const LOGOUT = 'LOGOUT'
 export const ACCOUNT_INITIALIZE = 'ACCOUNT_INITIALIZE'
 export const UNAUTORIZED = 'UNAUTORIZED'

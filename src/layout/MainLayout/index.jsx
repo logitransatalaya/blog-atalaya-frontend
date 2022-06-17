@@ -12,6 +12,8 @@ import { MainLayoutStyles } from './MainLayout.styles'
 import useAuth from 'hooks/useAuth'
 
 import Cerrar from 'assets/icons/cerrar.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { ACTION_LOGOUT } from 'store/actions'
 const routesToBack = ['/admin/posts', '/admin/us', '/admin/allies']
 const routesToHome = ['/admin/create-account', '/admin/profile']
 
@@ -20,11 +22,19 @@ const MainLayout = ({ disabled }) => {
 	const navigate = useNavigate()
 	const { user, logout } = useAuth()
 	const location = useLocation()
+	const dispatch = useDispatch()
+	const { logoutUser } = useSelector((state) => state.auth)
 	const [state, setState] = useState({
 		goBack: false,
 		goHome: false,
 		firstPAge: 0
 	})
+	useEffect(() => {
+		if (logoutUser) {
+			logout()
+			dispatch({ type: ACTION_LOGOUT, logoutUser: false })
+		}
+	}, [logoutUser])
 
 	useEffect(() => {
 		let url = location.pathname

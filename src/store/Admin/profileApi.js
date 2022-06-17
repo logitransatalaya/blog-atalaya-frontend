@@ -3,7 +3,9 @@ import { baseURL } from 'utils/constant'
 import {
 	GET_PROFILE_SUCCESS,
 	MODIFY_PASSWORD_SUCCESS,
-	MODIFY_PASSWORD_ERROR
+	MODIFY_PASSWORD_ERROR,
+	LOGOUT,
+	ACTION_LOGOUT
 } from 'store/actions'
 // third-party
 import jwtDecode from 'jwt-decode'
@@ -32,6 +34,11 @@ const servicePasswordChange = (data) => async (dispatch) => {
 		dispatch({ type: MODIFY_PASSWORD_SUCCESS })
 	} catch (error) {
 		dispatch({ type: MODIFY_PASSWORD_ERROR })
+		if (error.response) {
+			if (error.response.status === 401) {
+				dispatch({ type: ACTION_LOGOUT })
+			}
+		}
 	}
 }
 

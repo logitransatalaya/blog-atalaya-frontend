@@ -4,7 +4,9 @@ import * as actionTypes from 'store/actions'
 export const initialState = {
 	loading: false,
 	error: false,
-	email: ''
+	email: '',
+	updatedPassword: false,
+	logoutUser: false
 }
 
 // ===========================|| AUTH REDUCER ||=========================== //
@@ -21,8 +23,10 @@ const authReducer = (state = initialState, action) => {
 			return {
 				...state,
 				loading: false,
-				email: action.email
+				email: action.email || '',
+				updatedPassword: action.updatedPassword || false
 			}
+
 		case actionTypes.AUTH_RECOVERY_ERROR:
 			return {
 				...state,
@@ -31,10 +35,16 @@ const authReducer = (state = initialState, action) => {
 			}
 		case actionTypes.AUTH_RECOVERY_INITIALIZED:
 			return {
-				...state,
 				loading: false,
 				error: false,
-				email: ''
+				email: '',
+				updatedPassword: false
+			}
+		case actionTypes.ACTION_LOGOUT:
+			let logoutUser = action.logout || true
+			return {
+				...state,
+				logoutUser
 			}
 		default:
 			return state

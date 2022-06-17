@@ -18,7 +18,7 @@ export const LastNewStyles = styled.div`
 		width: 100%;
 		max-width: 1300px;
 		grid-gap: 6rem;
-		grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
 		align-items: start;
 	}
 

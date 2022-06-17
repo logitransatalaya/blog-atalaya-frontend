@@ -14,7 +14,17 @@ import { CREATE_POST_RESET, MODAL_OPEN } from 'store/actions'
 import basura from 'assets/icons/basura.svg'
 import FrmDeleteItem from 'components/FormDeleteItem'
 const config = {
-	readonly: false // all options from https://xdsoft.net/jodit/doc/
+	readonly: false, // all options from https://xdsoft.net/jodit/doc/
+	createAttributes: {
+		div: {
+			class: 'align-center'
+		},
+		styleValues: {
+			'color-text': 'red',
+			colorBorder: 'black',
+			'color-panel': 'blue'
+		}
+	}
 }
 const Title = () => {
 	return (
@@ -55,6 +65,7 @@ export default function ManageNews() {
 	const haldleDeleteItem = () => {
 		dispatch(serviceDeletePost(postSlug?.slug, navigate))
 	}
+
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />

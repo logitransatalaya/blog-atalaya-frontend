@@ -37,7 +37,7 @@ const Recovery = () => {
 	} = useForm({
 		resolver: yupResolver(schema)
 	})
-	const { loading } = useSelector((state) => state.auth)
+	const { loading, updatedPassword } = useSelector((state) => state.auth)
 	const [searchParams] = useSearchParams()
 
 	const onSubmit = (data) => {
@@ -48,6 +48,7 @@ const Recovery = () => {
 
 	useEffect(() => {
 		setToken(searchParams.get('token'))
+		dispatch({ type: AUTH_RECOVERY_INITIALIZED })
 	}, [])
 
 	return (
@@ -57,7 +58,7 @@ const Recovery = () => {
 					<img src={LogoAtalaya} alt='' />
 				</div>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					{2 ? (
+					{updatedPassword ? (
 						<>
 							<h3>Actualiza tu contraseña</h3>
 							<div>
@@ -114,7 +115,8 @@ const Recovery = () => {
 							<h3>Contraseña actualizada</h3>
 							<div className='box-sent-email'>
 								<p className='text-message'>
-									Hemos actualizado tu contraseña.
+									La contraseña de su cuenta ha sido
+									actualizada correctamente.
 								</p>
 							</div>
 						</>

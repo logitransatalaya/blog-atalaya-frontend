@@ -21,7 +21,9 @@ const initialState = {
 	unautorized: false,
 	message: ''
 }
-//serviceToken - token - remplazar
+let seconds = 1800 // 30 minutes
+
+//serviceToken
 const verifyToken = (token) => {
 	if (!token) {
 		return false
@@ -30,16 +32,40 @@ const verifyToken = (token) => {
 	return decoded.exp > Date.now() / 1000
 }
 
-const setSession = (token) => {
+const setSession = (token, refreshToken) => {
 	if (token) {
 		localStorage.setItem('token', token)
+		refreshToken && localStorage.setItem('refreshToken', refreshToken)
 		axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	} else {
 		localStorage.removeItem('token')
+		localStorage.removeItem('refreshToken')
 		delete axios.defaults.headers.common.Authorization
 	}
 }
+const updateToken = async () => {
+	try {
+		const token = window.localStorage.getItem('refreshToken')
 
+		const { data } = await axios.post(
+			`${baseURL}/api/v1/auth/refresh-token/`,
+			{
+				token
+			}
+		)
+		localStorage.setItem('token', data.accessToken)
+	} catch (error) {}
+}
+
+const timer = (token) => {
+	const decoded = jwtDecode(token)
+	let minutes = decoded.exp - Date.now() / 1000
+	let time = (parseInt(minutes, 10) - seconds) * 1000
+
+	setTimeout(async () => {
+		await updateToken()
+	}, time)
+}
 // ===========================|| JWT CONTEXT & PROVIDER ||=========================== //
 
 const JWTContext = createContext({
@@ -57,9 +83,9 @@ export const JWTProvider = ({ children }) => {
 				email,
 				password
 			})
-			const { token, user } = response.data
-
-			setSession(token)
+			const { token, user, refreshToken } = response.data
+			timer(token)
+			setSession(token, refreshToken)
 			dispatch({
 				type: LOGIN,
 				payload: {
@@ -99,13 +125,20 @@ export const JWTProvider = ({ children }) => {
 		const init = async () => {
 			try {
 				const token = window.localStorage.getItem('token')
+				const refreshToken = window.localStorage.getItem('refreshToken')
 				const { sub } = jwtDecode(token)
-				if (token && verifyToken(token)) {
+
+				/*if (refreshToken && verifyToken(refreshToken)) {
+					console.log('siguiente')
+				}*/
+
+				if (verifyToken(token) && verifyToken(refreshToken)) {
 					setSession(token)
 					const response = await axios.get(
 						`${baseURL}/api/v1/users/${sub}`
 					)
 					const user = response.data
+					timer(token)
 					dispatch({
 						type: ACCOUNT_INITIALIZE,
 						payload: {
@@ -134,6 +167,7 @@ export const JWTProvider = ({ children }) => {
 		}
 
 		init()
+		return () => clearTimeout(timer)
 	}, [])
 
 	if (!state.isInitialized) {
