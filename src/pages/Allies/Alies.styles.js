@@ -7,12 +7,15 @@ export const AlieStyles = styled.div`
 		min-height: 60vh;
 		background: #fff;
 		border-radius: 3rem;
-		display: grid;
-
-		grid-template-columns: repeat(auto-fill, 36rem);
+		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-around;
 
+		align-content: baseline;
 		.card-ally {
+			width: 30%;
+			max-width: 36rem;
+			min-width: 30rem;
 			margin: 1rem;
 			padding: 2rem;
 			display: grid;
@@ -58,6 +61,10 @@ export const AlieStyles = styled.div`
 				}
 			}
 		}
+	}
+	.loading {
+		margin-top: 15rem;
+		text-align: center;
 	}
 	@media screen and (max-width: 700px) {
 		margin: 1rem;

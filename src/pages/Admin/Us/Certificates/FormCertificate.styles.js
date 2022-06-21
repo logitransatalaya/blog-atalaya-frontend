@@ -85,6 +85,7 @@ export const FormCertificateStyles = styled.div`
 
 			.error-message {
 				padding: 0.5rem;
+				color: red;
 			}
 		}
 	}

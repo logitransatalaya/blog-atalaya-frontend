@@ -6,7 +6,6 @@ import {
 	LOADING_SEARCH_NEWS,
 	GET_NEWS_SLUG_SUCCESS
 } from 'store/actions'
-import { limit } from 'utils/constant'
 
 const serviceNews = (offset) => async (dispatch) => {
 	try {

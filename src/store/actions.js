@@ -96,6 +96,8 @@ export const DELETE_ALLY_ID_SUCCESS = '@/ally/DELETE_ALLY_ID_SUCCESS'
 
 // action - allies
 export const GET_ALLIES_SUCCESS = '@/ally/GET_ALLIES_SUCCESS'
+export const GET_ALLIES_LOADING = '@/ally/GET_ALLIES_LOADING'
+export const GET_ALLIES_ERRROR = '@/ally/GET_ALLIES_ERRROR'
 
 // action - company identity
 export const GET_MISION_US_SUCCESS = '@/us/GET_MISION_US_SUCCESS'

@@ -73,6 +73,10 @@ export const ProfileStyles = styled.div`
 				border-radius: 9px;
 				padding: 1rem;
 			}
+			.error-message {
+				padding: 0.5rem;
+				color: red;
+			}
 		}
 		.save-password {
 			margin-top: 3rem;

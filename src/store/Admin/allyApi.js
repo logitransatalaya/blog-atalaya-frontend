@@ -7,7 +7,8 @@ import {
 	GET_ALLY_ID_ADM_ERROR,
 	UPDATE_ALLY_ID_SUCCESS,
 	MODAL_OPEN,
-	DELETE_ALLY_ID_SUCCESS
+	DELETE_ALLY_ID_SUCCESS,
+	ACTION_LOGOUT
 } from 'store/actions'
 import { baseURL } from 'utils/constant'
 import jwtDecode from 'jwt-decode'
@@ -89,8 +90,7 @@ const serviceCreateAlly = (data, history, user) => async (dispatch) => {
 					message: 'Unauthorized',
 					navType: 'error'
 				})
-
-				//logout
+				dispatch({ type: ACTION_LOGOUT })
 			}
 		} else if (error.request) {
 			dispatch({

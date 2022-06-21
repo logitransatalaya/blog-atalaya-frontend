@@ -57,6 +57,7 @@ export const ManageNewsStyles = styled.div`
 			}
 		}
 	}
+
 	@media screen and (max-width: 767px) {
 	}
 `

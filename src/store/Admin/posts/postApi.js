@@ -9,7 +9,8 @@ import {
 	SNACKBAR_OPEN,
 	MODAL_OPEN,
 	GET_POST_ERROR,
-	DELETE_POST_SLUG_SUCCESS
+	DELETE_POST_SLUG_SUCCESS,
+	ACTION_LOGOUT
 } from 'store/actions'
 // third-party
 import jwtDecode from 'jwt-decode'
@@ -63,8 +64,7 @@ const servicecreatePost = (data, history, user) => async (dispatch) => {
 					message: 'Unauthorized',
 					navType: 'error'
 				})
-
-				//logout
+				dispatch({ type: ACTION_LOGOUT })
 			}
 		} else if (error.request) {
 			dispatch({

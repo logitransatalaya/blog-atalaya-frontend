@@ -22,7 +22,7 @@ export default function NewsSlug() {
 
 	useEffect(() => {
 		dispatch(serviceNewsSlug(newsSlug))
-	}, [])
+	}, [newsSlug])
 
 	const handleShare = () => {
 		setStatusModal(true)

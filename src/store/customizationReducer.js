@@ -32,7 +32,8 @@ const customizationReducer = (state = initialState, action) => {
 		case actionTypes.MODAL_OPEN:
 			return {
 				...state,
-				modalOpen: action.modalOpen
+				modalOpen: action.modalOpen,
+				key: action.key || null
 			}
 		case actionTypes.SCROLL_TOP:
 			return {

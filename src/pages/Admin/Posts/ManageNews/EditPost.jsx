@@ -41,14 +41,14 @@ export default function ManageNews() {
 	const [removing, setRemoving] = useState(false)
 	const dispatch = useDispatch()
 	const { postSlug, error } = useSelector((state) => state.posts)
-	const { modalOpen } = useSelector((state) => state.customization)
+	const { modalOpen, key } = useSelector((state) => state.customization)
 	let { slug } = useParams()
 	const navigate = useNavigate()
 	useEffect(() => {
 		setTimeout(() => {
 			dispatch(serviceGetPostBySlug(slug))
 		}, 500)
-	}, [])
+	}, [slug])
 
 	useEffect(() => {
 		if (postSlug) {
@@ -65,7 +65,6 @@ export default function ManageNews() {
 	const haldleDeleteItem = () => {
 		dispatch(serviceDeletePost(postSlug?.slug, navigate))
 	}
-
 	return (
 		<ManageNewsStyles>
 			<LandscapeMenu active={1} />
@@ -86,7 +85,8 @@ export default function ManageNews() {
 									setRemoving(false)
 									dispatch({
 										type: MODAL_OPEN,
-										modalOpen: true
+										modalOpen: true,
+										key: 'post'
 									})
 								}}
 							>
@@ -98,7 +98,8 @@ export default function ManageNews() {
 									setRemoving(true)
 									dispatch({
 										type: MODAL_OPEN,
-										modalOpen: true
+										modalOpen: true,
+										key: 'post'
 									})
 								}}
 							>
@@ -116,7 +117,7 @@ export default function ManageNews() {
 					/>
 				</div>
 			)}
-			{modalOpen && (
+			{key === 'post' && modalOpen && (
 				<Modal open head>
 					<div className='box-p'>
 						{!removing ? (

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { LayoutStyles } from './layout.styles'
 import ModalSearch from 'components/ModalSearch/index'
 import { LogoStyles } from 'styles/global'
@@ -10,6 +10,7 @@ import { MODAL_OPEN, SCROLL_TOP } from 'store/actions'
 
 const MinimalLayout = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	let textInput = useRef(null)
 	const { modalOpen, scroll } = useSelector((state) => state.customization)
 
@@ -29,7 +30,7 @@ const MinimalLayout = () => {
 
 	return (
 		<LayoutStyles ref={textInput}>
-			<LogoStyles>
+			<LogoStyles onClick={() => navigate('/')}>
 				<img
 					loading='lazy'
 					src={require(`assets/images/logo-atalaya.svg`).default}
@@ -37,6 +38,7 @@ const MinimalLayout = () => {
 			</LogoStyles>
 			<div>
 				<ModalSearch
+					directory={'/ultimas-noticias'}
 					open={modalOpen}
 					onClose={() => handleModal(false)}
 				/>

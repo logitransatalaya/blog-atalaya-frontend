@@ -1,5 +1,6 @@
 import Search from 'components/Search'
 import React, { useEffect, useState } from 'react'
+import ModalSearch from 'components/ModalSearch/index'
 import {
 	Link,
 	Outlet,
@@ -13,7 +14,7 @@ import useAuth from 'hooks/useAuth'
 
 import Cerrar from 'assets/icons/cerrar.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { ACTION_LOGOUT } from 'store/actions'
+import { ACTION_LOGOUT, MODAL_OPEN } from 'store/actions'
 const routesToBack = ['/admin/posts', '/admin/us', '/admin/allies']
 const routesToHome = ['/admin/create-account', '/admin/profile']
 
@@ -24,6 +25,7 @@ const MainLayout = ({ disabled }) => {
 	const location = useLocation()
 	const dispatch = useDispatch()
 	const { logoutUser } = useSelector((state) => state.auth)
+	const { modalOpen, key } = useSelector((state) => state.customization)
 	const [state, setState] = useState({
 		goBack: false,
 		goHome: false,
@@ -49,6 +51,10 @@ const MainLayout = ({ disabled }) => {
 			return
 		}
 		navigate(-1)
+	}
+
+	const handleModal = (val, key) => {
+		dispatch({ type: MODAL_OPEN, modalOpen: val, key: key })
 	}
 
 	return (
@@ -83,7 +89,10 @@ const MainLayout = ({ disabled }) => {
 								</div>
 							</div>
 							<div className='searchbox'>
-								<Search /*handleSearch={() => handleModal(true)}  */
+								<Search
+									handleSearch={() =>
+										handleModal(true, 'search')
+									}
 								/>
 							</div>
 							{!state.goBack ? (
@@ -98,6 +107,13 @@ const MainLayout = ({ disabled }) => {
 				) : null}
 				<Outlet />
 			</main>
+			{key === 'search' && (
+				<ModalSearch
+					directory={'/admin/posts/edit'}
+					open={modalOpen}
+					onClose={() => handleModal(false)}
+				/>
+			)}
 		</MainLayoutStyles>
 	)
 }

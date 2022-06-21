@@ -12,15 +12,14 @@ import { serviceSearchNews } from 'store/newsApi'
 import Cerrar from 'assets/icons/cerrar.svg'
 import ContactUs from 'components/ContactUs/'
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, children, onClose, directory }) {
 	const dispatch = useDispatch()
 	const alert = useAlert()
 	const { searchResults, loading } = useSelector((state) => state.lastNews)
 	const [valSearch, setValSearch] = useState('')
 	useEffect(() => {
 		dispatch({ type: LOADING_SEARCH_NEWS, loading: false })
-	}, [])
-
+	}, [open])
 	const handleSubmit = (term) => {
 		if (term.length < 3) {
 			alert.error('Minimo 3 caracteres')
@@ -54,7 +53,11 @@ export default function Modal({ open, children, onClose }) {
 					</div>
 					<div className='container-results'>
 						{searchResults?.map((item) => (
-							<CardSearch key={item.id + 'result'} item={item} />
+							<CardSearch
+								directory={directory}
+								key={item.id + 'result'}
+								item={item}
+							/>
 						))}
 						{searchResults?.length < 1 && (
 							<div style={{ color: '#fff' }}>

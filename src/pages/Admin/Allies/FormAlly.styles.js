@@ -85,6 +85,7 @@ export const FormAllyStyles = styled.div`
 
 			.error-message {
 				padding: 0.5rem;
+				color: red;
 			}
 		}
 	}

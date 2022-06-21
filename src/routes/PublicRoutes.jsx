@@ -13,6 +13,7 @@ import AboutUs from 'pages/AboutUs/index'
 import Allies from 'pages/Allies/index'
 import WorkWithUs from 'pages/WorkWithUs/index'
 import NewsSlug from 'pages/LastNews/NewsSlug/index'
+import { Notfound } from 'components/NotFound/index'
 
 const MinimalLayout = Loadable(lazy(() => import('layout/MinimalLayout/index')))
 // ===========================|| PUBLIC ROUTING ||=========================== //
@@ -87,6 +88,16 @@ const PublicRoutes = {
 				<NavMotion>
 					<GuestGuard>
 						<WorkWithUs />
+					</GuestGuard>
+				</NavMotion>
+			)
+		},
+		{
+			path: '*',
+			element: (
+				<NavMotion>
+					<GuestGuard>
+						<Notfound />
 					</GuestGuard>
 				</NavMotion>
 			)

@@ -38,6 +38,7 @@ export const CreateAccountStyles = styled.div`
 	}
 	.error-message {
 		padding: 0.5rem;
+		color: red;
 	}
 	.box-actions {
 		grid-column-start: 2;

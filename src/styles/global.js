@@ -43,6 +43,7 @@ export const LogoStyles = styled.div`
 	color: #fff;
 	position: relative;
 	padding-bottom: 3rem;
+	cursor: pointer;
 	> img {
 		width: 200px;
 	}
