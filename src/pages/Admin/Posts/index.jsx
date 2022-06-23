@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { serviceGetPosts } from 'store/Admin/posts/postApi'
 import { useDispatch, useSelector } from 'react-redux'
 import iconMas from 'assets/icons/mas.svg'
+import { formatDate } from 'utils/date'
 
 export default function LastNews() {
 	const { ref, inView } = useInView({
@@ -36,7 +37,9 @@ export default function LastNews() {
 						<h4>{item.title}</h4>
 						<div className='card-footer'>
 							<p>Publicado por: {item?.author?.firstName}</p>
-							<p>Fecha : {item.createdAt}</p>
+							<p>
+								Fecha : {formatDate(new Date(item.createdAt))}
+							</p>
 						</div>
 					</CardPostStyles>
 				))}

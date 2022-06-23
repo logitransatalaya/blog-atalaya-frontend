@@ -128,10 +128,6 @@ export const JWTProvider = ({ children }) => {
 				const refreshToken = window.localStorage.getItem('refreshToken')
 				const { sub } = jwtDecode(token)
 
-				/*if (refreshToken && verifyToken(refreshToken)) {
-					console.log('siguiente')
-				}*/
-
 				if (verifyToken(token) && verifyToken(refreshToken)) {
 					setSession(token)
 					const response = await axios.get(

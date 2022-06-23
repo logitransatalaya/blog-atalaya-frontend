@@ -29,6 +29,7 @@ const getCurrentDate = () => {
 	return output
 }
 const formatDate = (date) => {
+	if (!(date instanceof Date && !isNaN(date))) return false
 	let formatted_date =
 		String(date.getDate()).padStart(2, '0') +
 		' ' +

@@ -26,9 +26,7 @@ export const Popover = () => {
 				</div>
 			</div>
 			<div className='popover__content'>
-				<p className='popover__message'>
-					Joseph Francis "Joey" Tribbiani, Jr.
-				</p>
+				<p className='popover__message'>Nueva noticia.</p>
 				<img
 					alt='Nueva noticia.'
 					src='https://i.ibb.co/WgrQfDv/Consejos-r-pidos.gif'

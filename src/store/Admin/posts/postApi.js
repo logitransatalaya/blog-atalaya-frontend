@@ -103,7 +103,6 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 
 		dispatch({ type: GET_POST_SLUG_SUCCESS, data })
 	} catch (error) {
-		console.log(error)
 		dispatch({ type: GET_POST_ERROR })
 	}
 }

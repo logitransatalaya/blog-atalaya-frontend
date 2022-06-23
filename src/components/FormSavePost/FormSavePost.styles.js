@@ -72,6 +72,7 @@ export const FormSavePostStyles = styled.div`
 
 		.error-message {
 			padding: 0.5rem;
+			color: red;
 		}
 	}
 

@@ -4,6 +4,7 @@ import { CardUsStyles, UsStyles } from './Us.styles'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { serviceGetUs, serviceGetUsCertificate } from 'store/Admin/us/usApi'
+import { formatDate } from 'utils/date'
 
 const data = [
 	{
@@ -48,7 +49,10 @@ export default function Us() {
 							<h2>{item.title}</h2>
 						</div>
 						<div className='card-footer'>
-							<p>Fecha: {us[item.name]?.updatedAt}</p>
+							<p>
+								Fecha:{' '}
+								{formatDate(new Date(us[item.name]?.updatedAt))}
+							</p>
 							<p>Ultima edición: {us[item.name]?.firstName}</p>
 						</div>
 					</CardUsStyles>

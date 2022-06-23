@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import iconMas from 'assets/icons/mas.svg'
 import { serviceGetAlliesAdm } from 'store/Admin/allyApi'
 import { useDispatch, useSelector } from 'react-redux'
+import { formatDate } from 'utils/date'
 
 export default function Allies() {
 	const dispatch = useDispatch()
@@ -36,7 +37,9 @@ export default function Allies() {
 						<h4>{item.name}</h4>
 						<div className='card-footer'>
 							<p>Publicado por: {item.author?.firstName}</p>
-							<p>Fecha : {item.updatedAt}</p>
+							<p>
+								Fecha : {formatDate(new Date(item.updatedAt))}
+							</p>
 						</div>
 					</CardAllyStyles>
 				))}

@@ -3,7 +3,8 @@ import * as actionTypes from '../actions'
 
 export const initialState = {
 	user: {},
-	passwordChanged: null
+	passwordChanged: null,
+	newUser: false
 }
 
 // ===========================|| PROFILE REDUCER ||=========================== //
@@ -29,6 +30,11 @@ const profileReducer = (state = initialState, action) => {
 			return {
 				...state,
 				passwordChanged: null
+			}
+		case actionTypes.CREATE_ACCOUNT_SUCCESS:
+			return {
+				...state,
+				newUser: true
 			}
 		default:
 			return state

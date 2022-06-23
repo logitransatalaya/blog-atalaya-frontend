@@ -8,6 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { MODIFY_PASSWORD_RESET } from 'store/actions'
 import { useAlert } from 'react-alert'
 import { servicecreateAccount } from 'store/Admin/createAccountApi'
+import { useNavigate } from 'react-router-dom'
 
 const schema = yup.object({
 	firstName: yup
@@ -39,9 +40,8 @@ const schema = yup.object({
 })
 
 export default function Profile() {
-	const alert = useAlert()
 	const dispatch = useDispatch()
-
+	const navigate = useNavigate()
 	const {
 		register,
 		handleSubmit,
@@ -52,7 +52,7 @@ export default function Profile() {
 	})
 
 	const onSubmit = (data) => {
-		dispatch(servicecreateAccount(data))
+		dispatch(servicecreateAccount(data, navigate))
 	}
 
 	return (
