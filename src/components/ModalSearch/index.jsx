@@ -60,15 +60,15 @@ export default function Modal({ open, children, onClose, directory }) {
 							/>
 						))}
 						{searchResults?.length < 1 && (
-							<div style={{ color: '#fff' }}>
-								<h1>
+							<di style={{ color: '#fff' }}>
+								<h1 className='not-results'>
 									No se encontraron resultados para:{' '}
 									{valSearch}
 								</h1>
-							</div>
+							</di>
 						)}
 						{loading && (
-							<div style={{ color: '#fff' }}>
+							<div style={{ color: '#fff', textAlign: 'center' }}>
 								<h1>Loading...</h1>
 							</div>
 						)}

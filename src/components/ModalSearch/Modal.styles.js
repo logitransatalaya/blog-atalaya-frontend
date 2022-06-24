@@ -45,7 +45,9 @@ export const ModalStyles = styled(motion.div)`
 		max-width: 75rem;
 		margin-top: 6rem;
 	}
-
+	.not-results {
+		font-size: auto;
+	}
 	@media screen and (max-width: 767px) {
 		.container-search {
 			margin: auto;
@@ -70,6 +72,10 @@ export const ModalStyles = styled(motion.div)`
 		}
 		.contact {
 			padding-left: 1rem;
+		}
+		.not-results {
+			font-size: 1.5rem;
+			text-align: center;
 		}
 	}
 `

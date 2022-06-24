@@ -22,6 +22,7 @@ export const ModalStyles = styled(motion.div)`
 	@media screen and (max-width: 767px) {
 		.box-p {
 			padding: 0;
+			margin-top: 2rem;
 		}
 	}
 `
