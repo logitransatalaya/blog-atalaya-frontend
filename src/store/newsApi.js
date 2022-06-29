@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseURL } from 'utils/constant'
+
 import {
 	GET_NEWS_SUCCESS,
 	GET_SEARCH_NEWS_SUCCESS,
@@ -10,7 +10,7 @@ import {
 const serviceNews = (offset) => async (dispatch) => {
 	try {
 		const { data } = await axios.get(
-			`${baseURL}/api/v1/posts?limit=20&offset=${offset}`
+			`/api/v1/posts?limit=20&offset=${offset}`
 		)
 		if (Array.isArray(data)) {
 			dispatch({ type: GET_NEWS_SUCCESS, data })
@@ -22,7 +22,7 @@ const serviceNews = (offset) => async (dispatch) => {
 
 const serviceNewsSlug = (slug) => async (dispatch) => {
 	try {
-		const response = await axios.get(`${baseURL}/api/v1/posts/${slug}`)
+		const response = await axios.get(`/api/v1/posts/${slug}`)
 		dispatch({ type: GET_NEWS_SLUG_SUCCESS, data: response.data })
 	} catch (error) {
 		console.log(error)
@@ -32,7 +32,7 @@ const serviceNewsSlug = (slug) => async (dispatch) => {
 const serviceSearchNews = (term, offset) => async (dispatch) => {
 	try {
 		const response = await axios.get(
-			`${baseURL}/api/v1/posts/search?term=${term}&limit=50&offset=0`
+			`/api/v1/posts/search?term=${term}&limit=50&offset=0`
 		)
 		dispatch({ type: GET_SEARCH_NEWS_SUCCESS, data: response.data })
 	} catch (error) {

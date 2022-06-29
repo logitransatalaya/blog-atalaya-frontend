@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { baseURL } from 'utils/constant'
 
 const {
 	AUTH_RECOVERY_LOADING,
@@ -13,7 +12,7 @@ const serviceRecovery = (email) => async (dispatch) => {
 	try {
 		dispatch({ type: AUTH_RECOVERY_LOADING })
 
-		await axios.post(`${baseURL}/api/v1/auth/recovery`, {
+		await axios.post(`/api/v1/auth/recovery`, {
 			email
 		})
 
@@ -32,7 +31,7 @@ const serviceChagePassword = (data) => async (dispatch) => {
 	try {
 		dispatch({ type: AUTH_RECOVERY_LOADING })
 		let { token, newPassword } = data
-		await axios.post(`${baseURL}/api/v1/auth/change-password-token`, {
+		await axios.post(`/api/v1/auth/change-password-token`, {
 			token,
 			newPassword
 		})

@@ -58,7 +58,7 @@ const Recovery = () => {
 					<img src={LogoAtalaya} alt='' />
 				</div>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					{updatedPassword ? (
+					{!updatedPassword ? (
 						<>
 							<h3>Actualiza tu contraseña</h3>
 							<div>

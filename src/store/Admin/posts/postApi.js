@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { baseURL, limit } from 'utils/constant'
 
 import {
 	CREATE_POST_SUCCESS,
@@ -22,7 +21,7 @@ const servicecreatePost = (data, history, user) => async (dispatch) => {
 	const { sub } = jwtDecode(token)
 	const { content, description, slug, status, title, image } = data
 	try {
-		const { data } = await axios.post(`${baseURL}/api/v1/adm/posts/`, {
+		const { data } = await axios.post(`/api/v1/adm/posts/`, {
 			authorId: sub,
 			content,
 			description,
@@ -84,7 +83,7 @@ const serviceGetPosts = (offset) => async (dispatch) => {
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
 		const { data } = await axios.get(
-			`${baseURL}/api/v1/adm/posts?limit=${20}&offset=${offset}`
+			`/api/v1/adm/posts?limit=${20}&offset=${offset}`
 		)
 		if (Array.isArray(data)) {
 			let endPost = data.length == 0 ? true : false
@@ -99,7 +98,7 @@ const serviceGetPostBySlug = (slug) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		const { data } = await axios.get(`${baseURL}/api/v1/adm/posts/${slug}`)
+		const { data } = await axios.get(`/api/v1/adm/posts/${slug}`)
 
 		dispatch({ type: GET_POST_SLUG_SUCCESS, data })
 	} catch (error) {
@@ -113,17 +112,14 @@ const serviceUpdatePost = (data, history, user) => async (dispatch) => {
 	const { sub } = jwtDecode(token)
 	const { content, description, slug, status, title, slugEdit, image } = data
 	try {
-		const { data } = await axios.patch(
-			`${baseURL}/api/v1/adm/posts/${slugEdit}`,
-			{
-				content,
-				description,
-				slug,
-				status,
-				title,
-				image
-			}
-		)
+		const { data } = await axios.patch(`/api/v1/adm/posts/${slugEdit}`, {
+			content,
+			description,
+			slug,
+			status,
+			title,
+			image
+		})
 		let item = { ...data.data, author: { firstName: user.firstName } }
 		dispatch({ type: UPDATE_POST_SLUG_SUCCESS, data: item })
 		dispatch({
@@ -158,9 +154,7 @@ const serviceDeletePost = (slug, history) => async (dispatch) => {
 	const token = window.localStorage.getItem('token')
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`
 	try {
-		const { data } = await axios.delete(
-			`${baseURL}/api/v1/adm/posts/${slug}`
-		)
+		const { data } = await axios.delete(`/api/v1/adm/posts/${slug}`)
 		dispatch({
 			type: SNACKBAR_OPEN,
 			navType: 'success',
