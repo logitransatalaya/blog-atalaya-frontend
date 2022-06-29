@@ -1,20 +1,24 @@
+import mission from 'assets/images/group-of-people-working.jpg'
+import vision from 'assets/images/strength-people-optimized.jpg'
+import certificados from 'assets/images/goals-target-aspiration.jpg'
+
 export const Menu = [
 	{
 		view: 'mission',
 		id: 1,
-		img: 'https://i.ibb.co/d6KHcX4/group-of-people-working.jpg',
+		img: mission,
 		title: 'MISIÓN'
 	},
 	{
 		view: 'vision',
 		id: 2,
-		img: 'https://i.ibb.co/JH4kymb/strength-people-hands-success-meeting.jpg',
+		img: vision,
 		title: 'VISIÓN'
 	},
 	{
 		view: 'certificados',
 		id: 3,
-		img: 'https://i.ibb.co/QHn9z1t/goals-target-aspiration.jpg',
+		img: certificados,
 		title: 'CERTIFICADOS'
 	}
 ]

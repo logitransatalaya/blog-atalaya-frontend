@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { CarrouselStyles } from './Carrousel.styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
@@ -9,8 +9,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Link } from 'react-router-dom'
-import trabajaNosotros from 'assets/images/trabaja-nosotros.jpg'
-import news from 'assets/images/news.jpg'
 
 const getPosition = (index, position) => {
 	return index === position ? 'center' : index > position ? 'right' : 'left'
@@ -18,7 +16,6 @@ const getPosition = (index, position) => {
 const Carrousel = () => {
 	const [position, setPosition] = useState(0)
 	const [widthScreen, setWidthScreen] = useState(0)
-	const [imgSrc, setImgSrc] = useState(null)
 
 	useEffect(() => {
 		setWidthScreen(window.innerWidth)
@@ -40,6 +37,8 @@ const Carrousel = () => {
 				onSlideChange={(e) => setPosition(e.activeIndex)}
 				centeredSlides={true}
 				breakpoints={breakPoints}
+				preloadImages={false}
+				lazy={true}
 			>
 				{slides.map((item, index) => (
 					<SwiperSlide key={item.id}>
@@ -61,6 +60,7 @@ const Carrousel = () => {
 								) : (
 									<img
 										className='card__img img'
+										loading='lazy'
 										src={item.image}
 									/>
 								)}

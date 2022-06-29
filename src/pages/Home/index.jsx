@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { HomeStyles } from './Home.styles'
 import Search from 'components/Search'
 import { MODAL_OPEN } from 'store/actions'
 import { useDispatch } from 'react-redux'
 import Carousel from 'components/Carrousel/'
-import SocialMedia from 'components/SocialMedia'
+
 import ContactUs from 'components/ContactUs'
 
 const Home = () => {
