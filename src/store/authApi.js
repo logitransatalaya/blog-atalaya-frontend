@@ -8,11 +8,12 @@ const {
 	LOGOUT
 } = require('./actions')
 
-const serviceRecovery = (email) => async (dispatch) => {
+const serviceRecovery = (email, client) => async (dispatch) => {
 	try {
 		dispatch({ type: AUTH_RECOVERY_LOADING })
 
 		await axios.post(`/api/v1/auth/recovery`, {
+			client,
 			email
 		})
 

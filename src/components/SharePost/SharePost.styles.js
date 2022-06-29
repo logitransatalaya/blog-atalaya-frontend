@@ -79,7 +79,7 @@ export const SharePostStyles = styled.div`
 				background: #0f216f;
 				color: #fff;
 				margin-left: 0;
-				width: fit-content;
+				width: 100%;
 			}
 		}
 	}

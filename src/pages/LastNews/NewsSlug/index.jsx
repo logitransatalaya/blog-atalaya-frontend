@@ -53,18 +53,17 @@ export default function NewsSlug() {
 					)}
 				</div>
 			</div>
-			{statusModal && (
+			{statusModal ? (
 				<div>
 					<Modal open>
 						<div className='box-p'>
 							<SharePost
-								slug={postSlug?.slug}
 								handleClose={() => setStatusModal(false)}
 							/>
 						</div>
 					</Modal>
 				</div>
-			)}
+			) : null}
 		</NewsSlugStyles>
 	)
 }

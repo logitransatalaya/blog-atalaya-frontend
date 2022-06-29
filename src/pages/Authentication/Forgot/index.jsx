@@ -28,7 +28,8 @@ const Forgot = () => {
 	const { loading, email } = useSelector((state) => state.auth)
 
 	const onSubmit = (data) => {
-		dispatch(serviceRecovery(data.email))
+		let client = window.location.host
+		dispatch(serviceRecovery(data.email, client))
 	}
 
 	useEffect(() => {

@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
 import { SharePostStyles } from './SharePost.styles'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { useAlert } from 'react-alert'
 // ===========================|| Vision ||=========================== //
 
-const SharePost = ({ handleClose, slug }) => {
+const SharePost = ({ handleClose }) => {
+	let url = window.location.href
+	const alert = useAlert()
+
 	const handleCopy = () => {
-		let url = window.location.href
-		navigator.clipboard.writeText(url)
+		alert.success('Copied.')
 		handleClose()
 	}
 	return (
@@ -15,10 +19,10 @@ const SharePost = ({ handleClose, slug }) => {
 			<div className='box'>
 				<h2 className='title-share'>COMPARTIR</h2>
 				<div className='share-link'>
-					<input className='field' disabled='true' value={slug} />
-					<button className='btn' onClick={handleCopy}>
-						Copiar
-					</button>
+					<input className='field' disabled='true' value={url} />
+					<CopyToClipboard text={url} onCopy={handleCopy}>
+						<button className='btn'>Copiar</button>
+					</CopyToClipboard>
 				</div>
 			</div>
 		</SharePostStyles>
